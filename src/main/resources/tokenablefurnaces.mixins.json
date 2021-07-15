@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "website.skylorbeck.minecraft.tokenablefurnaces.mixin",
+  "package": "website.skylorbeck.minecraft.tokenablefurnaces.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "XPFixMixin"
   ],
   "client": [
   ],
