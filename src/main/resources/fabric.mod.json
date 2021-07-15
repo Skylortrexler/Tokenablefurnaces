@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "tokenablefurnaces",
+  "version": "${version}",
+  "name": "Tokenablefurnaces",
+  "description": "A series of upgradable furnaces with tokens",
+  "authors": [
+    "SkylorBeck"
+  ],
+  "contact": {
+    "website": "skylorbeck.website",
+    "repo": "https://github.com/Skylortrexler/Tokenablefurnaces"
+  },
+  "license": "MIT",
+  "icon": "assets/tokenablefurnaces/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "website.skylorbeck.minecraft.tokenablefurnaces.client.TokenablefurnacesClient"
+    ],
+    "main": [
+      "website.skylorbeck.minecraft.tokenablefurnaces.Tokenablefurnaces"
+    ]
+  },
+  "mixins": [
+    "tokenablefurnaces.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.17.1"
+  }
+}
