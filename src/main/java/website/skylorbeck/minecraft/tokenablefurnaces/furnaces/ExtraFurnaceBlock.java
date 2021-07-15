@@ -60,9 +60,9 @@ public class ExtraFurnaceBlock extends AbstractExtraFurnaceBlock {
                 case 1:
                     world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//soul flame for soul furnaces
                     break;
-                case 2:
-                    world.addParticle(Declarer.END_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//end themed flame
-                    break;
+//                case 2:
+//                    world.addParticle(Declarer.END_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//end themed flame
+//                    break;
             }
         }
     }

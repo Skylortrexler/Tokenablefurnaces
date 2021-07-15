@@ -14,15 +14,25 @@ public class Registrar {
             Declarer.EXTRA_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":furnace",
                     FabricBlockEntityTypeBuilder.create(ExtraFurnaceBlockEntity::new,
+                            Declarer.ironFurnaceBlock
                     ).build(null));
             Declarer.EXTRA_BLAST_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":blast_furnace",
                     FabricBlockEntityTypeBuilder.create(ExtraBlastFurnaceBlockEntity::new,
+                            Declarer.ironBlastBlock
                     ).build(null));
             Declarer.EXTRA_SMOKER_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":smoker",
                     FabricBlockEntityTypeBuilder.create(ExtraSmokerBlockEntity::new,
+                            Declarer.ironSmokerBlock
                     ).build(null));
+
+            regBlock("ironfurnace",Declarer.ironFurnaceBlock);
+            regItem("ironfurnaceitem", Declarer.ironFurnace);
+            regBlock("ironblast",Declarer.ironBlastBlock);
+            regItem("ironblastitem", Declarer.ironBlast);
+            regBlock("ironsmoker",Declarer.ironSmokerBlock);
+            regItem("ironsmokeritem",Declarer.ironSmoker);
     }
     public static void regItem(String name, Item itemid){
         Registry.register(Registry.ITEM, new Identifier(Ref.MODID, name), itemid);
