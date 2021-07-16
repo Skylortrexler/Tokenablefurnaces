@@ -5,6 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraSmokerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraSmokerEntity;
@@ -27,12 +30,12 @@ public class Registrar {
                 FabricBlockEntityTypeBuilder.create(IronExtraSmokerEntity::new,
                         Declarer.ironSmokerBlock
                 ).build(null));
-
         Declarer.IRONFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":ironfurnace",
                 FabricBlockEntityTypeBuilder.create(IronExtraFurnaceEntity::new,
                         Declarer.ironFurnaceBlock
-                ).build(null));
+                )
+                        .build(null));
 
         Declarer.GOLDBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":goldblast",
@@ -44,12 +47,12 @@ public class Registrar {
                 FabricBlockEntityTypeBuilder.create(GoldExtraSmokerEntity::new,
                         Declarer.goldSmokerBlock
                 ).build(null));
-
         Declarer.GOLDFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":goldfurnace",
                 FabricBlockEntityTypeBuilder.create(GoldExtraFurnaceEntity::new,
                         Declarer.goldFurnaceBlock
                 ).build(null));
+
 
         Declarer.DIAMONDBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":diamondblast",
@@ -69,6 +72,25 @@ public class Registrar {
                         Declarer.diamondFurnaceBlock,
                         Declarer.netheriteFurnaceBlock
                 ).build(null));
+
+        
+        Declarer.AMETHYSTBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystblast",
+                FabricBlockEntityTypeBuilder.create(AmethystExtraBlastEntity::new,
+                        Declarer.amethystBlastBlock
+                ).build(null));
+        Declarer.AMETHYSTSMOKERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystsmoker",
+                FabricBlockEntityTypeBuilder.create(AmethystExtraSmokerEntity::new,
+                        Declarer.amethystSmokerBlock
+                ).build(null));
+        Declarer.AMETHYSTFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystfurnace",
+                FabricBlockEntityTypeBuilder.create(AmethystExtraFurnaceEntity::new,
+                        Declarer.amethystFurnaceBlock
+                ).build(null));
+
+
         regBlock("ironfurnace", Declarer.ironFurnaceBlock);
         regItem("ironfurnaceitem", Declarer.ironFurnace);
         regBlock("ironblast", Declarer.ironBlastBlock);
@@ -96,6 +118,13 @@ public class Registrar {
         regItem("netheriteblastitem", Declarer.netheriteBlast);
         regBlock("netheritesmoker", Declarer.netheriteSmokerBlock);
         regItem("netheritesmokeritem", Declarer.netheriteSmoker);
+
+        regBlock("amethystfurnace", Declarer.amethystFurnaceBlock);
+        regItem("amethystfurnaceitem", Declarer.amethystFurnace);
+        regBlock("amethystblast", Declarer.amethystBlastBlock);
+        regItem("amethystblastitem", Declarer.amethystBlast);
+        regBlock("amethystsmoker", Declarer.amethystSmokerBlock);
+        regItem("amethystsmokeritem", Declarer.amethystSmoker);
     }
 
     public static void regItem(String name, Item itemid) {

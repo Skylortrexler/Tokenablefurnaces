@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
@@ -31,6 +32,10 @@ public class Declarer {
     public static BlockEntityType<DiamondExtraFurnaceEntity> DIAMONDFURNACEENTITY;
     public static BlockEntityType<DiamondExtraBlastEntity> DIAMONDBLASTENTITY;
     public static BlockEntityType<DiamondExtraSmokerEntity> DIAMONDSMOKERENTITY;
+    
+    public static BlockEntityType<AmethystExtraFurnaceEntity> AMETHYSTFURNACEENTITY;
+    public static BlockEntityType<AmethystExtraBlastEntity> AMETHYSTBLASTENTITY;
+    public static BlockEntityType<AmethystExtraSmokerEntity> AMETHYSTSMOKERENTITY;
     
     public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
     public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
@@ -60,4 +65,10 @@ public class Declarer {
     public static Block netheriteSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
     public static final BlockItem netheriteSmoker = new BlockItem(netheriteSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof());
 
+    public static Block amethystFurnaceBlock = new AmethystExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
+    public static final BlockItem amethystFurnace = new BlockItem(amethystFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static Block amethystBlastBlock = new AmethystExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem amethystBlast = new BlockItem(amethystBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static Block amethystSmokerBlock = new AmethystExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem amethystSmoker = new BlockItem(amethystSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 }
