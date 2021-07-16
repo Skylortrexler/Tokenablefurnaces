@@ -5,6 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraBlastEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraSmokerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraSmokerEntity;
@@ -48,6 +51,23 @@ public class Registrar {
                         Declarer.goldFurnaceBlock
                 ).build(null));
 
+        Declarer.DIAMONDBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondblast",
+                FabricBlockEntityTypeBuilder.create(DiamondExtraBlastEntity::new,
+                        Declarer.diamondBlastBlock
+                ).build(null));
+        Declarer.DIAMONDSMOKERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondsmoker",
+                FabricBlockEntityTypeBuilder.create(DiamondExtraSmokerEntity::new,
+                        Declarer.diamondSmokerBlock
+                ).build(null));
+
+        Declarer.DIAMONDFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondfurnace",
+                FabricBlockEntityTypeBuilder.create(DiamondExtraFurnaceEntity::new,
+                        Declarer.diamondFurnaceBlock
+                ).build(null));
+
         regBlock("ironfurnace", Declarer.ironFurnaceBlock);
         regItem("ironfurnaceitem", Declarer.ironFurnace);
         regBlock("ironblast", Declarer.ironBlastBlock);
@@ -61,6 +81,13 @@ public class Registrar {
         regItem("goldblastitem", Declarer.goldBlast);
         regBlock("goldsmoker", Declarer.goldSmokerBlock);
         regItem("goldsmokeritem", Declarer.goldSmoker);
+
+        regBlock("diamondfurnace", Declarer.diamondFurnaceBlock);
+        regItem("diamondfurnaceitem", Declarer.diamondFurnace);
+        regBlock("diamondblast", Declarer.diamondBlastBlock);
+        regItem("diamondblastitem", Declarer.diamondBlast);
+        regBlock("diamondsmoker", Declarer.diamondSmokerBlock);
+        regItem("diamondsmokeritem", Declarer.diamondSmoker);
     }
 
     public static void regItem(String name, Item itemid) {

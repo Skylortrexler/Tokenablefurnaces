@@ -36,6 +36,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraBlastEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.DiamondExtraSmokerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraSmokerEntity;
@@ -164,10 +167,13 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
                     blockEntity.cookTime = 0;
                     boolean iron = blockEntity instanceof IronExtraFurnaceEntity || blockEntity instanceof IronExtraSmokerEntity || blockEntity instanceof IronExtraBlastEntity;
                     boolean gold = blockEntity instanceof GoldExtraFurnaceEntity || blockEntity instanceof GoldExtraSmokerEntity || blockEntity instanceof GoldExtraBlastEntity;
+                    boolean diamond = blockEntity instanceof DiamondExtraFurnaceEntity || blockEntity instanceof DiamondExtraSmokerEntity || blockEntity instanceof DiamondExtraBlastEntity;
                     if (iron){
                         blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.8);
                     } else if (gold){
                         blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.6);
+                    } else if (diamond){
+                        blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.4);
                     } else {
                         blockEntity.cookTimeTotal = getCookTime(world, blockEntity.recipeType, blockEntity);
                     }
@@ -323,10 +329,14 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
             BlockEntity blockEntity = world.getBlockEntity(pos);
             boolean iron = blockEntity instanceof IronExtraFurnaceEntity || blockEntity instanceof IronExtraSmokerEntity || blockEntity instanceof IronExtraBlastEntity;
             boolean gold = blockEntity instanceof GoldExtraFurnaceEntity || blockEntity instanceof GoldExtraSmokerEntity || blockEntity instanceof GoldExtraBlastEntity;
+            boolean diamond = blockEntity instanceof DiamondExtraFurnaceEntity || blockEntity instanceof DiamondExtraSmokerEntity || blockEntity instanceof DiamondExtraBlastEntity;
+
             if (iron){
                 this.cookTimeTotal = (int) (getCookTime(world, this.recipeType, this)*0.8);
             } else if (gold){
                 this.cookTimeTotal = (int) (getCookTime(world, this.recipeType, this)*0.6);
+            } else if (diamond){
+                this.cookTimeTotal = (int) (getCookTime(world, this.recipeType, this)*0.4);
             } else {
                 this.cookTimeTotal = getCookTime(world, this.recipeType, this);
             }
