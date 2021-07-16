@@ -34,8 +34,7 @@ public class Registrar {
                 Ref.MODID + ":ironfurnace",
                 FabricBlockEntityTypeBuilder.create(IronExtraFurnaceEntity::new,
                         Declarer.ironFurnaceBlock
-                )
-                        .build(null));
+                ).build(null));
 
         Declarer.GOLDBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":goldblast",
