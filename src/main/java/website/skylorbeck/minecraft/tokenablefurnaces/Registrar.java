@@ -88,6 +88,13 @@ public class Registrar {
         regItem("diamondblastitem", Declarer.diamondBlast);
         regBlock("diamondsmoker", Declarer.diamondSmokerBlock);
         regItem("diamondsmokeritem", Declarer.diamondSmoker);
+        
+        regBlock("netheritefurnace", Declarer.netheriteFurnaceBlock);
+        regItem("netheritefurnaceitem", Declarer.netheriteFurnace);
+        regBlock("netheriteblast", Declarer.netheriteBlastBlock);
+        regItem("netheriteblastitem", Declarer.netheriteBlast);
+        regBlock("netheritesmoker", Declarer.netheriteSmokerBlock);
+        regItem("netheritesmokeritem", Declarer.netheriteSmoker);
     }
 
     public static void regItem(String name, Item itemid) {
