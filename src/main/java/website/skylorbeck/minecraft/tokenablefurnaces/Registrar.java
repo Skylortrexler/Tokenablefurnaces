@@ -54,20 +54,21 @@ public class Registrar {
         Declarer.DIAMONDBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":diamondblast",
                 FabricBlockEntityTypeBuilder.create(DiamondExtraBlastEntity::new,
-                        Declarer.diamondBlastBlock
+                        Declarer.diamondBlastBlock,
+                        Declarer.netheriteBlastBlock
                 ).build(null));
         Declarer.DIAMONDSMOKERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":diamondsmoker",
                 FabricBlockEntityTypeBuilder.create(DiamondExtraSmokerEntity::new,
-                        Declarer.diamondSmokerBlock
+                        Declarer.diamondSmokerBlock,
+                        Declarer.netheriteSmokerBlock
                 ).build(null));
-
         Declarer.DIAMONDFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":diamondfurnace",
                 FabricBlockEntityTypeBuilder.create(DiamondExtraFurnaceEntity::new,
-                        Declarer.diamondFurnaceBlock
+                        Declarer.diamondFurnaceBlock,
+                        Declarer.netheriteFurnaceBlock
                 ).build(null));
-
         regBlock("ironfurnace", Declarer.ironFurnaceBlock);
         regItem("ironfurnaceitem", Declarer.ironFurnace);
         regBlock("ironblast", Declarer.ironBlastBlock);
