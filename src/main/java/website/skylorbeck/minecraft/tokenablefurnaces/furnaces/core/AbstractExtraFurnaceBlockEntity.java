@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -35,6 +36,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraBlastEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraSmokerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
@@ -159,8 +163,11 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
                 if (blockEntity.cookTime == blockEntity.cookTimeTotal) {
                     blockEntity.cookTime = 0;
                     boolean iron = blockEntity instanceof IronExtraFurnaceEntity || blockEntity instanceof IronExtraSmokerEntity || blockEntity instanceof IronExtraBlastEntity;
+                    boolean gold = blockEntity instanceof GoldExtraFurnaceEntity || blockEntity instanceof GoldExtraSmokerEntity || blockEntity instanceof GoldExtraBlastEntity;
                     if (iron){
                         blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.8);
+                    } else if (gold){
+                        blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.6);
                     } else {
                         blockEntity.cookTimeTotal = getCookTime(world, blockEntity.recipeType, blockEntity);
                     }
@@ -313,7 +320,16 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
 
         if (slot == 0 && !bl) {
             assert this.world != null;
-            this.cookTimeTotal = getCookTime(this.world, this.recipeType, this);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            boolean iron = blockEntity instanceof IronExtraFurnaceEntity || blockEntity instanceof IronExtraSmokerEntity || blockEntity instanceof IronExtraBlastEntity;
+            boolean gold = blockEntity instanceof GoldExtraFurnaceEntity || blockEntity instanceof GoldExtraSmokerEntity || blockEntity instanceof GoldExtraBlastEntity;
+            if (iron){
+                this.cookTimeTotal = (int) (getCookTime(world, this.recipeType, this)*0.8);
+            } else if (gold){
+                this.cookTimeTotal = (int) (getCookTime(world, this.recipeType, this)*0.6);
+            } else {
+                this.cookTimeTotal = getCookTime(world, this.recipeType, this);
+            }
             this.cookTime = 0;
             this.markDirty();
         }
