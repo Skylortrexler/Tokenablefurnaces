@@ -15,6 +15,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerB
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
 
 public class Declarer {
     public static BlockEntityType<ExtraFurnaceBlockEntity> EXTRA_FURNACE_ENTITY;
@@ -36,7 +37,13 @@ public class Declarer {
     public static BlockEntityType<AmethystExtraFurnaceEntity> AMETHYSTFURNACEENTITY;
     public static BlockEntityType<AmethystExtraBlastEntity> AMETHYSTBLASTENTITY;
     public static BlockEntityType<AmethystExtraSmokerEntity> AMETHYSTSMOKERENTITY;
-    
+
+    public static BlockEntityType<ExtraHopperEntity> EXTRAHOPPERENTITY;
+    public static BlockEntityType<IronHopperEntity> IRONHOPPERENTITY;
+    public static BlockEntityType<GoldHopperEntity> GOLDHOPPERENTITY;
+    public static BlockEntityType<DiamondHopperEntity> DIAMONDHOPPERENTITY;
+    public static BlockEntityType<AmethystHopperEntity> AMETHYSTHOPPERENTITY;
+
     public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
     public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
     public static Block ironBlastBlock = new IronExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
@@ -71,4 +78,15 @@ public class Declarer {
     public static final BlockItem amethystBlast = new BlockItem(amethystBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
     public static Block amethystSmokerBlock = new AmethystExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
     public static final BlockItem amethystSmoker = new BlockItem(amethystSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+
+    public static Block ironHopperBlock = new IronHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem ironHopper = new BlockItem(ironHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static Block goldHopperBlock = new GoldHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem goldHopper = new BlockItem(goldHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static Block diamondHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem diamondHopper = new BlockItem(diamondHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static Block netheriteHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
+    public static final BlockItem netheriteHopper = new BlockItem(netheriteHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).fireproof());
+    public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
 }

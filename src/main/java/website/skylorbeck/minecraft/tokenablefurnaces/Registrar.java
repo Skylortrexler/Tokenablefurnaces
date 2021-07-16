@@ -17,6 +17,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraSmo
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
 
 public class Registrar {
     public static void register() {
@@ -89,6 +90,27 @@ public class Registrar {
                         Declarer.amethystFurnaceBlock
                 ).build(null));
 
+        Declarer.IRONHOPPERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":ironhopper",
+                FabricBlockEntityTypeBuilder.create(IronHopperEntity::new,
+                        Declarer.ironHopperBlock
+                ).build(null));
+        Declarer.GOLDHOPPERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":goldhopper",
+                FabricBlockEntityTypeBuilder.create(GoldHopperEntity::new,
+                        Declarer.goldHopperBlock
+                ).build(null));
+        Declarer.DIAMONDHOPPERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondhopper",
+                FabricBlockEntityTypeBuilder.create(DiamondHopperEntity::new,
+                        Declarer.diamondHopperBlock,
+                        Declarer.netheriteHopperBlock
+                ).build(null));
+        Declarer.AMETHYSTHOPPERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethysthopper",
+                FabricBlockEntityTypeBuilder.create(AmethystHopperEntity::new,
+                        Declarer.amethystHopperBlock
+                ).build(null));
 
         regBlock("ironfurnace", Declarer.ironFurnaceBlock);
         regItem("ironfurnaceitem", Declarer.ironFurnace);
@@ -124,6 +146,17 @@ public class Registrar {
         regItem("amethystblastitem", Declarer.amethystBlast);
         regBlock("amethystsmoker", Declarer.amethystSmokerBlock);
         regItem("amethystsmokeritem", Declarer.amethystSmoker);
+
+        regBlock("ironhopper", Declarer.ironHopperBlock);
+        regItem("ironhopperitem",Declarer.ironHopper);
+        regBlock("goldhopper", Declarer.goldHopperBlock);
+        regItem("goldhopperitem",Declarer.goldHopper);
+        regBlock("diamondhopper", Declarer.diamondHopperBlock);
+        regItem("diamondhopperitem",Declarer.diamondHopper);
+        regBlock("netheritehopper", Declarer.netheriteHopperBlock);
+        regItem("netheritehopperitem",Declarer.netheriteHopper);
+        regBlock("amethysthopper", Declarer.amethystHopperBlock);
+        regItem("amethysthopperitem",Declarer.amethystHopper);
     }
 
     public static void regItem(String name, Item itemid) {

@@ -65,7 +65,7 @@ public abstract class AbstractExtraFurnaceBlock extends BlockWithEntity {//this 
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         if (itemStack.hasCustomName()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof ExtraFurnaceBlockEntity) {
+            if (blockEntity instanceof AbstractExtraFurnaceBlockEntity) {
                 ((ExtraFurnaceBlockEntity)blockEntity).setCustomName(itemStack.getName());
             }
         }
@@ -73,10 +73,9 @@ public abstract class AbstractExtraFurnaceBlock extends BlockWithEntity {//this 
     }
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockEntity(pos) instanceof ExtraFurnaceBlockEntity) {
-            ((ExtraFurnaceBlockEntity) Objects.requireNonNull(world.getBlockEntity(pos))).dropExperience(player);
+        if (world.getBlockEntity(pos) instanceof AbstractExtraFurnaceBlockEntity) {
+            ((AbstractExtraFurnaceBlockEntity) Objects.requireNonNull(world.getBlockEntity(pos))).dropExperience(player);
         }
-
         super.onBreak(world, pos, state, player);
     }
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {

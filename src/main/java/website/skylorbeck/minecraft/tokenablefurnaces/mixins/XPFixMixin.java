@@ -23,7 +23,6 @@ public class XPFixMixin extends Slot {//this fix is to make custom furnaces give
     }
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;onCraft(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;I)V"), method = "onCrafted(Lnet/minecraft/item/ItemStack;)V")
     private void craft(ItemStack stack, CallbackInfo ci) {
-
         if (!this.player.world.isClient && this.inventory instanceof AbstractExtraFurnaceBlockEntity) {//make sure it's the server and it's a custom furnace block
             ((AbstractExtraFurnaceBlockEntity) this.inventory).dropExperience(this.player);
         }
