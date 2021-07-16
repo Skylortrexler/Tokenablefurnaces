@@ -8,7 +8,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
 
 public class Declarer {

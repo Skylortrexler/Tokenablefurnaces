@@ -9,9 +9,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlock;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
 
 public class IronExtraSmokerBlock extends ExtraSmokerBlock {
     public IronExtraSmokerBlock(Settings settings) {

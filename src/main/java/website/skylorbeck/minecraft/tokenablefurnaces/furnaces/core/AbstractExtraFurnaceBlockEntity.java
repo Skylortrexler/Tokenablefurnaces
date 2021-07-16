@@ -37,7 +37,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerBlock;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
 
 import java.util.Iterator;
