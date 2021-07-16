@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable_with_bottom",
+  "textures": {
+    "top": "tokenablefurnaces:block/goldsmoker_top",
+    "bottom": "tokenablefurnaces:block/goldsmoker_bottom",
+    "side": "tokenablefurnaces:block/goldsmoker_side",
+    "front": "tokenablefurnaces:block/goldsmoker_front_on"
+  }
+}

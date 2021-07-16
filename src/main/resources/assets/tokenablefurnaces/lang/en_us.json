@@ -1,3 +1,11 @@
 {
-  "block.tokenablefurnaces.ironfurnace": "Iron Furnace"
+  "block.tokenablefurnaces.ironfurnace": "Iron Furnace",
+  "block.tokenablefurnaces.ironblast": "Iron Blasting Furnace",
+  "block.tokenablefurnaces.ironsmoker": "Iron Smoker",
+  "block.tokenablefurnaces.goldfurnace": "Gold Furnace",
+  "block.tokenablefurnaces.goldblast": "Gold Blasting Furnace",
+  "block.tokenablefurnaces.goldsmoker": "Gold Smoker",
+  "block.tokenablefurnaces.diamondfurnace": "Diamond Furnace",
+  "block.tokenablefurnaces.diamondblast": "Diamond Blasting Furnace",
+  "block.tokenablefurnaces.diamondsmoker": "Diamond Smoker"
 }
