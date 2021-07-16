@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "tokenablefurnaces:block/diamondfurnace_top",
+        "front": "tokenablefurnaces:block/diamondfurnace_front",
+        "side": "tokenablefurnaces:block/diamondfurnace_side"
+    }
+}
