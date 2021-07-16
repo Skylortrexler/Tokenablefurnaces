@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable_with_bottom",
+  "textures": {
+    "top": "tokenablefurnaces:block/netheritesmoker_top",
+    "bottom": "tokenablefurnaces:block/netheritesmoker_bottom",
+    "side": "tokenablefurnaces:block/netheritesmoker_side",
+    "front": "tokenablefurnaces:block/netheritesmoker_front"
+  }
+}

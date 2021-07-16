@@ -7,5 +7,11 @@
   "block.tokenablefurnaces.goldsmoker": "Gold Smoker",
   "block.tokenablefurnaces.diamondfurnace": "Diamond Furnace",
   "block.tokenablefurnaces.diamondblast": "Diamond Blasting Furnace",
-  "block.tokenablefurnaces.diamondsmoker": "Diamond Smoker"
+  "block.tokenablefurnaces.diamondsmoker": "Diamond Smoker",
+  "block.tokenablefurnaces.netheritefurnace": "Netherite Furnace",
+  "block.tokenablefurnaces.netheriteblast": "Netherite Blasting Furnace",
+  "block.tokenablefurnaces.netheritesmoker": "Netherite Smoker",
+  "block.tokenablefurnaces.amethystfurnace": "Amethyst Furnace",
+  "block.tokenablefurnaces.amethystblast": "Amethyst Blasting Furnace",
+  "block.tokenablefurnaces.amethystsmoker": "Amethyst Smoker"
 }
