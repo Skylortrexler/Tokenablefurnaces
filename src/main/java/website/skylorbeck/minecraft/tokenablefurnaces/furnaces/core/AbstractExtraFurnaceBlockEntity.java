@@ -35,7 +35,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerBlock;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
 
 import java.util.Iterator;
 import java.util.List;
@@ -156,7 +159,8 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
                 ++blockEntity.cookTime;
                 if (blockEntity.cookTime == blockEntity.cookTimeTotal) {
                     blockEntity.cookTime = 0;
-                    if (blockEntity instanceof IronExtraFurnaceEntity){
+                    boolean iron = blockEntity instanceof IronExtraFurnaceEntity || blockEntity instanceof IronExtraSmokerEntity || blockEntity instanceof IronExtraBlastEntity;
+                    if (iron){
                         blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.8);
                     } else {
                         blockEntity.cookTimeTotal = getCookTime(world, blockEntity.recipeType, blockEntity);

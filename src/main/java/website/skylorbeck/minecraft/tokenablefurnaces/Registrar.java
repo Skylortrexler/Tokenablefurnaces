@@ -8,18 +8,21 @@ import net.minecraft.util.registry.Registry;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerBlock;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
 
 public class Registrar {
     public static void register(){
-            Declarer.EXTRA_BLAST_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+            Declarer.IRONBLASTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":blast_furnace",
-                    FabricBlockEntityTypeBuilder.create(ExtraBlastFurnaceBlockEntity::new,
+                    FabricBlockEntityTypeBuilder.create(IronExtraBlastEntity::new,
                             Declarer.ironBlastBlock
                     ).build(null));
-            Declarer.EXTRA_SMOKER_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+            Declarer.IRONSMOKERENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":smoker",
-                    FabricBlockEntityTypeBuilder.create(ExtraSmokerBlockEntity::new,
+                    FabricBlockEntityTypeBuilder.create(IronExtraSmokerEntity::new,
                             Declarer.ironSmokerBlock
                     ).build(null));
 

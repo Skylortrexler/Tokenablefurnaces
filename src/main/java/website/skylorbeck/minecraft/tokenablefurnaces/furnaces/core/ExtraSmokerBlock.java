@@ -35,7 +35,6 @@ public class ExtraSmokerBlock extends AbstractExtraFurnaceBlock {//copy of vanil
             player.openHandledScreen((NamedScreenHandlerFactory)blockEntity);
             player.incrementStat(Stats.INTERACT_WITH_SMOKER);
         }
-
     }
 
     @Environment(EnvType.CLIENT)
