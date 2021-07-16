@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.furnaces;
+package website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,7 +17,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 import java.util.Random;
 
@@ -53,16 +52,10 @@ public class ExtraFurnaceBlock extends AbstractExtraFurnaceBlock {
             double double_8 = direction$Axis_1 == Direction.Axis.Z ? (double) direction_1.getOffsetZ() * 0.52D : double_5;
             world.addParticle(ParticleTypes.SMOKE, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);
 
-            switch (state.get(DIM)){
-                case 0:
-                    world.addParticle(ParticleTypes.FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//normal flame
-                    break;
-                case 1:
-                    world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//soul flame for soul furnaces
-                    break;
-//                case 2:
-//                    world.addParticle(Declarer.END_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//end themed flame
-//                    break;
+            switch (state.get(DIM)) {
+                case 0 -> world.addParticle(ParticleTypes.FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//normal flame
+                case 1 -> world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//soul flame for soul furnaces
+//                case 2 -> world.addParticle(Declarer.END_FIRE_FLAME, x + double_6, y + double_7, z + double_8, 0.0D, 0.0D, 0.0D);//end themed flame
             }
         }
     }

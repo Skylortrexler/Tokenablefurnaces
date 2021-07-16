@@ -5,17 +5,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.ExtraBlastFurnaceBlockEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.ExtraFurnaceBlockEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.ExtraSmokerBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
 
 public class Registrar {
     public static void register(){
-            Declarer.EXTRA_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
-                    Ref.MODID+":furnace",
-                    FabricBlockEntityTypeBuilder.create(ExtraFurnaceBlockEntity::new,
-                            Declarer.ironFurnaceBlock
-                    ).build(null));
             Declarer.EXTRA_BLAST_FURNACE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                     Ref.MODID+":blast_furnace",
                     FabricBlockEntityTypeBuilder.create(ExtraBlastFurnaceBlockEntity::new,
@@ -26,6 +22,12 @@ public class Registrar {
                     FabricBlockEntityTypeBuilder.create(ExtraSmokerBlockEntity::new,
                             Declarer.ironSmokerBlock
                     ).build(null));
+
+            Declarer.IRONFURNACEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID+":furnace",
+                FabricBlockEntityTypeBuilder.create(IronExtraFurnaceEntity::new,
+                        Declarer.ironFurnaceBlock
+                ).build(null));
 
             regBlock("ironfurnace",Declarer.ironFurnaceBlock);
             regItem("ironfurnaceitem", Declarer.ironFurnace);

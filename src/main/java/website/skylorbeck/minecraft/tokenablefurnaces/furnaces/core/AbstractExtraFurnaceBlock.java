@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.furnaces;
+package website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;

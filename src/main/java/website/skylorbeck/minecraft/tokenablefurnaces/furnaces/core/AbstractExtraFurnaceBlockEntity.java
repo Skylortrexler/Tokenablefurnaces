@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.furnaces;
+package website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core;
 
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
@@ -35,6 +35,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
 
 import java.util.Iterator;
 import java.util.List;
@@ -155,7 +156,11 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
                 ++blockEntity.cookTime;
                 if (blockEntity.cookTime == blockEntity.cookTimeTotal) {
                     blockEntity.cookTime = 0;
-                    blockEntity.cookTimeTotal = getCookTime(world, blockEntity.recipeType, blockEntity);
+                    if (blockEntity instanceof IronExtraFurnaceEntity){
+                        blockEntity.cookTimeTotal = (int) (getCookTime(world, blockEntity.recipeType, blockEntity)*0.8);
+                    } else {
+                        blockEntity.cookTimeTotal = getCookTime(world, blockEntity.recipeType, blockEntity);
+                    }
                     if (craftRecipe(recipe, blockEntity.inventory, i)) {
                         blockEntity.setLastRecipe(recipe);
                     }
@@ -181,7 +186,7 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
 
     }
 
-    private static boolean canAcceptRecipeOutput(@Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count) {
+    protected static boolean canAcceptRecipeOutput(@Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count) {
         if (!((ItemStack)slots.get(0)).isEmpty() && recipe != null) {
             ItemStack itemStack = recipe.getOutput();
             if (itemStack.isEmpty()) {
@@ -203,7 +208,7 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
         }
     }
 
-    private static boolean craftRecipe(@Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count) {
+    protected static boolean craftRecipe(@Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count) {
         if (recipe != null && canAcceptRecipeOutput(recipe, slots, count)) {
             ItemStack itemStack = (ItemStack)slots.get(0);
             ItemStack itemStack2 = recipe.getOutput();
@@ -231,10 +236,9 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
         } else {
             return FuelRegistry.INSTANCE.get(fuel.getItem());
         }
-
     }
 
-    private static int getCookTime(World world, RecipeType<? extends AbstractCookingRecipe> recipeType, Inventory inventory) {
+    protected static int getCookTime(World world, RecipeType<? extends AbstractCookingRecipe> recipeType, Inventory inventory) {
         return (Integer)world.getRecipeManager().getFirstMatch(recipeType, inventory, world).map(AbstractCookingRecipe::getCookTime).orElse(200);
     }
 
