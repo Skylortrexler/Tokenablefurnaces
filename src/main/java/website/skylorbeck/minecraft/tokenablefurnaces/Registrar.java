@@ -7,7 +7,6 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraHandledScreen;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;

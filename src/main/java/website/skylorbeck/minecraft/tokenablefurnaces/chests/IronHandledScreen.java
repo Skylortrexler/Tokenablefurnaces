@@ -9,10 +9,10 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class ExtraHandledScreen extends HandledScreen<ScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("minecraft", "textures/gui/container/generic_54.png");
+public class IronHandledScreen extends HandledScreen<ScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/iron.png");
 
-    public ExtraHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
+    public IronHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -37,7 +37,8 @@ public class ExtraHandledScreen extends HandledScreen<ScreenHandler> {
     @Override
     protected void init() {
         super.init();
-        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
-        backgroundHeight = 222;
+        playerInventoryTitleY = this.backgroundHeight - 64;
+        titleY = -20;
+        backgroundHeight = 220;
     }
 }

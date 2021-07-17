@@ -17,11 +17,11 @@ public class IronChestEntity extends ExtraChestEntity{
 
     public IronChestEntity(BlockPos pos, BlockState state) {
         super(Declarer.IRONCHESTENTITY,pos, state);
-        this.inventory = DefaultedList.ofSize(54, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(6*9, ItemStack.EMPTY);
     }
     @Override
     public int size() {
-        return 54;
+        return 6*9;
     }
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);

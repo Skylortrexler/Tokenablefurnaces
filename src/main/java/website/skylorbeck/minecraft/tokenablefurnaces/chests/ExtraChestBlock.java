@@ -118,28 +118,27 @@ public abstract class ExtraChestBlock extends AbstractExtraChestBlock<ExtraChest
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        ChestType chestType = ChestType.SINGLE;
-        Direction direction = ctx.getPlayerFacing().getOpposite();
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        boolean bl = ctx.shouldCancelInteraction();
-        Direction direction2 = ctx.getSide();
-        if (direction2.getAxis().isHorizontal() && bl) {
-            Direction direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite());
-            if (direction3 != null && direction3.getAxis() != direction2.getAxis()) {
-                direction = direction3;
-                chestType = direction3.rotateYCounterclockwise() == direction2.getOpposite() ? ChestType.RIGHT : ChestType.LEFT;
-            }
-        }
-
-        if (chestType == ChestType.SINGLE && !bl) {
-            if (direction == this.getNeighborChestDirection(ctx, direction.rotateYClockwise())) {
-                chestType = ChestType.LEFT;
-            } else if (direction == this.getNeighborChestDirection(ctx, direction.rotateYCounterclockwise())) {
-                chestType = ChestType.RIGHT;
-            }
-        }
-
-        return (BlockState)((BlockState)((BlockState)this.getDefaultState().with(FACING, direction)).with(CHEST_TYPE, chestType)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(CHEST_TYPE,ChestType.SINGLE).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
+//        ChestType chestType = ChestType.SINGLE;
+//        Direction direction = ctx.getPlayerFacing().getOpposite();
+//        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+//        boolean bl = ctx.shouldCancelInteraction();
+//        Direction direction2 = ctx.getSide();
+//        if (direction2.getAxis().isHorizontal() && bl) {
+//            Direction direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite());
+//            if (direction3 != null && direction3.getAxis() != direction2.getAxis()) {
+//                direction = direction3;
+//                chestType = direction3.rotateYCounterclockwise() == direction2.getOpposite() ? ChestType.RIGHT : ChestType.LEFT;
+//            }
+//        }
+//        if (chestType == ChestType.SINGLE && !bl) {
+//            if (direction == this.getNeighborChestDirection(ctx, direction.rotateYClockwise())) {
+//                chestType = ChestType.LEFT;
+//            } else if (direction == this.getNeighborChestDirection(ctx, direction.rotateYCounterclockwise())) {
+//                chestType = ChestType.RIGHT;
+//            }
+//        }
+//        return (BlockState)((BlockState)((BlockState)this.getDefaultState().with(FACING, direction)).with(CHEST_TYPE, chestType)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
     }
 
     public FluidState getFluidState(BlockState state) {
