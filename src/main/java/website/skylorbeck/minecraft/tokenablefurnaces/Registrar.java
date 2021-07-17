@@ -1,10 +1,15 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraHandledScreen;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraSmokerEntity;
@@ -112,6 +117,15 @@ public class Registrar {
                         Declarer.amethystHopperBlock
                 ).build(null));
 
+
+        Declarer.IRONCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":ironchest",
+                FabricBlockEntityTypeBuilder.create(IronChestEntity::new,
+                        Declarer.ironChestBlock
+                ).build(null));
+
+        Declarer.EXTRASCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":extrascreen"), (syncId, inventory) -> new ExtraScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
+
         regItem("irontoken", Declarer.ironToken);
         regItem("goldtoken", Declarer.goldToken);
         regItem("diamondtoken", Declarer.diamondToken);
@@ -164,6 +178,9 @@ public class Registrar {
         regItem("netheritehopperitem",Declarer.netheriteHopper);
         regBlock("amethysthopper", Declarer.amethystHopperBlock);
         regItem("amethysthopperitem",Declarer.amethystHopper);
+
+        regBlock("ironchest", Declarer.ironChestBlock);
+        regItem("ironchestitem", Declarer.ironChest);
     }
 
     public static void regItem(String name, Item itemid) {

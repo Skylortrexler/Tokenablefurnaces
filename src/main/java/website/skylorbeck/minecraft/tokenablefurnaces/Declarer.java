@@ -5,11 +5,16 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
@@ -40,11 +45,14 @@ public class Declarer {
     public static BlockEntityType<AmethystExtraBlastEntity> AMETHYSTBLASTENTITY;
     public static BlockEntityType<AmethystExtraSmokerEntity> AMETHYSTSMOKERENTITY;
 
-    public static BlockEntityType<ExtraHopperEntity> EXTRAHOPPERENTITY;
     public static BlockEntityType<IronHopperEntity> IRONHOPPERENTITY;
     public static BlockEntityType<GoldHopperEntity> GOLDHOPPERENTITY;
     public static BlockEntityType<DiamondHopperEntity> DIAMONDHOPPERENTITY;
     public static BlockEntityType<AmethystHopperEntity> AMETHYSTHOPPERENTITY;
+
+    public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
+
+    public static ScreenHandlerType<ExtraScreenHandler> EXTRASCREENHANDLER;
 
     public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
     public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
@@ -98,4 +106,7 @@ public class Declarer {
     public static final BlockItem netheriteHopper = new BlockItem(netheriteHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).fireproof().rarity(Rarity.EPIC));
     public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.EPIC));
+
+    public static Block ironChestBlock = new IronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.IRONCHESTENTITY);
+    public static BlockItem ironChest = new BlockItem(ironChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS));
 }
