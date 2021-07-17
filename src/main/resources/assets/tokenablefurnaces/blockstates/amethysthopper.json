@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "tokenablefurnaces:block/amethysthopper"
+    },
+    "facing=east": {
+      "model": "tokenablefurnaces:block/amethysthopper_side",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tokenablefurnaces:block/amethysthopper_side"
+    },
+    "facing=south": {
+      "model": "tokenablefurnaces:block/amethysthopper_side",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tokenablefurnaces:block/amethysthopper_side",
+      "y": 270
+    }
+  }
+}

@@ -125,7 +125,6 @@ public abstract class ExtraHopperEntity extends LootableContainerBlockEntity imp
 
     private boolean isFull() {
         Iterator var1 = this.inventory.iterator();
-
         ItemStack itemStack;
         do {
             if (!var1.hasNext()) {
