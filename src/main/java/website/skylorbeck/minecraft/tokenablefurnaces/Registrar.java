@@ -112,6 +112,13 @@ public class Registrar {
                         Declarer.amethystHopperBlock
                 ).build(null));
 
+        regItem("irontoken", Declarer.ironToken);
+        regItem("goldtoken", Declarer.goldToken);
+        regItem("diamondtoken", Declarer.diamondToken);
+        regItem("netheritetoken", Declarer.netheriteToken);
+        regItem("amethysttoken", Declarer.amethystToken);
+        regItem("omnitoken", Declarer.omniToken);
+
         regBlock("ironfurnace", Declarer.ironFurnaceBlock);
         regItem("ironfurnaceitem", Declarer.ironFurnace);
         regBlock("ironblast", Declarer.ironBlastBlock);

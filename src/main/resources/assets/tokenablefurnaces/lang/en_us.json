@@ -13,5 +13,17 @@
   "block.tokenablefurnaces.netheritesmoker": "Netherite Smoker",
   "block.tokenablefurnaces.amethystfurnace": "Amethyst Furnace",
   "block.tokenablefurnaces.amethystblast": "Amethyst Blasting Furnace",
-  "block.tokenablefurnaces.amethystsmoker": "Amethyst Smoker"
+  "block.tokenablefurnaces.amethystsmoker": "Amethyst Smoker",
+  "block.tokenablefurnaces.ironhopper": "Iron Hopper",
+  "block.tokenablefurnaces.goldhopper": "Gold Hopper",
+  "block.tokenablefurnaces.diamondhopper": "Diamond Hopper",
+  "block.tokenablefurnaces.netheritehopper": "Netherite Hopper",
+  "block.tokenablefurnaces.amethysthopper": "Amethyst Hopper",
+
+  "item.tokenablefurnaces.irontoken": "Iron Token",
+  "item.tokenablefurnaces.goldtoken": "Gold Token",
+  "item.tokenablefurnaces.diamondtoken": "Diamond Token",
+  "item.tokenablefurnaces.netheritetoken": "Netherite Token",
+  "item.tokenablefurnaces.amethysttoken": "Amethyst Token",
+  "item.tokenablefurnaces.omnitoken": "Omni Token"
 }

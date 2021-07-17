@@ -25,10 +25,11 @@ public class Tokenablefurnaces implements ModInitializer {
 // trapped
 // barrel
 // shulker
+// bundles
+// upgrade tokens
+// cook rotten flesh to rabbit hide
+
 // furnaces
 // blast
 // smoker
-// bundles
 // hoppers
-// upgrade tokens
-// cook rotten flesh to rabbit hide

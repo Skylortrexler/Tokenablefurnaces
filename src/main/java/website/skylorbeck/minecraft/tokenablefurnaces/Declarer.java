@@ -7,7 +7,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Rarity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
@@ -44,49 +46,56 @@ public class Declarer {
     public static BlockEntityType<DiamondHopperEntity> DIAMONDHOPPERENTITY;
     public static BlockEntityType<AmethystHopperEntity> AMETHYSTHOPPERENTITY;
 
+    public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
+    public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
+    public static Item diamondToken = new Item(new FabricItemSettings().rarity(Rarity.RARE).group(ItemGroup.MATERIALS));
+    public static Item netheriteToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
+    public static Item amethystToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
+    public static Item omniToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
+
     public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
-    public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block ironBlastBlock = new IronExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem ironBlast = new BlockItem(ironBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem ironBlast = new BlockItem(ironBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block ironSmokerBlock = new IronExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem ironSmoker = new BlockItem(ironSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem ironSmoker = new BlockItem(ironSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
 
     public static Block goldFurnaceBlock = new GoldExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
-    public static final BlockItem goldFurnace = new BlockItem(goldFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem goldFurnace = new BlockItem(goldFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
     public static Block goldBlastBlock = new GoldExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem goldBlast = new BlockItem(goldBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem goldBlast = new BlockItem(goldBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
     public static Block goldSmokerBlock = new GoldExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem goldSmoker = new BlockItem(goldSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem goldSmoker = new BlockItem(goldSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
 
     public static Block diamondFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
-    public static final BlockItem diamondFurnace = new BlockItem(diamondFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem diamondFurnace = new BlockItem(diamondFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
     public static Block diamondBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem diamondBlast = new BlockItem(diamondBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem diamondBlast = new BlockItem(diamondBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
     public static Block diamondSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem diamondSmoker = new BlockItem(diamondSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem diamondSmoker = new BlockItem(diamondSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
 
     public static Block netheriteFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F),0);
-    public static final BlockItem netheriteFurnace = new BlockItem(netheriteFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof());
+    public static final BlockItem netheriteFurnace = new BlockItem(netheriteFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block netheriteBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
-    public static final BlockItem netheriteBlast = new BlockItem(netheriteBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof());
+    public static final BlockItem netheriteBlast = new BlockItem(netheriteBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block netheriteSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
-    public static final BlockItem netheriteSmoker = new BlockItem(netheriteSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof());
+    public static final BlockItem netheriteSmoker = new BlockItem(netheriteSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
 
     public static Block amethystFurnaceBlock = new AmethystExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
-    public static final BlockItem amethystFurnace = new BlockItem(amethystFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem amethystFurnace = new BlockItem(amethystFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
     public static Block amethystBlastBlock = new AmethystExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem amethystBlast = new BlockItem(amethystBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem amethystBlast = new BlockItem(amethystBlastBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
     public static Block amethystSmokerBlock = new AmethystExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem amethystSmoker = new BlockItem(amethystSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final BlockItem amethystSmoker = new BlockItem(amethystSmokerBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 
     public static Block ironHopperBlock = new IronHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem ironHopper = new BlockItem(ironHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static final BlockItem ironHopper = new BlockItem(ironHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.COMMON));
     public static Block goldHopperBlock = new GoldHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem goldHopper = new BlockItem(goldHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static final BlockItem goldHopper = new BlockItem(goldHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.UNCOMMON));
     public static Block diamondHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem diamondHopper = new BlockItem(diamondHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static final BlockItem diamondHopper = new BlockItem(diamondHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.RARE));
     public static Block netheriteHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
-    public static final BlockItem netheriteHopper = new BlockItem(netheriteHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).fireproof());
+    public static final BlockItem netheriteHopper = new BlockItem(netheriteHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).fireproof().rarity(Rarity.EPIC));
     public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
-    public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE));
+    public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.EPIC));
 }
