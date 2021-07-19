@@ -27,7 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public abstract class ExtraChestEntity  extends LootableContainerBlockEntity implements ChestAnimationProgress {
+public abstract class ExtraChestEntity extends LootableContainerBlockEntity implements ChestAnimationProgress {
     private static final int field_31332 = 1;
     DefaultedList<ItemStack> inventory;
     private final ChestStateManager stateManager;
@@ -50,10 +50,10 @@ public abstract class ExtraChestEntity  extends LootableContainerBlockEntity imp
             }
 
             protected boolean isPlayerViewing(PlayerEntity player) {
-                if (!(player.currentScreenHandler instanceof GenericContainerScreenHandler)) {
+                if (!(player.currentScreenHandler instanceof ExtraScreenHandler)) {
                     return false;
                 } else {
-                    Inventory inventory = ((GenericContainerScreenHandler)player.currentScreenHandler).getInventory();
+                    Inventory inventory = ((ExtraScreenHandler)player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory)inventory).isPart(ExtraChestEntity.this);
                 }
             }

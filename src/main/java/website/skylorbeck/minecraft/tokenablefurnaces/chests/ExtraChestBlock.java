@@ -219,7 +219,7 @@ public abstract class ExtraChestBlock extends AbstractExtraChestBlock<ExtraChest
     }
 
     public static DoubleBlockProperties.PropertyRetriever<ExtraChestEntity, Float2FloatFunction> getAnimationProgressRetriever(final ChestAnimationProgress chestAnimationProgress) {
-        return new DoubleBlockProperties.PropertyRetriever<ExtraChestEntity, Float2FloatFunction>() {
+        return new DoubleBlockProperties.PropertyRetriever<>() {
             public Float2FloatFunction getFromBoth(ExtraChestEntity ExtraChestEntity, ExtraChestEntity ExtraChestEntity2) {
                 return (f) -> {
                     return Math.max(ExtraChestEntity.getAnimationProgress(f), ExtraChestEntity2.getAnimationProgress(f));
