@@ -5,6 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.entity.LivingEntity;
@@ -49,7 +50,7 @@ import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
-public abstract class ExtraChestBlock extends AbstractExtraChestBlock<ExtraChestEntity> implements Waterloggable {
+public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntity> implements Waterloggable {
     public static final DirectionProperty FACING;
     public static final EnumProperty<ChestType> CHEST_TYPE;
     public static final BooleanProperty WATERLOGGED;
@@ -192,7 +193,7 @@ public abstract class ExtraChestBlock extends AbstractExtraChestBlock<ExtraChest
         return Stats.CUSTOM.getOrCreateStat(Stats.OPEN_CHEST);
     }
 
-    public BlockEntityType<? extends ExtraChestEntity> getExpectedEntityType() {
+    public BlockEntityType<? extends ChestBlockEntity> getExpectedEntityType() {
         return (BlockEntityType)this.entityTypeRetriever.get();
     }
 

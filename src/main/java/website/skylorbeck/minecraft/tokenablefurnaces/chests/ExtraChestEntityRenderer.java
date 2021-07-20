@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.ChestType;
@@ -17,8 +18,10 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.block.entity.LightmapCoordinatesRetriever;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
@@ -95,7 +98,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         BlockState blockState = bl ? entity.getCachedState() : (BlockState) Blocks.CHEST.getDefaultState().with(ExtraChestBlock.FACING, Direction.SOUTH);
         ChestType chestType = blockState.contains(ExtraChestBlock.CHEST_TYPE) ? (ChestType)blockState.get(ExtraChestBlock.CHEST_TYPE) : ChestType.SINGLE;
         Block block = blockState.getBlock();
-        if (block instanceof AbstractExtraChestBlock<?> abstractChestBlock) {
+        if (block instanceof AbstractChestBlock<?> abstractChestBlock) {
             boolean bl2 = chestType != ChestType.SINGLE;
             matrices.push();
             float f = ((Direction)blockState.get(ExtraChestBlock.FACING)).asRotation();
@@ -108,6 +111,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
             } else {
                 propertySource2 =null;
             }
+            SpriteIdentifier spriteIdentifier = new SpriteIdentifier(new Identifier("textures/atlas/chest.png"), new Identifier("tokenablefurnaces:entity/chest/iron"));
+            VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
             if (propertySource2!=null) {
                 float g = ((Float2FloatFunction) propertySource2.apply(ExtraChestBlock.getAnimationProgressRetriever((ChestAnimationProgress) entity))).get(tickDelta);
                 g = 1.0F - g;
@@ -115,8 +120,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                 int i = ((Int2IntFunction) propertySource2.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
 //                SpriteIdentifier spriteIdentifier = TexturedRenderLayers.getChestTexture(entity, chestType, this.christmas);
 //                SpriteIdentifier spriteIdentifier = new SpriteIdentifier(new Identifier("textures/atlas/chest.png"), new Identifier("entity/chest/iron"));
-                SpriteIdentifier spriteIdentifier = new SpriteIdentifier(new Identifier("textures/atlas/chest.png"), new Identifier("tokenablefurnaces:entity/chest/iron"));
-                VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
+
                 if (bl2) {
                     if (chestType == ChestType.LEFT) {
                         this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.doubleChestRightLatch, this.doubleChestRightBase, g, i, overlay);
@@ -126,6 +130,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                 } else {
                     this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, g, i, overlay);
                 }
+            } else {
+                this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, 0, 255, overlay);
             }
             matrices.pop();
         }
@@ -138,4 +144,5 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         latch.render(matrices, vertices, light, overlay);
         base.render(matrices, vertices, light, overlay);
     }
+
 }

@@ -27,7 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public abstract class ExtraChestEntity extends LootableContainerBlockEntity implements ChestAnimationProgress {
+public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
     private static final int field_31332 = 1;
     DefaultedList<ItemStack> inventory;
     private final ChestStateManager stateManager;
