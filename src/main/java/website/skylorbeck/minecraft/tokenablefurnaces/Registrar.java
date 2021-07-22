@@ -7,8 +7,10 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldChestEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronChestEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraSmokerEntity;
@@ -21,7 +23,10 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.GoldExtraSmo
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.IronExtraSmokerEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.AmethystHopperEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.DiamondHopperEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.GoldHopperEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.IronHopperEntity;
 
 public class Registrar {
     public static void register() {
@@ -123,7 +128,14 @@ public class Registrar {
                         Declarer.ironChestBlock
                 ).build(null));
 
-        Declarer.EXTRASCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":extrascreen"), (syncId, inventory) -> new ExtraScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
+        Declarer.GOLDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":goldchest",
+                FabricBlockEntityTypeBuilder.create(GoldChestEntity::new,
+                        Declarer.goldChestBlock
+                ).build(null));
+
+        Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
+        Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(6*15),6,15));
 
         regItem("irontoken", Declarer.ironToken);
         regItem("goldtoken", Declarer.goldToken);
@@ -180,6 +192,8 @@ public class Registrar {
 
         regBlock("ironchest", Declarer.ironChestBlock);
         regItem("ironchestitem", Declarer.ironChest);
+        regBlock("goldchest", Declarer.goldChestBlock);
+        regItem("goldchestitem", Declarer.goldChest);
     }
 
     public static void regItem(String name, Item itemid) {

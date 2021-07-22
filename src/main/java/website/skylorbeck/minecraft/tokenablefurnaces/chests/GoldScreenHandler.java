@@ -3,19 +3,17 @@ package website.skylorbeck.minecraft.tokenablefurnaces.chests;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public class ExtraScreenHandler extends ScreenHandler {
+public class GoldScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final int rows;
     private final int width;
-    public ExtraScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
-        super(Declarer.EXTRASCREENHANDLER, syncId);
+    public GoldScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
+        super(Declarer.GOLDSCREENHANDLER, syncId);
         checkSize(inventory, rows*width);
         this.inventory = inventory;
         this.rows = rows;
@@ -27,7 +25,7 @@ public class ExtraScreenHandler extends ScreenHandler {
         int m;
         for(n = 0; n < this.rows; ++n) {
             for(m = 0; m < this.width; ++m) {
-                this.addSlot(new Slot(inventory, m + n * 9, 8 + m * 18, -9 + n * 18));
+                this.addSlot(new Slot(inventory, m + n * this.width, 8 + m * 18, -9 + n * 18));
             }
         }
 
@@ -53,11 +51,11 @@ public class ExtraScreenHandler extends ScreenHandler {
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if (index < this.rows * 9) {
-                if (!this.insertItem(itemStack2, this.rows * 9, this.slots.size(), true)) {
+            if (index < this.rows * this.width) {
+                if (!this.insertItem(itemStack2, this.rows * this.width, this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(itemStack2, 0, this.rows * 9, false)) {
+            } else if (!this.insertItem(itemStack2, 0, this.rows * this.width, false)) {
                 return ItemStack.EMPTY;
             }
 

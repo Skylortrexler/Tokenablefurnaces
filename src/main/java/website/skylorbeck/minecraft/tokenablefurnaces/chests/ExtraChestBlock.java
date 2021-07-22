@@ -31,7 +31,6 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
@@ -43,10 +42,12 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
 import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
@@ -193,8 +194,8 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
         return Stats.CUSTOM.getOrCreateStat(Stats.OPEN_CHEST);
     }
 
-    public BlockEntityType<? extends ChestBlockEntity> getExpectedEntityType() {
-        return (BlockEntityType)this.entityTypeRetriever.get();
+    public BlockEntityType<? extends ExtraChestEntity> getExpectedEntityType() {
+        return this.entityTypeRetriever.get();
     }
 
     @Nullable
@@ -220,21 +221,20 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
     }
 
     public static DoubleBlockProperties.PropertyRetriever<ExtraChestEntity, Float2FloatFunction> getAnimationProgressRetriever(final ChestAnimationProgress chestAnimationProgress) {
-        return new DoubleBlockProperties.PropertyRetriever<>() {
-            public Float2FloatFunction getFromBoth(ExtraChestEntity ExtraChestEntity, ExtraChestEntity ExtraChestEntity2) {
-                return (f) -> {
-                    return Math.max(ExtraChestEntity.getAnimationProgress(f), ExtraChestEntity2.getAnimationProgress(f));
-                };
+        return new DoubleBlockProperties.PropertyRetriever<ExtraChestEntity, Float2FloatFunction>() {
+            @Override
+            public Float2FloatFunction getFromBoth(ExtraChestEntity first, ExtraChestEntity second) {
+                return (delta) -> Math.max(first.getAnimationProgress(delta), second.getAnimationProgress(delta));
             }
 
-            public Float2FloatFunction getFrom(ExtraChestEntity ExtraChestEntity) {
-                Objects.requireNonNull(ExtraChestEntity);
-                return ExtraChestEntity::getAnimationProgress;
+            @Override
+            public Float2FloatFunction getFrom(ExtraChestEntity single) {
+                return single::getAnimationProgress;
             }
 
+            @Override
             public Float2FloatFunction getFallback() {
-                Objects.requireNonNull(chestAnimationProgress);
-                return chestAnimationProgress::getAnimationProgress;
+                return (delta) -> delta;
             }
         };
     }

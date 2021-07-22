@@ -4,30 +4,26 @@ import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.block.entity.ChestStateManager;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.block.entity.LightmapCoordinatesRetriever;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
-
-import java.util.Calendar;
 
 @Environment(EnvType.CLIENT)
 public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProgress> implements BlockEntityRenderer<T> {
@@ -43,14 +39,9 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
     private final ModelPart doubleChestLeftLid;
     private final ModelPart doubleChestLeftBase;
     private final ModelPart doubleChestLeftLatch;
-    private boolean christmas;
+
 
     public ExtraChestEntityRenderer(BlockEntityRendererFactory.Context ctx) {
-//        Calendar calendar = Calendar.getInstance();
-//        if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
-//            this.christmas = true;
-//        }
-
         ModelPart modelPart = ctx.getLayerModelPart(EntityModelLayers.CHEST);
         this.singleChestBase = modelPart.getChild("bottom");
         this.singleChestLid = modelPart.getChild("lid");
@@ -96,12 +87,12 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         World world = entity.getWorld();
         boolean bl = world != null;
         BlockState blockState = bl ? entity.getCachedState() : (BlockState) Blocks.CHEST.getDefaultState().with(ExtraChestBlock.FACING, Direction.SOUTH);
-        ChestType chestType = blockState.contains(ExtraChestBlock.CHEST_TYPE) ? (ChestType)blockState.get(ExtraChestBlock.CHEST_TYPE) : ChestType.SINGLE;
+        ChestType chestType = blockState.contains(ExtraChestBlock.CHEST_TYPE) ? (ChestType) blockState.get(ExtraChestBlock.CHEST_TYPE) : ChestType.SINGLE;
         Block block = blockState.getBlock();
-        if (block instanceof AbstractChestBlock<?> abstractChestBlock) {
+        if (block instanceof AbstractChestBlock abstractChestBlock) {
             boolean bl2 = chestType != ChestType.SINGLE;
             matrices.push();
-            float f = ((Direction)blockState.get(ExtraChestBlock.FACING)).asRotation();
+            float f = ((Direction) blockState.get(ExtraChestBlock.FACING)).asRotation();
             matrices.translate(0.5D, 0.5D, 0.5D);
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-f));
             matrices.translate(-0.5D, -0.5D, -0.5D);
@@ -109,29 +100,27 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
             if (bl) {
                 propertySource2 = abstractChestBlock.getBlockEntitySource(blockState, world, entity.getPos(), true);
             } else {
-                propertySource2 =null;
+                propertySource2 = DoubleBlockProperties.PropertyRetriever::getFallback;
             }
-            SpriteIdentifier spriteIdentifier = new SpriteIdentifier(new Identifier("textures/atlas/chest.png"), new Identifier("tokenablefurnaces:entity/chest/iron"));
+//            float g = ((Float2FloatFunction) propertySource2.apply(ExtraChestBlock.getAnimationProgressRetriever(entity))).get(tickDelta);
+            float g = ((ExtraChestEntity)entity).getAnimationProgress(tickDelta);
+            g = 1.0F - g;
+            g = 1.0F - g * g * g;
+            int i = ((Int2IntFunction) propertySource2.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
+            Identifier identifier = new Identifier("textures/atlas/chest.png");
+            SpriteIdentifier spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron"));
+            if (entity instanceof GoldChestEntity) {
+                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold"));
+            }
             VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
-            if (propertySource2!=null) {
-                float g = ((Float2FloatFunction) propertySource2.apply(ExtraChestBlock.getAnimationProgressRetriever((ChestAnimationProgress) entity))).get(tickDelta);
-                g = 1.0F - g;
-                g = 1.0F - g * g * g;
-                int i = ((Int2IntFunction) propertySource2.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
-//                SpriteIdentifier spriteIdentifier = TexturedRenderLayers.getChestTexture(entity, chestType, this.christmas);
-//                SpriteIdentifier spriteIdentifier = new SpriteIdentifier(new Identifier("textures/atlas/chest.png"), new Identifier("entity/chest/iron"));
-
-                if (bl2) {
-                    if (chestType == ChestType.LEFT) {
-                        this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.doubleChestRightLatch, this.doubleChestRightBase, g, i, overlay);
-                    } else {
-                        this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.doubleChestLeftLatch, this.doubleChestLeftBase, g, i, overlay);
-                    }
+            if (bl2) {
+                if (chestType == ChestType.LEFT) {
+                    this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.doubleChestRightLatch, this.doubleChestRightBase, g, i, overlay);
                 } else {
-                    this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, g, i, overlay);
+                    this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.doubleChestLeftLatch, this.doubleChestLeftBase, g, i, overlay);
                 }
             } else {
-                this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, 0, 255, overlay);
+                this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, g, i, overlay);
             }
             matrices.pop();
         }

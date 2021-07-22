@@ -25,7 +25,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
     private static final int field_31332 = 1;
@@ -50,11 +49,14 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             }
 
             protected boolean isPlayerViewing(PlayerEntity player) {
-                if (!(player.currentScreenHandler instanceof ExtraScreenHandler)) {
-                    return false;
+                if (player.currentScreenHandler instanceof IronScreenHandler) {
+                    Inventory inventory = ((IronScreenHandler) player.currentScreenHandler).getInventory();
+                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
+                } else if (player.currentScreenHandler instanceof GoldScreenHandler) {
+                    Inventory inventory = ((GoldScreenHandler) player.currentScreenHandler).getInventory();
+                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else {
-                    Inventory inventory = ((ExtraScreenHandler)player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory)inventory).isPart(ExtraChestEntity.this);
+                    return false;
                 }
             }
         };
@@ -93,27 +95,27 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
     }
 
     static void playSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent) {
-        ChestType chestType = (ChestType)state.get(ChestBlock.CHEST_TYPE);
+        ChestType chestType = (ChestType) state.get(ChestBlock.CHEST_TYPE);
         if (chestType != ChestType.LEFT) {
-            double d = (double)pos.getX() + 0.5D;
-            double e = (double)pos.getY() + 0.5D;
-            double f = (double)pos.getZ() + 0.5D;
+            double d = (double) pos.getX() + 0.5D;
+            double e = (double) pos.getY() + 0.5D;
+            double f = (double) pos.getZ() + 0.5D;
             if (chestType == ChestType.RIGHT) {
                 Direction direction = ChestBlock.getFacing(state);
-                d += (double)direction.getOffsetX() * 0.5D;
-                f += (double)direction.getOffsetZ() * 0.5D;
+                d += (double) direction.getOffsetX() * 0.5D;
+                f += (double) direction.getOffsetZ() * 0.5D;
             }
 
-            world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
+            world.playSound((PlayerEntity) null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
         }
     }
 
     public boolean onSyncedBlockEvent(int type, int data) {
         if (type == 1) {
-            this.lidAnimator.setOpen(data > 0);
+            this.lidAnimator.setOpen(data>0);
             return true;
         } else {
-            return super.onSyncedBlockEvent(type, data);
+            return super.onSyncedBlockEvent(type,data);
         }
     }
 
@@ -148,22 +150,23 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
         if (blockState.hasBlockEntity()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof ExtraChestEntity) {
-                return ((ExtraChestEntity)blockEntity).stateManager.getViewerCount();
+                return ((ExtraChestEntity) blockEntity).stateManager.getViewerCount();
             }
         }
 
         return 0;
     }
 
+
+    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
+        return GenericContainerScreenHandler.createGeneric9x3(syncId, playerInventory, this);
+    }
     public static void copyInventory(ExtraChestEntity from, ExtraChestEntity to) {
         DefaultedList<ItemStack> defaultedList = from.getInvStackList();
         from.setInvStackList(to.getInvStackList());
         to.setInvStackList(defaultedList);
     }
 
-    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return GenericContainerScreenHandler.createGeneric9x3(syncId, playerInventory, this);
-    }
 
     public void onScheduledTick() {
         if (!this.removed) {

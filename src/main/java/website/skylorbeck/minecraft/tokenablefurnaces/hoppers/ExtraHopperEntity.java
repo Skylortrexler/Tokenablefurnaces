@@ -1,6 +1,9 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.hoppers;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ChestBlock;
+import net.minecraft.block.InventoryProvider;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -24,7 +27,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 import java.util.Iterator;
 import java.util.List;

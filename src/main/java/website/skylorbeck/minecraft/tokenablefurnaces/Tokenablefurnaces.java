@@ -1,7 +1,6 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 
 public class Tokenablefurnaces implements ModInitializer {
     @Override
