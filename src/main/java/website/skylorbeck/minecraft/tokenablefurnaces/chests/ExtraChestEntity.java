@@ -49,11 +49,8 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             }
 
             protected boolean isPlayerViewing(PlayerEntity player) {
-                if (player.currentScreenHandler instanceof IronScreenHandler) {
-                    Inventory inventory = ((IronScreenHandler) player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof GoldScreenHandler) {
-                    Inventory inventory = ((GoldScreenHandler) player.currentScreenHandler).getInventory();
+                if (player.currentScreenHandler instanceof AbstractScreenHandler) {
+                    Inventory inventory = ((AbstractScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else {
                     return false;

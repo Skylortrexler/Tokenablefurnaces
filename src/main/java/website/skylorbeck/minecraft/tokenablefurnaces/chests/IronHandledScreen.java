@@ -11,12 +11,20 @@ import net.minecraft.util.Identifier;
 
 public class IronHandledScreen extends HandledScreen<ScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/iron.png");
+    private ChestTabWidget tabWidget;
 
     public IronHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
-
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (this.tabWidget.mouseClicked(mouseX, mouseY, button)) {
+            this.setFocused(this.tabWidget);
+            return true;
+        } else {
+            return super.mouseClicked(mouseX, mouseY, button);
+        }
+    }
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -32,13 +40,15 @@ public class IronHandledScreen extends HandledScreen<ScreenHandler> {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
+        tabWidget.render(matrices,mouseX,mouseY,delta);
+
     }
 
     @Override
     protected void init() {
+        this.backgroundHeight = 222;
+        this.playerInventoryTitleY = this.backgroundHeight - 94;
+        this.tabWidget = new ChestTabWidget(this, (width - backgroundWidth) / 2,(height - backgroundHeight) / 2, backgroundWidth, backgroundHeight,0);
         super.init();
-        playerInventoryTitleY = this.backgroundHeight - 64;
-        titleY = -20;
-        backgroundHeight = 220;
     }
 }

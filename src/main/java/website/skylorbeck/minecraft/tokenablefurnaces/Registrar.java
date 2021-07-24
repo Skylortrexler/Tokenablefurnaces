@@ -7,10 +7,7 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraSmokerEntity;
@@ -135,7 +132,7 @@ public class Registrar {
                 ).build(null));
 
         Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
-        Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(6*15),6,15));
+        Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(12*9),12,9));
 
         regItem("irontoken", Declarer.ironToken);
         regItem("goldtoken", Declarer.goldToken);
