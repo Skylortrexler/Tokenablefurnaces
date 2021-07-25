@@ -9,11 +9,11 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class GoldHandledScreen extends HandledScreen<ScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/gold.png");
+public class AmethystHandledScreen extends HandledScreen<ScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/amethyst.png");
     private int zOffset;
 
-    public GoldHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
+    public AmethystHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -37,10 +37,10 @@ public class GoldHandledScreen extends HandledScreen<ScreenHandler> {
 
     @Override
     protected void init() {
-        this.backgroundHeight = 222;
-        this.backgroundWidth = 283;
+        this.backgroundHeight = 402;
+        this.backgroundWidth = 374;
         this.playerInventoryTitleY = this.backgroundHeight - 94;
-        this.playerInventoryTitleX = 62;
+        this.playerInventoryTitleX = 107;
         super.init();
     }
 

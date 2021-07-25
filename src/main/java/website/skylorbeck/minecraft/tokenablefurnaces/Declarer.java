@@ -49,9 +49,14 @@ public class Declarer {
 
     public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
     public static BlockEntityType<GoldChestEntity> GOLDCHESTENTITY;
+    public static BlockEntityType<DiamondChestEntity> DIAMONDCHESTENTITY;
+    public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
+    public static BlockEntityType<AmethystChestEntity> AMETHYSTCHESTENTITY;
 
     public static ScreenHandlerType<IronScreenHandler> IRONSCREENHANDLER;
     public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
+    public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
+    public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
 
     public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
     public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
@@ -107,7 +112,13 @@ public class Declarer {
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.EPIC));
 
     public static Block ironChestBlock = new IronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONCHESTENTITY);
-    public static BlockItem ironChest = new BlockItem(ironChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static BlockItem ironChest = new BlockItem(ironChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block goldChestBlock = new GoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDCHESTENTITY);
-    public static BlockItem goldChest = new BlockItem(goldChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static BlockItem goldChest = new BlockItem(goldChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+    public static Block diamondChestBlock = new DiamondChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDCHESTENTITY);
+    public static BlockItem diamondChest = new BlockItem(diamondChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
+    public static Block netheriteChestBlock = new NetheriteChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITECHESTENTITY);
+    public static BlockItem netheriteChest = new BlockItem(netheriteChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
+    public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTCHESTENTITY);
+    public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 }

@@ -130,9 +130,26 @@ public class Registrar {
                 FabricBlockEntityTypeBuilder.create(GoldChestEntity::new,
                         Declarer.goldChestBlock
                 ).build(null));
+        Declarer.DIAMONDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondchest",
+                FabricBlockEntityTypeBuilder.create(DiamondChestEntity::new,
+                        Declarer.diamondChestBlock
+                ).build(null));
+        Declarer.NETHERITECHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":netheritechest",
+                FabricBlockEntityTypeBuilder.create(NetheriteChestEntity::new,
+                        Declarer.netheriteChestBlock
+                ).build(null));
+        Declarer.AMETHYSTCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystchest",
+                FabricBlockEntityTypeBuilder.create(AmethystChestEntity::new,
+                        Declarer.amethystChestBlock
+                ).build(null));
 
         Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
-        Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(12*9),12,9));
+        Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(6*15),6,15));
+        Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(12*15),12,15));
+        Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(16*20),16,20));
 
         regItem("irontoken", Declarer.ironToken);
         regItem("goldtoken", Declarer.goldToken);
@@ -191,6 +208,12 @@ public class Registrar {
         regItem("ironchestitem", Declarer.ironChest);
         regBlock("goldchest", Declarer.goldChestBlock);
         regItem("goldchestitem", Declarer.goldChest);
+        regBlock("diamondchest", Declarer.diamondChestBlock);
+        regItem("diamondchestitem", Declarer.diamondChest);
+        regBlock("netheritechest", Declarer.netheriteChestBlock);
+        regItem("netheritechestitem", Declarer.netheriteChest);
+        regBlock("amethystchest", Declarer.amethystChestBlock);
+        regItem("amethystchestitem", Declarer.amethystChest);
     }
 
     public static void regItem(String name, Item itemid) {

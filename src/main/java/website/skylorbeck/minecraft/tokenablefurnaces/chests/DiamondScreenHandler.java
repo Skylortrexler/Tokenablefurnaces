@@ -8,12 +8,12 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public class GoldScreenHandler extends ScreenHandler {
+public class DiamondScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final int rows;
     private final int width;
-    public GoldScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
-        super(Declarer.GOLDSCREENHANDLER, syncId);
+    public DiamondScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
+        super(Declarer.DIAMONDSCREENHANDLER, syncId);
         checkSize(inventory, rows*width);
         this.inventory = inventory;
         this.rows = rows;
@@ -80,3 +80,4 @@ public class GoldScreenHandler extends ScreenHandler {
         return this.rows;
     }
 }
+

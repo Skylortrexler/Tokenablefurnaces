@@ -111,6 +111,12 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
             SpriteIdentifier spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron"));
             if (entity instanceof GoldChestEntity) {
                 spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold"));
+            } else if (entity instanceof DiamondChestEntity){
+                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond"));
+            } else if (entity instanceof NetheriteChestEntity){
+                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite"));
+            } else if (entity instanceof AmethystChestEntity){
+                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst"));
             }
             VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
             if (bl2) {

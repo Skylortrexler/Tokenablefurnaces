@@ -9,20 +9,20 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public class GoldChestEntity extends ExtraChestEntity{
-    protected GoldChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+public class DiamondChestEntity extends ExtraChestEntity{
+    protected DiamondChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
 
-    public GoldChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.GOLDCHESTENTITY,pos, state);
-        this.inventory = DefaultedList.ofSize(6*15, ItemStack.EMPTY);
+    public DiamondChestEntity(BlockPos pos, BlockState state) {
+        super(Declarer.DIAMONDCHESTENTITY,pos, state);
+        this.inventory = DefaultedList.ofSize(12*15, ItemStack.EMPTY);
     }
     @Override
     public int size() {
-        return 6*15;
+        return 12*15;
     }
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new GoldScreenHandler(syncId, playerInventory, this,6,15);
+        return new DiamondScreenHandler(syncId, playerInventory, this,12,15);
     }
 }
