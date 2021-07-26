@@ -82,7 +82,7 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
         super.readNbt(nbt);
         this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         if (!this.deserializeLootTable(nbt)) {
-            Inventories.readNbt(nbt, this.inventory);
+            Utils.readNbt(nbt,this.inventory);
         }
 
     }
@@ -90,7 +90,7 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
     public NbtCompound writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         if (!this.serializeLootTable(nbt)) {
-            Inventories.writeNbt(nbt, this.inventory);
+            Utils.writeNbt(nbt,this.inventory);
         }
 
         return nbt;

@@ -1,27 +1,28 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.chests;
+package website.skylorbeck.minecraft.tokenablefurnaces.shulkers;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.AmethystScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronScreenHandler;
 
-public class AmethystChestEntity extends ExtraChestEntity{
-    protected AmethystChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
-    }
+import java.util.stream.IntStream;
 
-    public AmethystChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.AMETHYSTCHESTENTITY,pos, state);
+public class AmethystShulkerEntity extends ExtraShulkerEntity{
+    public AmethystShulkerEntity(BlockPos pos, BlockState state) {
+        super(Declarer.AMETHYSTSHULKERENTITY,pos, state);
         this.inventory = DefaultedList.ofSize(18*20, ItemStack.EMPTY);
+        this.AVAILABLE_SLOTS = IntStream.range(0, 18*20).toArray();
     }
     @Override
     public int size() {
         return 18*20;
     }
+
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
         return new AmethystScreenHandler(syncId, playerInventory, this,18,20);

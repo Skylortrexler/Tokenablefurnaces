@@ -20,6 +20,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 public class Declarer {
     public static BlockEntityType<ExtraFurnaceBlockEntity> EXTRA_FURNACE_ENTITY;
@@ -57,6 +58,12 @@ public class Declarer {
     public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
+
+    public static BlockEntityType<IronShulkerEntity> IRONSHULKERENTITY;
+    public static BlockEntityType<GoldShulkerEntity> GOLDSHULKERENTITY;
+    public static BlockEntityType<DiamondShulkerEntity> DIAMONDSHULKERENTITY;
+    public static BlockEntityType<NetheriteShulkerEntity> NETHERITESHULKERENTITY;
+    public static BlockEntityType<AmethystShulkerEntity> AMETHYSTSHULKERENTITY;
 
     public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
     public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
@@ -121,4 +128,15 @@ public class Declarer {
     public static BlockItem netheriteChest = new BlockItem(netheriteChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTCHESTENTITY);
     public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
+
+    public static Block ironShulkerBlock = new IronShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONSHULKERENTITY);
+    public static BlockItem ironShulker = new BlockItem(ironShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block goldShulkerBlock = new GoldShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDSHULKERENTITY);
+    public static BlockItem goldShulker = new BlockItem(goldShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+    public static Block diamondShulkerBlock = new DiamondShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDSHULKERENTITY);
+    public static BlockItem diamondShulker = new BlockItem(diamondShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
+    public static Block netheriteShulkerBlock = new NetheriteShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITESHULKERENTITY);
+    public static BlockItem netheriteShulker = new BlockItem(netheriteShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
+    public static Block amethystShulkerBlock = new AmethystShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTSHULKERENTITY);
+    public static BlockItem amethystShulker = new BlockItem(amethystShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 }

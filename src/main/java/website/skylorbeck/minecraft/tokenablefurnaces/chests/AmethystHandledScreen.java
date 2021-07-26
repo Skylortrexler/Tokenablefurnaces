@@ -37,7 +37,7 @@ public class AmethystHandledScreen extends HandledScreen<ScreenHandler> {
 
     @Override
     protected void init() {
-        this.backgroundHeight = 402;
+        this.backgroundHeight = 438;
         this.backgroundWidth = 374;
         this.playerInventoryTitleY = this.backgroundHeight - 94;
         this.playerInventoryTitleX = 107;

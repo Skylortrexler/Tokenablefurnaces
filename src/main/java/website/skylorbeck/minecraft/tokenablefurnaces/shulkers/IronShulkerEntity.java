@@ -1,22 +1,21 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.chests;
+package website.skylorbeck.minecraft.tokenablefurnaces.shulkers;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.IronScreenHandler;
 
-public class IronChestEntity extends ExtraChestEntity{
-    protected IronChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
-    }
+import java.util.stream.IntStream;
 
-    public IronChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.IRONCHESTENTITY,pos, state);
+public class IronShulkerEntity extends ExtraShulkerEntity{
+    public IronShulkerEntity(BlockPos pos, BlockState state) {
+        super(Declarer.IRONSHULKERENTITY,pos, state);
         this.inventory = DefaultedList.ofSize(6*9, ItemStack.EMPTY);
+        this.AVAILABLE_SLOTS = IntStream.range(0, 6*9).toArray();
     }
     @Override
     public int size() {

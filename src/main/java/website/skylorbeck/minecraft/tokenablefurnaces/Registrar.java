@@ -24,6 +24,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.AmethystHopperEnti
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.DiamondHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.GoldHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.IronHopperEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 public class Registrar {
     public static void register() {
@@ -146,10 +147,37 @@ public class Registrar {
                         Declarer.amethystChestBlock
                 ).build(null));
 
+
+        Declarer.IRONSHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":ironshulker",
+                FabricBlockEntityTypeBuilder.create(IronShulkerEntity::new,
+                        Declarer.ironShulkerBlock
+                ).build(null));
+        Declarer.GOLDSHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":goldshulker",
+                FabricBlockEntityTypeBuilder.create(GoldShulkerEntity::new,
+                        Declarer.goldShulkerBlock
+                ).build(null));
+        Declarer.DIAMONDSHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondshulker",
+                FabricBlockEntityTypeBuilder.create(DiamondShulkerEntity::new,
+                        Declarer.diamondShulkerBlock
+                ).build(null));
+        Declarer.NETHERITESHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":netheriteshulker",
+                FabricBlockEntityTypeBuilder.create(NetheriteShulkerEntity::new,
+                        Declarer.netheriteShulkerBlock
+                ).build(null));
+        Declarer.AMETHYSTSHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystshulker",
+                FabricBlockEntityTypeBuilder.create(AmethystShulkerEntity::new,
+                        Declarer.amethystShulkerBlock
+                ).build(null));
+
         Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
         Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(6*15),6,15));
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(12*15),12,15));
-        Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(16*20),16,20));
+        Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(18*20),18,20));
 
         regItem("irontoken", Declarer.ironToken);
         regItem("goldtoken", Declarer.goldToken);
@@ -214,6 +242,17 @@ public class Registrar {
         regItem("netheritechestitem", Declarer.netheriteChest);
         regBlock("amethystchest", Declarer.amethystChestBlock);
         regItem("amethystchestitem", Declarer.amethystChest);
+
+        regBlock("ironshulker", Declarer.ironShulkerBlock);
+        regItem("ironshulkeritem", Declarer.ironShulker);
+        regBlock("goldshulker", Declarer.goldShulkerBlock);
+        regItem("goldshulkeritem", Declarer.goldShulker);
+        regBlock("diamondshulker", Declarer.diamondShulkerBlock);
+        regItem("diamondshulkeritem", Declarer.diamondShulker);
+        regBlock("netheriteshulker", Declarer.netheriteShulkerBlock);
+        regItem("netheriteshulkeritem", Declarer.netheriteShulker);
+        regBlock("amethystshulker", Declarer.amethystShulkerBlock);
+        regItem("amethystshulkeritem", Declarer.amethystShulker);
     }
 
     public static void regItem(String name, Item itemid) {
