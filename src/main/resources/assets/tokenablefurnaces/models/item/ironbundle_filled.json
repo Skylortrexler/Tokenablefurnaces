@@ -1,0 +1,6 @@
+{
+  "parent": "item/bundle",
+  "textures": {
+    "layer0": "tokenablefurnaces:item/ironbundle_filled"
+  }
+}

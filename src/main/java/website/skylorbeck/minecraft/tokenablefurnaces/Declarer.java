@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
+import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
@@ -139,4 +140,11 @@ public class Declarer {
     public static BlockItem netheriteShulker = new BlockItem(netheriteShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block amethystShulkerBlock = new AmethystShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTSHULKERENTITY);
     public static BlockItem amethystShulker = new BlockItem(amethystShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
+
+    public static Item ironBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.COMMON).maxCount(1),128);
+    public static Item goldBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.UNCOMMON).maxCount(1),192);
+    public static Item diamondBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.RARE).maxCount(1),256);
+    public static Item netheriteBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.EPIC).maxCount(1).fireproof(),256);
+    public static Item amethystBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.EPIC).maxCount(1),320);
+
 }

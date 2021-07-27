@@ -1,12 +1,18 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
+import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.item.ModelPredicateProvider;
+import net.minecraft.client.item.UnclampedModelPredicateProvider;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.BundleItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
@@ -25,6 +31,8 @@ import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.DiamondHopperEntit
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.GoldHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.IronHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
+
+import java.util.Map;
 
 public class Registrar {
     public static void register() {
@@ -253,6 +261,14 @@ public class Registrar {
         regItem("netheriteshulkeritem", Declarer.netheriteShulker);
         regBlock("amethystshulker", Declarer.amethystShulkerBlock);
         regItem("amethystshulkeritem", Declarer.amethystShulker);
+        
+        regItem("ironbundle",Declarer.ironBundle);
+        regItem("goldbundle",Declarer.goldBundle);
+        regItem("diamondbundle",Declarer.diamondBundle);
+        regItem("netheritebundle",Declarer.netheriteBundle);
+        regItem("amethystbundle",Declarer.amethystBundle);
+
+
     }
 
     public static void regItem(String name, Item itemid) {
@@ -262,4 +278,6 @@ public class Registrar {
     public static void regBlock(String name, Block blockid) {
         Registry.register(Registry.BLOCK, new Identifier(Ref.MODID, name), blockid);
     }
+
+
 }

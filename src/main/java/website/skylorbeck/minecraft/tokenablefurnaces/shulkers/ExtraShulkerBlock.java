@@ -41,6 +41,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 import java.util.Iterator;
 import java.util.List;
@@ -183,8 +184,8 @@ public abstract class ExtraShulkerBlock extends BlockWithEntity {
             if (nbtCompound.contains("Items", 9)) {
                 int size = this instanceof IronShulkerBlock ? 54 : this instanceof GoldShulkerBlock ? 90 : this instanceof DiamondShulkerBlock ? 180 : this instanceof NetheriteShulkerBlock ? 180 : this instanceof AmethystShulkerBlock ? 360 : 0;
                 DefaultedList<ItemStack> defaultedList = DefaultedList.ofSize(size, ItemStack.EMPTY);
-                Inventories.readNbt(nbtCompound, defaultedList);
-
+//                Inventories.readNbt(nbtCompound, defaultedList);
+                Utils.readNbt(nbtCompound,defaultedList);
                 int i = 0;
                 int j = 0;
 

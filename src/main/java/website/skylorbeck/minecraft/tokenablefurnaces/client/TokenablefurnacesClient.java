@@ -1,16 +1,24 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.client;
 
+import com.google.common.collect.Maps;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.ModelPredicateProvider;
+import net.minecraft.client.item.UnclampedModelPredicateProvider;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
+
+import java.util.Map;
 
 @net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)
 public class TokenablefurnacesClient implements ClientModInitializer {
@@ -68,5 +76,20 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystShulkerEntity(BlockPos.ORIGIN,Declarer.amethystShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
 
+        FabricModelPredicateProviderRegistry.register(Declarer.ironBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+            return ExtraBundleItem.getAmountFilled(stack);
+        });
+        FabricModelPredicateProviderRegistry.register(Declarer.goldBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+            return ExtraBundleItem.getAmountFilled(stack);
+        });
+        FabricModelPredicateProviderRegistry.register(Declarer.diamondBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+            return ExtraBundleItem.getAmountFilled(stack);
+        });
+        FabricModelPredicateProviderRegistry.register(Declarer.netheriteBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+            return ExtraBundleItem.getAmountFilled(stack);
+        });
+        FabricModelPredicateProviderRegistry.register(Declarer.amethystBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+            return ExtraBundleItem.getAmountFilled(stack);
+        });
     }
 }
