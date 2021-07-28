@@ -1,18 +1,17 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
-import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.client.item.ModelPredicateProvider;
-import net.minecraft.client.item.UnclampedModelPredicateProvider;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.BundleItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
@@ -32,8 +31,6 @@ import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.DiamondHopperEntit
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.GoldHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.IronHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
-
-import java.util.Map;
 
 public class Registrar {
     public static void register() {
@@ -211,6 +208,34 @@ public class Registrar {
                         Declarer.amethystShulkerBlock
                 ).build(null));
 
+
+        Declarer.IRONBARRELENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":ironbarrel",
+                FabricBlockEntityTypeBuilder.create(IronBarrelEntity::new,
+                        Declarer.ironBarrelBlock
+                ).build(null));
+        Declarer.GOLDBARRELENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":goldbarrel",
+                FabricBlockEntityTypeBuilder.create(GoldBarrelEntity::new,
+                        Declarer.goldBarrelBlock
+                ).build(null));
+        Declarer.DIAMONDBARRELENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondbarrel",
+                FabricBlockEntityTypeBuilder.create(DiamondBarrelEntity::new,
+                        Declarer.diamondBarrelBlock
+                ).build(null));
+        Declarer.NETHERITEBARRELENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":netheritebarrel",
+                FabricBlockEntityTypeBuilder.create(NetheriteBarrelEntity::new,
+                        Declarer.netheriteBarrelBlock
+                ).build(null));
+        Declarer.AMETHYSTBARRELENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethystbarrel",
+                FabricBlockEntityTypeBuilder.create(AmethystBarrelEntity::new,
+                        Declarer.amethystBarrelBlock
+                ).build(null));
+        
+        
         Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
         Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(6*15),6,15));
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(12*15),12,15));
@@ -301,6 +326,17 @@ public class Registrar {
         regItem("netheriteshulkeritem", Declarer.netheriteShulker);
         regBlock("amethystshulker", Declarer.amethystShulkerBlock);
         regItem("amethystshulkeritem", Declarer.amethystShulker);
+
+        regBlock("ironbarrel", Declarer.ironBarrelBlock);
+        regItem("ironbarrelitem", Declarer.ironBarrel);
+        regBlock("goldbarrel", Declarer.goldBarrelBlock);
+        regItem("goldbarrelitem", Declarer.goldBarrel);
+        regBlock("diamondbarrel", Declarer.diamondBarrelBlock);
+        regItem("diamondbarrelitem", Declarer.diamondBarrel);
+        regBlock("netheritebarrel", Declarer.netheriteBarrelBlock);
+        regItem("netheritebarrelitem", Declarer.netheriteBarrel);
+        regBlock("amethystbarrel", Declarer.amethystBarrelBlock);
+        regItem("amethystbarrelitem", Declarer.amethystBarrel);
         
         regItem("ironbundle",Declarer.ironBundle);
         regItem("goldbundle",Declarer.goldBundle);

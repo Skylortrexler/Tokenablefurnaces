@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.chests;
+package website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -9,11 +9,11 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class GoldHandledScreen extends HandledScreen<ScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/gold.png");
+public class DiamondHandledScreen extends HandledScreen<ScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/diamond.png");
     private int zOffset;
 
-    public GoldHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
+    public DiamondHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -37,8 +37,8 @@ public class GoldHandledScreen extends HandledScreen<ScreenHandler> {
 
     @Override
     protected void init() {
-        this.backgroundHeight = 222;
-        this.backgroundWidth = 283;
+        this.backgroundHeight = 330;
+        this.backgroundWidth = 284;
         this.playerInventoryTitleY = this.backgroundHeight - 94;
         this.playerInventoryTitleX = 62;
         super.init();

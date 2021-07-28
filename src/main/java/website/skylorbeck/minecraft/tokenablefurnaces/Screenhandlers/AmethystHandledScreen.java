@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.chests;
+package website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;

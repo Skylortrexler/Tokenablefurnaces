@@ -11,6 +11,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
@@ -72,6 +77,12 @@ public class Declarer {
     public static BlockEntityType<DiamondShulkerEntity> DIAMONDSHULKERENTITY;
     public static BlockEntityType<NetheriteShulkerEntity> NETHERITESHULKERENTITY;
     public static BlockEntityType<AmethystShulkerEntity> AMETHYSTSHULKERENTITY;
+
+    public static BlockEntityType<IronBarrelEntity> IRONBARRELENTITY;
+    public static BlockEntityType<GoldBarrelEntity> GOLDBARRELENTITY;
+    public static BlockEntityType<DiamondBarrelEntity> DIAMONDBARRELENTITY;
+    public static BlockEntityType<NetheriteBarrelEntity> NETHERITEBARRELENTITY;
+    public static BlockEntityType<AmethystBarrelEntity> AMETHYSTBARRELENTITY;
 
     public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
     public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
@@ -158,6 +169,17 @@ public class Declarer {
     public static BlockItem netheriteShulker = new BlockItem(netheriteShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block amethystShulkerBlock = new AmethystShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTSHULKERENTITY);
     public static BlockItem amethystShulker = new BlockItem(amethystShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
+
+    public static Block ironBarrelBlock = new IronBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem ironBarrel = new BlockItem(ironBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block goldBarrelBlock = new GoldBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem goldBarrel = new BlockItem(goldBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block diamondBarrelBlock = new DiamondBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem diamondBarrel = new BlockItem(diamondBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block netheriteBarrelBlock = new NetheriteBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem netheriteBarrel = new BlockItem(netheriteBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block amethystBarrelBlock = new AmethystBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem amethystBarrel = new BlockItem(amethystBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
 
     public static Item ironBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.COMMON).maxCount(1),128);
     public static Item goldBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.UNCOMMON).maxCount(1),192);

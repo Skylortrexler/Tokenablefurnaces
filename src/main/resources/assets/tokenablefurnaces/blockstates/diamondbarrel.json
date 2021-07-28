@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "facing=down,open=false": {
+      "x": 180,
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=down,open=true": {
+      "x": 180,
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    },
+    "facing=east,open=false": {
+      "x": 90,
+      "y": 90,
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=east,open=true": {
+      "x": 90,
+      "y": 90,
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    },
+    "facing=north,open=false": {
+      "x": 90,
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=north,open=true": {
+      "x": 90,
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    },
+    "facing=south,open=false": {
+      "x": 90,
+      "y": 180,
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=south,open=true": {
+      "x": 90,
+      "y": 180,
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    },
+    "facing=up,open=false": {
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=up,open=true": {
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    },
+    "facing=west,open=false": {
+      "x": 90,
+      "y": 270,
+      "model": "tokenablefurnaces:block/diamondbarrel"
+    },
+    "facing=west,open=true": {
+      "x": 90,
+      "y": 270,
+      "model": "tokenablefurnaces:block/diamondbarrel_open"
+    }
+  }
+}

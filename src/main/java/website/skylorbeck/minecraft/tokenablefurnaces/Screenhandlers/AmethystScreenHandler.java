@@ -1,4 +1,4 @@
-package website.skylorbeck.minecraft.tokenablefurnaces.chests;
+package website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -8,12 +8,12 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
-public class DiamondScreenHandler extends ScreenHandler {
+public class AmethystScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final int rows;
     private final int width;
-    public DiamondScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
-        super(Declarer.DIAMONDSCREENHANDLER, syncId);
+    public AmethystScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
+        super(Declarer.AMETHYSTSCREENHANDLER, syncId);
         checkSize(inventory, rows*width);
         this.inventory = inventory;
         this.rows = rows;
@@ -25,18 +25,18 @@ public class DiamondScreenHandler extends ScreenHandler {
         int m;
         for(n = 0; n < this.rows; ++n) {
             for(m = 0; m < this.width; ++m) {
-                this.addSlot(new Slot(inventory, m + n * 15, 8 + m * 18, 18 + n * 18));
+                this.addSlot(new Slot(inventory, m + n * 20, 8 + m * 18, 18 + n * 18));
             }
         }
 
         for(n = 0; n < 3; ++n) {
             for(m = 0; m < 9; ++m) {
-                this.addSlot(new Slot(playerInventory, m + n * 9 + 9, 62 + m * 18, 104 + n * 18 + i));
+                this.addSlot(new Slot(playerInventory, m + n * 9 + 9, 107 + m * 18, 104 + n * 18 + i));
             }
         }
 
         for(n = 0; n < 9; ++n) {
-            this.addSlot(new Slot(playerInventory, n, 62 + n * 18, 162 + i));
+            this.addSlot(new Slot(playerInventory, n, 107 + n * 18, 162 + i));
         }
 
     }
