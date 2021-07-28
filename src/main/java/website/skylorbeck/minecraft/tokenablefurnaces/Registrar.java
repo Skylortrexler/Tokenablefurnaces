@@ -14,6 +14,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraBlastEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraFurnaceEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.AmethystExtraSmokerEntity;
@@ -156,6 +157,34 @@ public class Registrar {
                 ).build(null));
 
 
+        Declarer.IRONTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":irontrappedchest",
+                FabricBlockEntityTypeBuilder.create(IronTrappedChestEntity::new,
+                        Declarer.ironTrappedChestBlock
+                ).build(null));
+
+        Declarer.GOLDTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":goldtrappedchest",
+                FabricBlockEntityTypeBuilder.create(GoldTrappedChestEntity::new,
+                        Declarer.goldTrappedChestBlock
+                ).build(null));
+        Declarer.DIAMONDTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":diamondtrappedchest",
+                FabricBlockEntityTypeBuilder.create(DiamondTrappedChestEntity::new,
+                        Declarer.diamondTrappedChestBlock
+                ).build(null));
+        Declarer.NETHERITETRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":netheritetrappedchest",
+                FabricBlockEntityTypeBuilder.create(NetheriteTrappedChestEntity::new,
+                        Declarer.netheriteTrappedChestBlock
+                ).build(null));
+        Declarer.AMETHYSTTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":amethysttrappedchest",
+                FabricBlockEntityTypeBuilder.create(AmethystTrappedChestEntity::new,
+                        Declarer.amethystTrappedChestBlock
+                ).build(null));
+
+
         Declarer.IRONSHULKERENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":ironshulker",
                 FabricBlockEntityTypeBuilder.create(IronShulkerEntity::new,
@@ -250,6 +279,17 @@ public class Registrar {
         regItem("netheritechestitem", Declarer.netheriteChest);
         regBlock("amethystchest", Declarer.amethystChestBlock);
         regItem("amethystchestitem", Declarer.amethystChest);
+        
+        regBlock("irontrappedchest", Declarer.ironTrappedChestBlock);
+        regItem("irontrappedchestitem", Declarer.ironTrappedChest);
+        regBlock("goldtrappedchest", Declarer.goldTrappedChestBlock);
+        regItem("goldtrappedchestitem", Declarer.goldTrappedChest);
+        regBlock("diamondtrappedchest", Declarer.diamondTrappedChestBlock);
+        regItem("diamondtrappedchestitem", Declarer.diamondTrappedChest);
+        regBlock("netheritetrappedchest", Declarer.netheriteTrappedChestBlock);
+        regItem("netheritetrappedchestitem", Declarer.netheriteTrappedChest);
+        regBlock("amethysttrappedchest", Declarer.amethystTrappedChestBlock);
+        regItem("amethysttrappedchestitem", Declarer.amethystTrappedChest);
 
         regBlock("ironshulker", Declarer.ironShulkerBlock);
         regItem("ironshulkeritem", Declarer.ironShulker);

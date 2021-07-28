@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
     private static final int field_31332 = 1;
-    DefaultedList<ItemStack> inventory;
+    protected DefaultedList<ItemStack> inventory;
     private final ChestStateManager stateManager;
     private final ChestLidAnimator lidAnimator;
 

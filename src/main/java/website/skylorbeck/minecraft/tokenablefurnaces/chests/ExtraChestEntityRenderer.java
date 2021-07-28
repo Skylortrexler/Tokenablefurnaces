@@ -24,6 +24,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 @Environment(EnvType.CLIENT)
 public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProgress> implements BlockEntityRenderer<T> {
@@ -39,6 +40,16 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
     private final ModelPart doubleChestLeftLid;
     private final ModelPart doubleChestLeftBase;
     private final ModelPart doubleChestLeftLatch;
+    static SpriteIdentifier iron;
+    static SpriteIdentifier gold;
+    static SpriteIdentifier diamond;
+    static SpriteIdentifier netherite;
+    static SpriteIdentifier amethyst;
+    static SpriteIdentifier ironT;
+    static SpriteIdentifier goldT;
+    static SpriteIdentifier diamondT;
+    static SpriteIdentifier netheriteT;
+    static SpriteIdentifier amethystT;
 
 
     public ExtraChestEntityRenderer(BlockEntityRendererFactory.Context ctx) {
@@ -54,6 +65,17 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         this.doubleChestLeftBase = modelPart3.getChild("bottom");
         this.doubleChestLeftLid = modelPart3.getChild("lid");
         this.doubleChestLeftLatch = modelPart3.getChild("lock");
+        Identifier identifier = new Identifier("textures/atlas/chest.png");
+        iron =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron"));
+        gold = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold"));
+        diamond = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond"));
+        netherite = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite"));
+        amethyst = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst"));
+        ironT =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/iron"));
+        goldT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/gold"));
+        diamondT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/diamond"));
+        netheriteT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/netherite"));
+        amethystT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst"));
     }
 
     public static TexturedModelData getSingleTexturedModelData() {
@@ -107,17 +129,18 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
             g = 1.0F - g;
             g = 1.0F - g * g * g;
             int i = ((Int2IntFunction) propertySource2.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
-            Identifier identifier = new Identifier("textures/atlas/chest.png");
-            SpriteIdentifier spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron"));
-            if (entity instanceof GoldChestEntity) {
-                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold"));
-            } else if (entity instanceof DiamondChestEntity){
-                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond"));
-            } else if (entity instanceof NetheriteChestEntity){
-                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite"));
-            } else if (entity instanceof AmethystChestEntity){
-                spriteIdentifier = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst"));
-            }
+            SpriteIdentifier spriteIdentifier =
+                    entity instanceof IronChestEntity ? iron :
+                            entity instanceof GoldChestEntity ? gold :
+                                    entity instanceof DiamondChestEntity ? diamond :
+                                                    entity instanceof NetheriteChestEntity ? netherite :
+                                                                    entity instanceof AmethystChestEntity ? amethyst :
+                                                                            entity instanceof IronTrappedChestEntity ? ironT :
+                                                                                    entity instanceof GoldTrappedChestEntity ? goldT :
+                                                                                            entity instanceof DiamondTrappedChestEntity ? diamondT :
+                                                                                                    entity instanceof NetheriteTrappedChestEntity ? netheriteT :
+                                                                                                            entity instanceof AmethystTrappedChestEntity ? amethystT :
+                                                                                                                    iron;
             VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
             if (bl2) {
                 if (chestType == ChestType.LEFT) {

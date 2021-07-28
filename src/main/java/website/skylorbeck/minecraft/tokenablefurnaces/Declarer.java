@@ -13,6 +13,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
@@ -54,6 +55,12 @@ public class Declarer {
     public static BlockEntityType<DiamondChestEntity> DIAMONDCHESTENTITY;
     public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
     public static BlockEntityType<AmethystChestEntity> AMETHYSTCHESTENTITY;
+    
+    public static BlockEntityType<IronTrappedChestEntity> IRONTRAPPEDCHESTENTITY;
+    public static BlockEntityType<GoldTrappedChestEntity> GOLDTRAPPEDCHESTENTITY;
+    public static BlockEntityType<DiamondTrappedChestEntity> DIAMONDTRAPPEDCHESTENTITY;
+    public static BlockEntityType<NetheriteTrappedChestEntity> NETHERITETRAPPEDCHESTENTITY;
+    public static BlockEntityType<AmethystTrappedChestEntity> AMETHYSTTRAPPEDCHESTENTITY;
 
     public static ScreenHandlerType<IronScreenHandler> IRONSCREENHANDLER;
     public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
@@ -130,6 +137,17 @@ public class Declarer {
     public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTCHESTENTITY);
     public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 
+    public static Block ironTrappedChestBlock = new IronTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONTRAPPEDCHESTENTITY);
+    public static BlockItem ironTrappedChest = new BlockItem(ironTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block goldTrappedChestBlock = new GoldTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDTRAPPEDCHESTENTITY);
+    public static BlockItem goldTrappedChest = new BlockItem(goldTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+    public static Block diamondTrappedChestBlock = new DiamondTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDTRAPPEDCHESTENTITY);
+    public static BlockItem diamondTrappedChest = new BlockItem(diamondTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
+    public static Block netheriteTrappedChestBlock = new NetheriteTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITETRAPPEDCHESTENTITY);
+    public static BlockItem netheriteTrappedChest = new BlockItem(netheriteTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
+    public static Block amethystTrappedChestBlock = new AmethystTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTTRAPPEDCHESTENTITY);
+    public static BlockItem amethystTrappedChest = new BlockItem(amethystTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
+    
     public static Block ironShulkerBlock = new IronShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONSHULKERENTITY);
     public static BlockItem ironShulker = new BlockItem(ironShulkerBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block goldShulkerBlock = new GoldShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDSHULKERENTITY);
