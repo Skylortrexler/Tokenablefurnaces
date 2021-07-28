@@ -173,13 +173,13 @@ public class Declarer {
     public static Block ironBarrelBlock = new IronBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
     public static BlockItem ironBarrel = new BlockItem(ironBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block goldBarrelBlock = new GoldBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
-    public static BlockItem goldBarrel = new BlockItem(goldBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static BlockItem goldBarrel = new BlockItem(goldBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
     public static Block diamondBarrelBlock = new DiamondBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
-    public static BlockItem diamondBarrel = new BlockItem(diamondBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
-    public static Block netheriteBarrelBlock = new NetheriteBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
-    public static BlockItem netheriteBarrel = new BlockItem(netheriteBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static BlockItem diamondBarrel = new BlockItem(diamondBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.RARE));
+    public static Block netheriteBarrelBlock = new NetheriteBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).resistance(1200F).breakByTool(FabricToolTags.PICKAXES));
+    public static BlockItem netheriteBarrel = new BlockItem(netheriteBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).fireproof().rarity(Rarity.EPIC));
     public static Block amethystBarrelBlock = new AmethystBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
-    public static BlockItem amethystBarrel = new BlockItem(amethystBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static BlockItem amethystBarrel = new BlockItem(amethystBarrelBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 
     public static Item ironBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.COMMON).maxCount(1),128);
     public static Item goldBundle = new ExtraBundleItem(new FabricItemSettings().group(ItemGroup.TOOLS).rarity(Rarity.UNCOMMON).maxCount(1),192);
