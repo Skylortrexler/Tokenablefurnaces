@@ -133,14 +133,14 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                     entity instanceof IronChestEntity ? iron :
                             entity instanceof GoldChestEntity ? gold :
                                     entity instanceof DiamondChestEntity ? diamond :
-                                                    entity instanceof NetheriteChestEntity ? netherite :
-                                                                    entity instanceof AmethystChestEntity ? amethyst :
-                                                                            entity instanceof IronTrappedChestEntity ? ironT :
-                                                                                    entity instanceof GoldTrappedChestEntity ? goldT :
-                                                                                            entity instanceof DiamondTrappedChestEntity ? diamondT :
-                                                                                                    entity instanceof NetheriteTrappedChestEntity ? netheriteT :
-                                                                                                            entity instanceof AmethystTrappedChestEntity ? amethystT :
-                                                                                                                    iron;
+                                            entity instanceof NetheriteChestEntity ? netherite :
+                                                    entity instanceof AmethystChestEntity ? amethyst :
+                                                            entity instanceof IronTrappedChestEntity ? ironT :
+                                                                    entity instanceof GoldTrappedChestEntity ? goldT :
+                                                                            entity instanceof DiamondTrappedChestEntity ? diamondT :
+                                                                                    entity instanceof NetheriteTrappedChestEntity ? netheriteT :
+                                                                                            entity instanceof AmethystTrappedChestEntity ? amethystT :
+                                                                                                    iron;
             VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
             if (bl2) {
                 if (chestType == ChestType.LEFT) {
