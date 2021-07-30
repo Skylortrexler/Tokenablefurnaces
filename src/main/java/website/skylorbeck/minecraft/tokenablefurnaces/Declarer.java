@@ -84,12 +84,12 @@ public class Declarer {
     public static BlockEntityType<NetheriteBarrelEntity> NETHERITEBARRELENTITY;
     public static BlockEntityType<AmethystBarrelEntity> AMETHYSTBARRELENTITY;
 
-    public static Item ironToken = new Item(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS));
-    public static Item goldToken = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS));
-    public static Item diamondToken = new Item(new FabricItemSettings().rarity(Rarity.RARE).group(ItemGroup.MATERIALS));
-    public static Item netheriteToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
-    public static Item amethystToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
-    public static Item omniToken = new Item(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
+    public static Item ironToken = new TokenItem(new FabricItemSettings().rarity(Rarity.COMMON).group(ItemGroup.MATERIALS), TokenItem.Tier.Iron);
+    public static Item goldToken = new TokenItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ItemGroup.MATERIALS), TokenItem.Tier.Gold);
+    public static Item diamondToken = new TokenItem(new FabricItemSettings().rarity(Rarity.RARE).group(ItemGroup.MATERIALS), TokenItem.Tier.Diamond);
+    public static Item netheriteToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS), TokenItem.Tier.Netherite);
+    public static Item amethystToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS), TokenItem.Tier.Amethyst);
+    public static Item omniToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS), TokenItem.Tier.Omni);
 
     public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
     public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));

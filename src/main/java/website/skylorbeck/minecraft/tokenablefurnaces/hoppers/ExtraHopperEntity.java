@@ -406,8 +406,10 @@ public abstract class ExtraHopperEntity extends LootableContainerBlockEntity imp
         return this.inventory;
     }
 
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
-        this.inventory = list;
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        for (int i = 0; i < list.size(); i++) {
+            this.inventory.set(i,list.get(i));
+        }
     }
 
     public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, ExtraHopperEntity blockEntity) {

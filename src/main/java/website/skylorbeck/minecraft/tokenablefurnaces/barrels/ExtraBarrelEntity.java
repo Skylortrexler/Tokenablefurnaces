@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 public abstract class ExtraBarrelEntity  extends LootableContainerBlockEntity {
-    protected DefaultedList<ItemStack> inventory;
+    public DefaultedList<ItemStack> inventory;
     private ChestStateManager stateManager;
 
     public ExtraBarrelEntity(BlockEntityType blockEntityType, BlockPos pos, BlockState state) {
@@ -84,8 +84,10 @@ public abstract class ExtraBarrelEntity  extends LootableContainerBlockEntity {
         return this.inventory;
     }
 
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
-        this.inventory = list;
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        for (int i = 0; i < list.size(); i++) {
+            this.inventory.set(i,list.get(i));
+        }
     }
 
     protected Text getContainerName() {

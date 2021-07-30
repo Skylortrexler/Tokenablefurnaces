@@ -4,6 +4,11 @@
   "package": "website.skylorbeck.minecraft.tokenablefurnaces.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BarrelEntityAccessor",
+    "ChestEntityAccessor",
+    "FurnaceEntityAccessor",
+    "HopperEntityAccessor",
+    "ShulkerEntityAccessor",
     "XPFixMixin"
   ],
   "client": [

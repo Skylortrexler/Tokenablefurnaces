@@ -37,7 +37,7 @@ import java.util.stream.IntStream;
 public abstract class ExtraShulkerEntity extends LootableContainerBlockEntity implements SidedInventory {
     public static final String ITEMS_KEY = "Items";
     public int[] AVAILABLE_SLOTS = IntStream.range(0, 27).toArray();
-    DefaultedList<ItemStack> inventory;
+    public DefaultedList<ItemStack> inventory;
     private int viewerCount;
     private ExtraShulkerEntity.AnimationStage animationStage;
     private float animationProgress;
@@ -205,8 +205,10 @@ public abstract class ExtraShulkerEntity extends LootableContainerBlockEntity im
         return this.inventory;
     }
 
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
-        this.inventory = list;
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        for (int i = 0; i < list.size(); i++) {
+            this.inventory.set(i,list.get(i));
+        }
     }
 
     public int[] getAvailableSlots(Direction side) {

@@ -146,8 +146,10 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
         return this.inventory;
     }
 
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
-        this.inventory = list;
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        for (int i = 0; i < list.size(); i++) {
+            this.inventory.set(i,list.get(i));
+        }
     }
 
     public float getAnimationProgress(float tickDelta) {

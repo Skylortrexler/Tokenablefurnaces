@@ -61,7 +61,7 @@ public class ExtraFurnaceBlock extends AbstractExtraFurnaceBlock {
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{FACING, LIT});
+        builder.add(FACING, LIT);
         builder.add(DIM);
     }
 

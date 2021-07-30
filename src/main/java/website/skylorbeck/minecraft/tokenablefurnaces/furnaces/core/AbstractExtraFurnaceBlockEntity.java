@@ -56,7 +56,7 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
     private static final int[] TOP_SLOTS = new int[]{0};
     private static final int[] BOTTOM_SLOTS = new int[]{2, 1};
     private static final int[] SIDE_SLOTS = new int[]{1};
-    protected DefaultedList<ItemStack> inventory;
+    public DefaultedList<ItemStack> inventory;
     public int burnTime;
     public int fuelTime;
     public int cookTime;
@@ -454,4 +454,11 @@ public abstract class AbstractExtraFurnaceBlockEntity extends LockableContainerB
         }
 
         return list;
-    }}
+    }
+
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        for (int i = 0; i < list.size(); i++) {
+            this.inventory.set(i,list.get(i));
+        }
+    }
+}

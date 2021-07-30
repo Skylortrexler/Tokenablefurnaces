@@ -9,7 +9,8 @@ public class Tokenablefurnaces implements ModInitializer {
     }
 }
 //todo
-// chests
+// cook rotten flesh to rabbit hide
+// token system
 //  iron
 //   code
 //   recipe
@@ -22,12 +23,12 @@ public class Tokenablefurnaces implements ModInitializer {
 //  diamond
 //  netherite
 //  amethyst
-// trapped
-// barrel
-// shulker
-// bundles
-// cook rotten flesh to rabbit hide
 
+// trapped
+// chests
+// barrel
+// bundles
+// shulker
 // upgrade tokens
 // furnaces
 // blast
