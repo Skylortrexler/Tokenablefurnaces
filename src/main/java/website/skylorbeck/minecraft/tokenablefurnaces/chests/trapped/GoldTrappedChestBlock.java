@@ -6,7 +6,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestBlock;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldChestEntity;
 
 import java.util.function.Supplier;
 

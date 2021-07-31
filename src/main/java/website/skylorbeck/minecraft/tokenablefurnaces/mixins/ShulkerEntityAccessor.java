@@ -1,6 +1,5 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.mixins;
 
-import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;

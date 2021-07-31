@@ -8,7 +8,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
 
 public class AmethystBarrelEntity extends ExtraBarrelEntity{
     public AmethystBarrelEntity(BlockPos pos, BlockState state) {

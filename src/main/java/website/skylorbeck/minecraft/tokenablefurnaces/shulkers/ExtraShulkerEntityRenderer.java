@@ -16,14 +16,9 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.ShulkerEntityModel;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.AmethystChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.DiamondChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.GoldChestEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.NetheriteChestEntity;
 
 @Environment(EnvType.CLIENT)
 public class ExtraShulkerEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T> {
