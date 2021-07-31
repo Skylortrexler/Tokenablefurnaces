@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
+import org.spongepowered.asm.mixin.Mutable;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
@@ -27,6 +28,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.mixins.TokenItemAccessor;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 public class Declarer {

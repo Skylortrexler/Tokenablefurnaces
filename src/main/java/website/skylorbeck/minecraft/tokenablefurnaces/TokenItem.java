@@ -18,10 +18,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.barrels.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.ExtraHopperEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.BarrelEntityAccessor;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.ChestEntityAccessor;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.FurnaceEntityAccessor;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.ShulkerEntityAccessor;
+import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.ExtraShulkerEntity;
 
 import java.util.logging.Level;
@@ -34,6 +31,9 @@ public class TokenItem extends Item {
     public TokenItem(Settings settings, Tier tier) {
         super(settings);
         this.tier = tier;
+        if (this.tier == Tier.Omni){
+            ((TokenItemAccessor)this).setRecipeRemainder(this);
+        }
     }
 
     @Override
@@ -475,5 +475,15 @@ public class TokenItem extends Item {
         for (int i = 0; i <5 ; i++) {
             ExtraHopperEntity.getInventoryAt(world,blockPos).setStack(i,newInventory.get(i));
         }
+    }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return this.tier == Tier.Omni;
+    }
+
+    @Override
+    public boolean hasRecipeRemainder() {
+        return this.tier == Tier.Omni;
     }
 }
