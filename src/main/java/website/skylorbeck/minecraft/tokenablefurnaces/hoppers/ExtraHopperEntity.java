@@ -35,8 +35,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public abstract class ExtraHopperEntity extends LootableContainerBlockEntity implements Hopper {
-    public static final int field_31341 = 8;
-    public static final int field_31342 = 5;
     private DefaultedList<ItemStack> inventory;
     private int transferCooldown;
     private long lastTickTime;
