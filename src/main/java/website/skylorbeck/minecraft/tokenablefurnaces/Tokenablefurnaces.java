@@ -10,7 +10,6 @@ public class Tokenablefurnaces implements ModInitializer {
 }
 //todo
 // known issues:
-// hoppers pop items out when upgraded
 
 //todo
 // cook rotten flesh to rabbit hide
