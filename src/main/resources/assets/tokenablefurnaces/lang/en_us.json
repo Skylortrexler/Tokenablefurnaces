@@ -52,6 +52,7 @@
   "item.tokenablefurnaces.amethysttoken": "Amethyst Token",
   "item.tokenablefurnaces.omnitoken": "Omni Token",
 
+  "text.autoconfig.tokenablefurnaces.title": "Tokenable Furnaces Config",
   "text.autoconfig.tokenablefurnaces.option.hopperMulti": "Hopper Multiplier",
   "text.autoconfig.tokenablefurnaces.option.tokens": "Tokens Enabled",
   "text.autoconfig.tokenablefurnaces.option.upgrades": "Upgrade Toggles",
