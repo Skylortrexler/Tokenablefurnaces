@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AbstractScreenHandler;
 
 public class ChestTabWidget extends DrawableHelper implements Drawable, Element, Selectable {
     protected ChestTabClickable tab1;
@@ -68,15 +69,15 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-//        if (tabCount > 0 && tab1.mouseClicked(mouseX,mouseY,button)){
-//            tab1.setToggled(true);
-//            tab2.setToggled(false);
-//            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(0);
-//        } else if (tabCount > 1 && tab2.mouseClicked(mouseX,mouseY,button)){
-//            tab2.setToggled(true);
-//            tab1.setToggled(false);
-//            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(1);
-//        }
+        if (tabCount > 0 && tab1.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(true);
+            tab2.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(0);
+        } else if (tabCount > 1 && tab2.mouseClicked(mouseX,mouseY,button)){
+            tab2.setToggled(true);
+            tab1.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(1);
+        }
         return Element.super.mouseClicked(mouseX, mouseY, button);
     }
 

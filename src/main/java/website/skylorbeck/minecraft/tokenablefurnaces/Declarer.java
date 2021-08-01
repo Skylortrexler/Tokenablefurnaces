@@ -12,10 +12,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
 import org.spongepowered.asm.mixin.Mutable;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
@@ -69,6 +66,7 @@ public class Declarer {
     public static BlockEntityType<NetheriteTrappedChestEntity> NETHERITETRAPPEDCHESTENTITY;
     public static BlockEntityType<AmethystTrappedChestEntity> AMETHYSTTRAPPEDCHESTENTITY;
 
+    public static ScreenHandlerType<AbstractScreenHandler> ABSTRACTSCREENHANDLER;
     public static ScreenHandlerType<IronScreenHandler> IRONSCREENHANDLER;
     public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "id": "tokenablefurnaces",
-  "version": "${version}",
-  "name": "Tokenablefurnaces",
+  "version": "1.0.0",
+  "name": "Tokenable Furnaces",
   "description": "A series of upgradable items with tokens",
   "authors": [
     "Skylor Beck"
@@ -11,7 +11,7 @@
     "homepage": "https://www.skylorbeck.website",
     "issues": "https://github.com/Skylortrexler/Tokenablefurnaces/issues"
   },
-  "license": "MIT",
+  "license": "GPLv3",
   "icon": "assets/tokenablefurnaces/icon.png",
   "environment": "*",
   "entrypoints": {
