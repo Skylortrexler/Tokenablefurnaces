@@ -27,6 +27,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 import java.util.Iterator;
 import java.util.List;
@@ -150,6 +151,7 @@ public abstract class ExtraHopperEntity extends LootableContainerBlockEntity imp
         } else if (be instanceof AmethystHopperEntity){
             amount = 8;
         }
+        amount = amount * Ref.hopperMulti;
         if (inventory2 == null) {
             return false;
         } else {

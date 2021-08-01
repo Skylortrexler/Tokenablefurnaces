@@ -50,5 +50,31 @@
   "item.tokenablefurnaces.diamondtoken": "Diamond Token",
   "item.tokenablefurnaces.netheritetoken": "Netherite Token",
   "item.tokenablefurnaces.amethysttoken": "Amethyst Token",
-  "item.tokenablefurnaces.omnitoken": "Omni Token"
+  "item.tokenablefurnaces.omnitoken": "Omni Token",
+
+  "text.autoconfig.tokenablefurnaces.option.hopperMulti": "Hopper Multiplier",
+  "text.autoconfig.tokenablefurnaces.option.tokens": "Tokens Enabled",
+  "text.autoconfig.tokenablefurnaces.option.upgrades": "Upgrade Toggles",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeTrapped": "Trapped Chests",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeFurnaces": "Furnaces",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeBlast": "Blast Furnaces",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeSmoker": "Smokers",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeHoppers": "Hoppers",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeShulkers": "Shulkers",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeChests": "Chests",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.canUpgradeBarrels": "Barrels",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.barrels": "Barrels",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.chests": "Chests",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.trapped": "Trapped Chests",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.furnaces": "Furnaces",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.blasts": "Blast Furnaces",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.smokers": "Smokers",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.hoppers": "Hoppers",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.shulkers": "Shulkers",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.bundles": "Bundles",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles": "Block Toggles",
+
+  "text.autoconfig.tokenablefurnaces.option.hopperMulti.@Tooltip": "Multiplies items per tick by this amount",
+  "text.autoconfig.tokenablefurnaces.option.upgrades.@Tooltip": "(En/Dis)able the ability to upgrade blocks",
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.@Tooltip": "(En/Dis)able individual block types completely"
 }
