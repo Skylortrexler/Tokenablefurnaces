@@ -44,7 +44,7 @@ public class Ref {
     }
 
     public static void getSomeSettings() {
-        hopperMulti = 1;
+        hopperMulti = config.hopperMulti;
         canUpgradeBarrels = config.upgrades.canUpgradeBarrels;
         canUpgradeChests = config.upgrades.canUpgradeChests;
         canUpgradeTrapped = config.upgrades.canUpgradeTrapped;

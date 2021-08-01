@@ -221,7 +221,18 @@ public abstract class ExtraHopperEntity extends LootableContainerBlockEntity imp
         ItemStack itemStack = inventory.getStack(slot);
         if (!itemStack.isEmpty() && canExtract(inventory, itemStack, slot, side)) {
             ItemStack itemStack2 = itemStack.copy();
-            ItemStack itemStack3 = transfer(inventory, hopper, inventory.removeStack(slot, 1), (Direction)null);
+            int amount = 1;
+            if (hopper instanceof IronHopperEntity){
+                amount = 2;
+            } else if (hopper instanceof GoldHopperEntity){
+                amount = 4;
+            } else if (hopper instanceof DiamondHopperEntity){
+                amount = 6;
+            } else if (hopper instanceof AmethystHopperEntity){
+                amount = 8;
+            }
+            amount = amount * Ref.hopperMulti;
+            ItemStack itemStack3 = transfer(inventory, hopper, inventory.removeStack(slot, amount), (Direction)null);
             if (itemStack3.isEmpty()) {
                 inventory.markDirty();
                 return true;
