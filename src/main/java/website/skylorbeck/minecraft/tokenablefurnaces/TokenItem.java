@@ -42,164 +42,173 @@ public class TokenItem extends Item {
         World world = context.getWorld();
         BlockState block = world.getBlockState(context.getBlockPos());
         BlockPos blockPos = context.getBlockPos();
-        if (block.isOf(Blocks.FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironFurnaceBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldFurnaceBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondFurnaceBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondFurnaceBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteFurnaceBlock) && (tier == Tier.Omni)) {
-            upgradeFurnace(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeFurnaces) {
+            if (block.isOf(Blocks.FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironFurnaceBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldFurnaceBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondFurnaceBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondFurnaceBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteFurnaceBlock) && (tier == Tier.Omni)) {
+                upgradeFurnace(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-
-        else if (block.isOf(Blocks.BLAST_FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironBlastBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldBlastBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondBlastBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondBlastBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteBlastBlock) && (tier == Tier.Omni)) {
-            upgradeBlastFurnace(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeBlast) {
+            if (block.isOf(Blocks.BLAST_FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironBlastBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldBlastBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondBlastBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondBlastBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteBlastBlock) && (tier == Tier.Omni)) {
+                upgradeBlastFurnace(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-        
-        else if (block.isOf(Blocks.SMOKER) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironSmokerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldSmokerBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondSmokerBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondSmokerBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteSmokerBlock) && (tier == Tier.Omni)) {
-            upgradeSmoker(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeSmoker) {
+            if (block.isOf(Blocks.SMOKER) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironSmokerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldSmokerBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondSmokerBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondSmokerBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteSmokerBlock) && (tier == Tier.Omni)) {
+                upgradeSmoker(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-        
-        else if (block.isOf(Blocks.CHEST) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironChestBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldChestBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondChestBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondChestBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteChestBlock) && (tier == Tier.Omni)) {
-            upgradeChest(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeChests) {
+            if (block.isOf(Blocks.CHEST) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironChestBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldChestBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondChestBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondChestBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteChestBlock) && (tier == Tier.Omni)) {
+                upgradeChest(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-
-        else if (block.isOf(Blocks.TRAPPED_CHEST) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironTrappedChestBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldTrappedChestBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondTrappedChestBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondTrappedChestBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteTrappedChestBlock) && (tier == Tier.Omni)) {
-            upgradeTrappedChest(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeTrapped) {
+            if (block.isOf(Blocks.TRAPPED_CHEST) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironTrappedChestBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldTrappedChestBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondTrappedChestBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondTrappedChestBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteTrappedChestBlock) && (tier == Tier.Omni)) {
+                upgradeTrappedChest(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-
-        else if (block.isOf(Blocks.BARREL) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironBarrelBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldBarrelBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondBarrelBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondBarrelBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteBarrelBlock) && (tier == Tier.Omni)) {
-            upgradeBarrel(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeBarrels) {
+            if (block.isOf(Blocks.BARREL) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironBarrelBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldBarrelBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondBarrelBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondBarrelBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteBarrelBlock) && (tier == Tier.Omni)) {
+                upgradeBarrel(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-
-        else if (block.isOf(Blocks.SHULKER_BOX) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironShulkerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldShulkerBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondShulkerBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondShulkerBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteShulkerBlock) && (tier == Tier.Omni)) {
-            upgradeShulker(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeShulkers) {
+            if (block.isOf(Blocks.SHULKER_BOX) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironShulkerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldShulkerBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondShulkerBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondShulkerBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteShulkerBlock) && (tier == Tier.Omni)) {
+                upgradeShulker(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
-
-        else if (block.isOf(Blocks.HOPPER) && (tier == Tier.Iron || tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Iron);
-            consume = true;
-        } else if (block.isOf(Declarer.ironHopperBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Gold);
-            consume = true;
-        } else if (block.isOf(Declarer.goldHopperBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Diamond);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondHopperBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Netherite);
-            consume = true;
-        } else if (block.isOf(Declarer.diamondHopperBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Amethyst);
-            consume = true;
-        } else if (block.isOf(Declarer.netheriteHopperBlock) && (tier == Tier.Omni)) {
-            upgradeHopper(world, block, blockPos, Tier.Amethyst);
-            consume = true;
+        if (Ref.canUpgradeHoppers) {
+            if (block.isOf(Blocks.HOPPER) && (tier == Tier.Iron || tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Iron);
+                consume = true;
+            } else if (block.isOf(Declarer.ironHopperBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Gold);
+                consume = true;
+            } else if (block.isOf(Declarer.goldHopperBlock) && (tier == Tier.Diamond || tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Diamond);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondHopperBlock) && (tier == Tier.Netherite || tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Netherite);
+                consume = true;
+            } else if (block.isOf(Declarer.diamondHopperBlock) && (tier == Tier.Amethyst || tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            } else if (block.isOf(Declarer.netheriteHopperBlock) && (tier == Tier.Omni)) {
+                upgradeHopper(world, block, blockPos, Tier.Amethyst);
+                consume = true;
+            }
         }
         /*if (block.isOf(Blocks.FURNACE)|| block.getBlock() instanceof ExtraFurnaceBlock) {
             upgradeFurnace(world, block, blockPos, tier);
@@ -218,7 +227,7 @@ public class TokenItem extends Item {
         } else if (block.isOf(Blocks.HOPPER) || block.getBlock() instanceof ExtraHopperBlock){
             upgradeHopper(world,block,blockPos,tier);
         }*/
-        if (this.tier != Tier.Omni && consume){
+        if (this.tier != Tier.Omni && consume) {
             context.getStack().decrement(1);
         }
         return ActionResult.CONSUME;

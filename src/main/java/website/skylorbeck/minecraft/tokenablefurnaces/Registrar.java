@@ -241,109 +241,117 @@ public class Registrar {
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(12*15),12,15));
         Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(18*20),18,20));
 
-        regItem("irontoken", Declarer.ironToken);
-        regItem("goldtoken", Declarer.goldToken);
-        regItem("diamondtoken", Declarer.diamondToken);
-        regItem("netheritetoken", Declarer.netheriteToken);
-        regItem("amethysttoken", Declarer.amethystToken);
-        regItem("omnitoken", Declarer.omniToken);
-
-        regBlock("ironfurnace", Declarer.ironFurnaceBlock);
-        regItem("ironfurnaceitem", Declarer.ironFurnace);
-        regBlock("ironblast", Declarer.ironBlastBlock);
-        regItem("ironblastitem", Declarer.ironBlast);
-        regBlock("ironsmoker", Declarer.ironSmokerBlock);
-        regItem("ironsmokeritem", Declarer.ironSmoker);
-
-        regBlock("goldfurnace", Declarer.goldFurnaceBlock);
-        regItem("goldfurnaceitem", Declarer.goldFurnace);
-        regBlock("goldblast", Declarer.goldBlastBlock);
-        regItem("goldblastitem", Declarer.goldBlast);
-        regBlock("goldsmoker", Declarer.goldSmokerBlock);
-        regItem("goldsmokeritem", Declarer.goldSmoker);
-
-        regBlock("diamondfurnace", Declarer.diamondFurnaceBlock);
-        regItem("diamondfurnaceitem", Declarer.diamondFurnace);
-        regBlock("diamondblast", Declarer.diamondBlastBlock);
-        regItem("diamondblastitem", Declarer.diamondBlast);
-        regBlock("diamondsmoker", Declarer.diamondSmokerBlock);
-        regItem("diamondsmokeritem", Declarer.diamondSmoker);
-        
-        regBlock("netheritefurnace", Declarer.netheriteFurnaceBlock);
-        regItem("netheritefurnaceitem", Declarer.netheriteFurnace);
-        regBlock("netheriteblast", Declarer.netheriteBlastBlock);
-        regItem("netheriteblastitem", Declarer.netheriteBlast);
-        regBlock("netheritesmoker", Declarer.netheriteSmokerBlock);
-        regItem("netheritesmokeritem", Declarer.netheriteSmoker);
-
-        regBlock("amethystfurnace", Declarer.amethystFurnaceBlock);
-        regItem("amethystfurnaceitem", Declarer.amethystFurnace);
-        regBlock("amethystblast", Declarer.amethystBlastBlock);
-        regItem("amethystblastitem", Declarer.amethystBlast);
-        regBlock("amethystsmoker", Declarer.amethystSmokerBlock);
-        regItem("amethystsmokeritem", Declarer.amethystSmoker);
-
-        regBlock("ironhopper", Declarer.ironHopperBlock);
-        regItem("ironhopperitem",Declarer.ironHopper);
-        regBlock("goldhopper", Declarer.goldHopperBlock);
-        regItem("goldhopperitem",Declarer.goldHopper);
-        regBlock("diamondhopper", Declarer.diamondHopperBlock);
-        regItem("diamondhopperitem",Declarer.diamondHopper);
-        regBlock("netheritehopper", Declarer.netheriteHopperBlock);
-        regItem("netheritehopperitem",Declarer.netheriteHopper);
-        regBlock("amethysthopper", Declarer.amethystHopperBlock);
-        regItem("amethysthopperitem",Declarer.amethystHopper);
-
-        regBlock("ironchest", Declarer.ironChestBlock);
-        regItem("ironchestitem", Declarer.ironChest);
-        regBlock("goldchest", Declarer.goldChestBlock);
-        regItem("goldchestitem", Declarer.goldChest);
-        regBlock("diamondchest", Declarer.diamondChestBlock);
-        regItem("diamondchestitem", Declarer.diamondChest);
-        regBlock("netheritechest", Declarer.netheriteChestBlock);
-        regItem("netheritechestitem", Declarer.netheriteChest);
-        regBlock("amethystchest", Declarer.amethystChestBlock);
-        regItem("amethystchestitem", Declarer.amethystChest);
-        
-        regBlock("irontrappedchest", Declarer.ironTrappedChestBlock);
-        regItem("irontrappedchestitem", Declarer.ironTrappedChest);
-        regBlock("goldtrappedchest", Declarer.goldTrappedChestBlock);
-        regItem("goldtrappedchestitem", Declarer.goldTrappedChest);
-        regBlock("diamondtrappedchest", Declarer.diamondTrappedChestBlock);
-        regItem("diamondtrappedchestitem", Declarer.diamondTrappedChest);
-        regBlock("netheritetrappedchest", Declarer.netheriteTrappedChestBlock);
-        regItem("netheritetrappedchestitem", Declarer.netheriteTrappedChest);
-        regBlock("amethysttrappedchest", Declarer.amethystTrappedChestBlock);
-        regItem("amethysttrappedchestitem", Declarer.amethystTrappedChest);
-
-        regBlock("ironshulker", Declarer.ironShulkerBlock);
-        regItem("ironshulkeritem", Declarer.ironShulker);
-        regBlock("goldshulker", Declarer.goldShulkerBlock);
-        regItem("goldshulkeritem", Declarer.goldShulker);
-        regBlock("diamondshulker", Declarer.diamondShulkerBlock);
-        regItem("diamondshulkeritem", Declarer.diamondShulker);
-        regBlock("netheriteshulker", Declarer.netheriteShulkerBlock);
-        regItem("netheriteshulkeritem", Declarer.netheriteShulker);
-        regBlock("amethystshulker", Declarer.amethystShulkerBlock);
-        regItem("amethystshulkeritem", Declarer.amethystShulker);
-
-        regBlock("ironbarrel", Declarer.ironBarrelBlock);
-        regItem("ironbarrelitem", Declarer.ironBarrel);
-        regBlock("goldbarrel", Declarer.goldBarrelBlock);
-        regItem("goldbarrelitem", Declarer.goldBarrel);
-        regBlock("diamondbarrel", Declarer.diamondBarrelBlock);
-        regItem("diamondbarrelitem", Declarer.diamondBarrel);
-        regBlock("netheritebarrel", Declarer.netheriteBarrelBlock);
-        regItem("netheritebarrelitem", Declarer.netheriteBarrel);
-        regBlock("amethystbarrel", Declarer.amethystBarrelBlock);
-        regItem("amethystbarrelitem", Declarer.amethystBarrel);
-        
-        regItem("ironbundle",Declarer.ironBundle);
-        regItem("goldbundle",Declarer.goldBundle);
-        regItem("diamondbundle",Declarer.diamondBundle);
-        regItem("netheritebundle",Declarer.netheriteBundle);
-        regItem("amethystbundle",Declarer.amethystBundle);
-
+        if (Ref.tokens) {
+            regItem("irontoken", Declarer.ironToken);
+            regItem("goldtoken", Declarer.goldToken);
+            regItem("diamondtoken", Declarer.diamondToken);
+            regItem("netheritetoken", Declarer.netheriteToken);
+            regItem("amethysttoken", Declarer.amethystToken);
+            regItem("omnitoken", Declarer.omniToken);
+        }
+        if (Ref.furnaces) {
+            regBlock("ironfurnace", Declarer.ironFurnaceBlock);
+            regItem("ironfurnaceitem", Declarer.ironFurnace);
+            regBlock("goldfurnace", Declarer.goldFurnaceBlock);
+            regItem("goldfurnaceitem", Declarer.goldFurnace);
+            regBlock("diamondfurnace", Declarer.diamondFurnaceBlock);
+            regItem("diamondfurnaceitem", Declarer.diamondFurnace);
+            regBlock("netheritefurnace", Declarer.netheriteFurnaceBlock);
+            regItem("netheritefurnaceitem", Declarer.netheriteFurnace);
+            regBlock("amethystfurnace", Declarer.amethystFurnaceBlock);
+            regItem("amethystfurnaceitem", Declarer.amethystFurnace);
+        }
+        if (Ref.blasts){
+            regBlock("ironblast", Declarer.ironBlastBlock);
+            regItem("ironblastitem", Declarer.ironBlast);
+            regBlock("goldblast", Declarer.goldBlastBlock);
+            regItem("goldblastitem", Declarer.goldBlast);
+            regBlock("diamondblast", Declarer.diamondBlastBlock);
+            regItem("diamondblastitem", Declarer.diamondBlast);
+            regBlock("netheriteblast", Declarer.netheriteBlastBlock);
+            regItem("netheriteblastitem", Declarer.netheriteBlast);
+            regBlock("amethystblast", Declarer.amethystBlastBlock);
+            regItem("amethystblastitem", Declarer.amethystBlast);
+        }
+        if (Ref.smokers){
+            regBlock("ironsmoker", Declarer.ironSmokerBlock);
+            regItem("ironsmokeritem", Declarer.ironSmoker);
+            regBlock("goldsmoker", Declarer.goldSmokerBlock);
+            regItem("goldsmokeritem", Declarer.goldSmoker);
+            regBlock("diamondsmoker", Declarer.diamondSmokerBlock);
+            regItem("diamondsmokeritem", Declarer.diamondSmoker);
+            regBlock("netheritesmoker", Declarer.netheriteSmokerBlock);
+            regItem("netheritesmokeritem", Declarer.netheriteSmoker);
+            regBlock("amethystsmoker", Declarer.amethystSmokerBlock);
+            regItem("amethystsmokeritem", Declarer.amethystSmoker);
+        }
+        if (Ref.hoppers){
+            regBlock("ironhopper", Declarer.ironHopperBlock);
+            regItem("ironhopperitem",Declarer.ironHopper);
+            regBlock("goldhopper", Declarer.goldHopperBlock);
+            regItem("goldhopperitem",Declarer.goldHopper);
+            regBlock("diamondhopper", Declarer.diamondHopperBlock);
+            regItem("diamondhopperitem",Declarer.diamondHopper);
+            regBlock("netheritehopper", Declarer.netheriteHopperBlock);
+            regItem("netheritehopperitem",Declarer.netheriteHopper);
+            regBlock("amethysthopper", Declarer.amethystHopperBlock);
+            regItem("amethysthopperitem",Declarer.amethystHopper);
+        }
+        if (Ref.chests){
+            regBlock("ironchest", Declarer.ironChestBlock);
+            regItem("ironchestitem", Declarer.ironChest);
+            regBlock("goldchest", Declarer.goldChestBlock);
+            regItem("goldchestitem", Declarer.goldChest);
+            regBlock("diamondchest", Declarer.diamondChestBlock);
+            regItem("diamondchestitem", Declarer.diamondChest);
+            regBlock("netheritechest", Declarer.netheriteChestBlock);
+            regItem("netheritechestitem", Declarer.netheriteChest);
+            regBlock("amethystchest", Declarer.amethystChestBlock);
+            regItem("amethystchestitem", Declarer.amethystChest);
+        }
+        if (Ref.trapped){
+            regBlock("irontrappedchest", Declarer.ironTrappedChestBlock);
+            regItem("irontrappedchestitem", Declarer.ironTrappedChest);
+            regBlock("goldtrappedchest", Declarer.goldTrappedChestBlock);
+            regItem("goldtrappedchestitem", Declarer.goldTrappedChest);
+            regBlock("diamondtrappedchest", Declarer.diamondTrappedChestBlock);
+            regItem("diamondtrappedchestitem", Declarer.diamondTrappedChest);
+            regBlock("netheritetrappedchest", Declarer.netheriteTrappedChestBlock);
+            regItem("netheritetrappedchestitem", Declarer.netheriteTrappedChest);
+            regBlock("amethysttrappedchest", Declarer.amethystTrappedChestBlock);
+            regItem("amethysttrappedchestitem", Declarer.amethystTrappedChest);
+        }
+        if (Ref.shulkers){
+            regBlock("ironshulker", Declarer.ironShulkerBlock);
+            regItem("ironshulkeritem", Declarer.ironShulker);
+            regBlock("goldshulker", Declarer.goldShulkerBlock);
+            regItem("goldshulkeritem", Declarer.goldShulker);
+            regBlock("diamondshulker", Declarer.diamondShulkerBlock);
+            regItem("diamondshulkeritem", Declarer.diamondShulker);
+            regBlock("netheriteshulker", Declarer.netheriteShulkerBlock);
+            regItem("netheriteshulkeritem", Declarer.netheriteShulker);
+            regBlock("amethystshulker", Declarer.amethystShulkerBlock);
+            regItem("amethystshulkeritem", Declarer.amethystShulker);
+        }
+        if (Ref.barrels){
+            regBlock("ironbarrel", Declarer.ironBarrelBlock);
+            regItem("ironbarrelitem", Declarer.ironBarrel);
+            regBlock("goldbarrel", Declarer.goldBarrelBlock);
+            regItem("goldbarrelitem", Declarer.goldBarrel);
+            regBlock("diamondbarrel", Declarer.diamondBarrelBlock);
+            regItem("diamondbarrelitem", Declarer.diamondBarrel);
+            regBlock("netheritebarrel", Declarer.netheriteBarrelBlock);
+            regItem("netheritebarrelitem", Declarer.netheriteBarrel);
+            regBlock("amethystbarrel", Declarer.amethystBarrelBlock);
+            regItem("amethystbarrelitem", Declarer.amethystBarrel);
+        }
+        if (Ref.bundles){
+            regItem("ironbundle",Declarer.ironBundle);
+            regItem("goldbundle",Declarer.goldBundle);
+            regItem("diamondbundle",Declarer.diamondBundle);
+            regItem("netheritebundle",Declarer.netheriteBundle);
+            regItem("amethystbundle",Declarer.amethystBundle);
+        }
 
     }
 

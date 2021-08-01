@@ -1,5 +1,6 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.client;
 
+import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
@@ -17,17 +18,19 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronHandled
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.config.ModConfig;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 @net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)
 public class TokenablefurnacesClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        AutoConfig.getGuiRegistry(ModConfig.class);
+
         ScreenRegistry.register(Declarer.IRONSCREENHANDLER, IronHandledScreen::new);
         ScreenRegistry.register(Declarer.GOLDSCREENHANDLER, GoldHandledScreen::new);
         ScreenRegistry.register(Declarer.DIAMONDSCREENHANDLER, DiamondHandledScreen::new);
         ScreenRegistry.register(Declarer.AMETHYSTSCREENHANDLER, AmethystHandledScreen::new);
-
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/chest.png")).register((atlasTexture, registry) -> {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/iron"));
@@ -95,7 +98,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteShulkerEntity(BlockPos.ORIGIN,Declarer.netheriteShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystShulkerEntity(BlockPos.ORIGIN,Declarer.amethystShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
-
 
         FabricModelPredicateProviderRegistry.register(Declarer.ironBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);

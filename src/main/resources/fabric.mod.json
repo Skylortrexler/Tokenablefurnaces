@@ -20,6 +20,9 @@
     ],
     "main": [
       "website.skylorbeck.minecraft.tokenablefurnaces.Tokenablefurnaces"
+    ],
+    "modmenu": [
+      "website.skylorbeck.minecraft.tokenablefurnaces.config.ConfigEntry"
     ]
   },
   "mixins": [
