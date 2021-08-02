@@ -42,6 +42,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 import java.util.List;
 import java.util.Optional;
@@ -118,27 +119,27 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(CHEST_TYPE,ChestType.SINGLE).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
-//        ChestType chestType = ChestType.SINGLE;
-//        Direction direction = ctx.getPlayerFacing().getOpposite();
-//        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-//        boolean bl = ctx.shouldCancelInteraction();
-//        Direction direction2 = ctx.getSide();
-//        if (direction2.getAxis().isHorizontal() && bl) {
-//            Direction direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite());
-//            if (direction3 != null && direction3.getAxis() != direction2.getAxis()) {
-//                direction = direction3;
-//                chestType = direction3.rotateYCounterclockwise() == direction2.getOpposite() ? ChestType.RIGHT : ChestType.LEFT;
-//            }
-//        }
-//        if (chestType == ChestType.SINGLE && !bl) {
-//            if (direction == this.getNeighborChestDirection(ctx, direction.rotateYClockwise())) {
-//                chestType = ChestType.LEFT;
-//            } else if (direction == this.getNeighborChestDirection(ctx, direction.rotateYCounterclockwise())) {
-//                chestType = ChestType.RIGHT;
-//            }
-//        }
-//        return (BlockState)((BlockState)((BlockState)this.getDefaultState().with(FACING, direction)).with(CHEST_TYPE, chestType)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+//        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(CHEST_TYPE,ChestType.SINGLE).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
+        ChestType chestType = ChestType.SINGLE;
+        Direction direction = ctx.getPlayerFacing().getOpposite();
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+        boolean bl = ctx.shouldCancelInteraction();
+        Direction direction2 = ctx.getSide();
+        if (direction2.getAxis().isHorizontal() && bl) {
+            Direction direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite());
+            if (direction3 != null && direction3.getAxis() != direction2.getAxis()) {
+                direction = direction3;
+                chestType = direction3.rotateYCounterclockwise() == direction2.getOpposite() ? ChestType.RIGHT : ChestType.LEFT;
+            }
+        }
+        if (chestType == ChestType.SINGLE && !bl) {
+            if (direction == this.getNeighborChestDirection(ctx, direction.rotateYClockwise())) {
+                chestType = ChestType.LEFT;
+            } else if (direction == this.getNeighborChestDirection(ctx, direction.rotateYCounterclockwise())) {
+                chestType = ChestType.RIGHT;
+            }
+        }
+        return (BlockState)((BlockState)((BlockState)this.getDefaultState().with(FACING, direction)).with(CHEST_TYPE, chestType)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
     }
 
     public FluidState getFluidState(BlockState state) {
@@ -148,6 +149,9 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
     @Nullable
     private Direction getNeighborChestDirection(ItemPlacementContext ctx, Direction dir) {
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(dir));
+        if (!blockState.isOf(Declarer.pumpkinChestBlock) && !blockState.isOf(Declarer.christmasChestBlock)){
+            return null;
+        }
         return blockState.isOf(this) && blockState.get(CHEST_TYPE) == ChestType.SINGLE ? (Direction)blockState.get(FACING) : null;
     }
 

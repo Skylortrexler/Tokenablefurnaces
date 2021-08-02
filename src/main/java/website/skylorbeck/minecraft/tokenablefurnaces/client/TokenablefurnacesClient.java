@@ -35,6 +35,9 @@ public class TokenablefurnacesClient implements ClientModInitializer {
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/chest.png")).register((atlasTexture, registry) -> {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/iron"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_right"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/gold"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/diamond"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/netherite"));
@@ -45,6 +48,8 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/netherite"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst"));
         });
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.CHRISTMASCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.PUMPKINCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.GOLDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDCHESTENTITY, ExtraChestEntityRenderer::new);
@@ -55,26 +60,42 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITETRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.christmasChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new ChristmasChestEntity(BlockPos.ORIGIN, Declarer.christmasChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.pumpkinChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new PumpkinChestEntity(BlockPos.ORIGIN, Declarer.pumpkinChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.ironChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronChestEntity(BlockPos.ORIGIN,Declarer.ironChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronChestEntity(BlockPos.ORIGIN, Declarer.ironChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.goldChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldChestEntity(BlockPos.ORIGIN,Declarer.goldChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldChestEntity(BlockPos.ORIGIN, Declarer.goldChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.diamondChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondChestEntity(BlockPos.ORIGIN,Declarer.diamondChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondChestEntity(BlockPos.ORIGIN, Declarer.diamondChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.netheriteChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteChestEntity(BlockPos.ORIGIN,Declarer.netheriteChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteChestEntity(BlockPos.ORIGIN, Declarer.netheriteChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystChestEntity(BlockPos.ORIGIN,Declarer.amethystChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystChestEntity(BlockPos.ORIGIN, Declarer.amethystChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.ironTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronTrappedChestEntity(BlockPos.ORIGIN,Declarer.ironTrappedChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronTrappedChestEntity(BlockPos.ORIGIN, Declarer.ironTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.goldTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldTrappedChestEntity(BlockPos.ORIGIN,Declarer.goldTrappedChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldTrappedChestEntity(BlockPos.ORIGIN, Declarer.goldTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.diamondTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondTrappedChestEntity(BlockPos.ORIGIN,Declarer.diamondTrappedChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondTrappedChestEntity(BlockPos.ORIGIN, Declarer.diamondTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.netheriteTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteTrappedChestEntity(BlockPos.ORIGIN,Declarer.netheriteTrappedChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteTrappedChestEntity(BlockPos.ORIGIN, Declarer.netheriteTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystTrappedChestEntity(BlockPos.ORIGIN,Declarer.amethystTrappedChestBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystTrappedChestEntity(BlockPos.ORIGIN, Declarer.amethystTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
 
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/shulker_boxes.png")).register((atlasTexture, registry) -> {
@@ -90,29 +111,34 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITESHULKERENTITY, ExtraShulkerEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTSHULKERENTITY, ExtraShulkerEntityRenderer::new);
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.ironShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronShulkerEntity(BlockPos.ORIGIN,Declarer.ironShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronShulkerEntity(BlockPos.ORIGIN, Declarer.ironShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.goldShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldShulkerEntity(BlockPos.ORIGIN,Declarer.goldShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new GoldShulkerEntity(BlockPos.ORIGIN, Declarer.goldShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.diamondShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondShulkerEntity(BlockPos.ORIGIN,Declarer.diamondShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DiamondShulkerEntity(BlockPos.ORIGIN, Declarer.diamondShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.netheriteShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteShulkerEntity(BlockPos.ORIGIN,Declarer.netheriteShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new NetheriteShulkerEntity(BlockPos.ORIGIN, Declarer.netheriteShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystShulkerEntity(BlockPos.ORIGIN,Declarer.amethystShulkerBlock.getDefaultState()),matrices,vertexConsumers,light,overlay);});
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystShulkerEntity(BlockPos.ORIGIN, Declarer.amethystShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
 
-        FabricModelPredicateProviderRegistry.register(Declarer.ironBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+        FabricModelPredicateProviderRegistry.register(Declarer.ironBundle, new Identifier("filled"), (stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);
         });
-        FabricModelPredicateProviderRegistry.register(Declarer.goldBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+        FabricModelPredicateProviderRegistry.register(Declarer.goldBundle, new Identifier("filled"), (stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);
         });
-        FabricModelPredicateProviderRegistry.register(Declarer.diamondBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+        FabricModelPredicateProviderRegistry.register(Declarer.diamondBundle, new Identifier("filled"), (stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);
         });
-        FabricModelPredicateProviderRegistry.register(Declarer.netheriteBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+        FabricModelPredicateProviderRegistry.register(Declarer.netheriteBundle, new Identifier("filled"), (stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);
         });
-        FabricModelPredicateProviderRegistry.register(Declarer.amethystBundle,new Identifier("filled"),(stack, world, entity, seed) -> {
+        FabricModelPredicateProviderRegistry.register(Declarer.amethystBundle, new Identifier("filled"), (stack, world, entity, seed) -> {
             return ExtraBundleItem.getAmountFilled(stack);
         });
     }

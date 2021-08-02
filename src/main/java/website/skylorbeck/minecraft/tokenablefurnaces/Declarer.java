@@ -54,6 +54,8 @@ public class Declarer {
     public static BlockEntityType<DiamondHopperEntity> DIAMONDHOPPERENTITY;
     public static BlockEntityType<AmethystHopperEntity> AMETHYSTHOPPERENTITY;
 
+    public static BlockEntityType<PumpkinChestEntity> PUMPKINCHESTENTITY;
+    public static BlockEntityType<ChristmasChestEntity> CHRISTMASCHESTENTITY;
     public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
     public static BlockEntityType<GoldChestEntity> GOLDCHESTENTITY;
     public static BlockEntityType<DiamondChestEntity> DIAMONDCHESTENTITY;
@@ -137,6 +139,11 @@ public class Declarer {
     public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.EPIC));
 
+
+    public static Block christmasChestBlock = new ChristmasChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.CHRISTMASCHESTENTITY);
+    public static BlockItem christmasChest = new BlockItem(christmasChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block pumpkinChestBlock = new PumpkinChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.PUMPKINCHESTENTITY);
+    public static BlockItem pumpkinChest = new BlockItem(pumpkinChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block ironChestBlock = new IronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONCHESTENTITY);
     public static BlockItem ironChest = new BlockItem(ironChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block goldChestBlock = new GoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDCHESTENTITY);

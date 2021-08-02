@@ -64,6 +64,9 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
                 } else if (player.currentScreenHandler instanceof AmethystScreenHandler) {
                     Inventory inventory = ((AmethystScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
+                } else if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
+                    Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
+                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else {
                     return false;
                 }

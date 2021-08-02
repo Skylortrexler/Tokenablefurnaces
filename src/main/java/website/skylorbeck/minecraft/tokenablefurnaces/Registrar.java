@@ -126,6 +126,16 @@ public class Registrar {
                 ).build(null));
 
 
+        Declarer.CHRISTMASCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":christmaschest",
+                FabricBlockEntityTypeBuilder.create(ChristmasChestEntity::new,
+                        Declarer.christmasChestBlock
+                ).build(null));
+        Declarer.PUMPKINCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":pumpkinchest",
+                FabricBlockEntityTypeBuilder.create(PumpkinChestEntity::new,
+                        Declarer.pumpkinChestBlock
+                ).build(null));
         Declarer.IRONCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":ironchest",
                 FabricBlockEntityTypeBuilder.create(IronChestEntity::new,
@@ -298,6 +308,10 @@ public class Registrar {
             regItem("amethysthopperitem",Declarer.amethystHopper);
         }
         if (Ref.chests){
+            regBlock("christmaschest",Declarer.christmasChestBlock);
+            regItem("christmaschestitem",Declarer.christmasChest);
+            regBlock("pumpkinchest",Declarer.pumpkinChestBlock);
+            regItem("pumpkinchestitem",Declarer.pumpkinChest);
             regBlock("ironchest", Declarer.ironChestBlock);
             regItem("ironchestitem", Declarer.ironChest);
             regBlock("goldchest", Declarer.goldChestBlock);
