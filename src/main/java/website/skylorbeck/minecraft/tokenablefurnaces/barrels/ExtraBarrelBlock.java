@@ -2,6 +2,7 @@ package website.skylorbeck.minecraft.tokenablefurnaces.barrels;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,13 +16,17 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
+import java.util.List;
 import java.util.Random;
 
 public abstract class ExtraBarrelBlock extends BlockWithEntity {
@@ -108,7 +113,23 @@ public abstract class ExtraBarrelBlock extends BlockWithEntity {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
     }
-
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        if (stack.getItem() == Declarer.ironBarrel){
+            tooltip.add(Text.of("1 Double Chest"));
+        } else if (stack.getItem() == Declarer.goldBarrel){
+            tooltip.add(Text.of("2 Double Chests"));
+        } else if (stack.getItem() == Declarer.diamondBarrel){
+            tooltip.add(Text.of("4 Double Chests"));
+        } else if (stack.getItem() == Declarer.netheriteBarrel){
+            tooltip.add(Text.of("4 Double Chests"));
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        } else if (stack.getItem() == Declarer.amethystBarrel){
+            tooltip.add(Text.of("8 Double Chests"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
+    }
     static {
         FACING = Properties.FACING;
         OPEN = Properties.OPEN;

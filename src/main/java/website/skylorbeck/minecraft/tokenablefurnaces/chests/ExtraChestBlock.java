@@ -150,9 +150,9 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
     @Nullable
     private Direction getNeighborChestDirection(ItemPlacementContext ctx, Direction dir) {
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(dir));
-        if (!blockState.isOf(Declarer.pumpkinChestBlock) && !blockState.isOf(Declarer.christmasChestBlock)){
+        /*if (!blockState.isOf(Declarer.pumpkinChestBlock) && !blockState.isOf(Declarer.christmasChestBlock)){
             return null;
-        }
+        }*/
         return blockState.isOf(this) && blockState.get(CHEST_TYPE) == ChestType.SINGLE ? (Direction)blockState.get(FACING) : null;
     }
 
@@ -338,7 +338,7 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                         if (ExtraChestEntity.checkUnlocked(playerEntity) && ExtraChestEntity2.checkUnlocked(playerEntity)) {
                             ExtraChestEntity.checkLootInteraction(playerInventory.player);
                             ExtraChestEntity2.checkLootInteraction(playerInventory.player);
-                            return GenericContainerScreenHandler.createGeneric9x6(i, playerInventory, inventory);
+                            return GenericContainerScreenHandler.createGeneric9x6(i, playerInventory, inventory);//todo double chest screenhandlers
                         } else {
                             return null;
                         }
@@ -364,5 +364,21 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
         };
     }
 
-
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        if (stack.getItem() == Declarer.ironChest || stack.getItem() == Declarer.ironTrappedChest){
+            tooltip.add(Text.of("1 Double Chest"));
+        } else if (stack.getItem() == Declarer.goldChest || stack.getItem() == Declarer.goldTrappedChest){
+            tooltip.add(Text.of("2 Double Chests"));
+        } else if (stack.getItem() == Declarer.diamondChest || stack.getItem() == Declarer.diamondTrappedChest){
+            tooltip.add(Text.of("4 Double Chests"));
+        } else if (stack.getItem() == Declarer.netheriteChest || stack.getItem() == Declarer.netheriteTrappedChest){
+            tooltip.add(Text.of("4 Double Chests"));
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        } else if (stack.getItem() == Declarer.amethystChest || stack.getItem() == Declarer.amethystTrappedChest){
+            tooltip.add(Text.of("8 Double Chests"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
+    }
 }

@@ -26,5 +26,3 @@ public class Tokenablefurnaces implements ModInitializer {
 //todo
 // Dirt Chest
 // advancements
-// tooltip on token explaining upgradev
-// tooltips on everything

@@ -213,7 +213,7 @@ public abstract class ExtraShulkerBlock extends BlockWithEntity {
                         tooltip.add(Text.of("Blast Resistant"));
                         tooltip.add(Text.of("Lava/fireproof"));
                     } else if (stack.getItem() == Declarer.amethystShulker){
-                        tooltip.add(Text.of("6 Double Chests"));
+                        tooltip.add(Text.of("8 Double Chests"));
                     }
             }
         }
