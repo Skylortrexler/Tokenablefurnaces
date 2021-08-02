@@ -1,6 +1,7 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -13,13 +14,18 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
+import java.util.List;
 import java.util.Objects;
 
 
@@ -120,6 +126,23 @@ public abstract class AbstractExtraFurnaceBlock extends BlockWithEntity {//this 
        // builder.add(DIM);
     }
 
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        if (stack.getItem() == Declarer.ironFurnace || stack.getItem() == Declarer.ironBlast || stack.getItem() == Declarer.ironSmoker){
+            tooltip.add(Text.of("20% Faster"));
+        } else if (stack.getItem() == Declarer.goldFurnace || stack.getItem() == Declarer.goldBlast || stack.getItem() == Declarer.goldSmoker){
+            tooltip.add(Text.of("40% Faster"));
+        } else if (stack.getItem() == Declarer.diamondFurnace || stack.getItem() == Declarer.diamondBlast || stack.getItem() == Declarer.diamondSmoker){
+            tooltip.add(Text.of("60% Faster"));
+        } else if (stack.getItem() == Declarer.netheriteFurnace || stack.getItem() == Declarer.netheriteBlast || stack.getItem() == Declarer.netheriteSmoker){
+            tooltip.add(Text.of("60% Faster"));
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        } else if (stack.getItem() == Declarer.amethystFurnace || stack.getItem() == Declarer.amethystBlast || stack.getItem() == Declarer.amethystSmoker){
+            tooltip.add(Text.of("80% Faster"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
+    }
 }
 
 

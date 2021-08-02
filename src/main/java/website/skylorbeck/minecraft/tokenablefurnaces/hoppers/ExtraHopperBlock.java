@@ -3,6 +3,7 @@ package website.skylorbeck.minecraft.tokenablefurnaces.hoppers;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.Hopper;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -15,6 +16,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
@@ -24,6 +26,11 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
+
+import java.util.List;
 
 public abstract class ExtraHopperBlock extends BlockWithEntity {
     public static final DirectionProperty FACING;
@@ -147,6 +154,24 @@ public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity pl
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        if (stack.getItem() == Declarer.ironHopper ){
+            tooltip.add(Text.of(2* Ref.hopperMulti + " Items per tick"));
+        } else if (stack.getItem() == Declarer.goldHopper ){
+            tooltip.add(Text.of(4* Ref.hopperMulti + " Items per tick"));
+        } else if (stack.getItem() == Declarer.diamondHopper){
+            tooltip.add(Text.of(6* Ref.hopperMulti + " Items per tick"));
+        } else if (stack.getItem() == Declarer.netheriteHopper){
+            tooltip.add(Text.of(6* Ref.hopperMulti + " Items per tick"));
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        } else if (stack.getItem() == Declarer.amethystHopper){
+            tooltip.add(Text.of(8* Ref.hopperMulti + " Items per tick"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
     }
 
     static {

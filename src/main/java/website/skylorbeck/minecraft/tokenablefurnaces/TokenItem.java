@@ -6,14 +6,17 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.HopperBlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
@@ -21,6 +24,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.ExtraShulkerEntity;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -494,5 +498,13 @@ public class TokenItem extends Item {
     @Override
     public boolean hasRecipeRemainder() {
         return this.tier == Tier.Omni;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.of("Right click on"));
+        tooltip.add(Text.of("Furnaces or Storage"));
+        tooltip.add(Text.of("to upgrade them"));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }

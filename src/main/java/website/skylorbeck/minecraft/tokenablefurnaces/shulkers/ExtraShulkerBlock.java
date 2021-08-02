@@ -37,6 +37,8 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 import java.util.List;
@@ -199,6 +201,20 @@ public abstract class ExtraShulkerBlock extends BlockWithEntity {
                 if (j - i > 0) {
                     tooltip.add((new TranslatableText("container.shulkerBox.more", j - i)).formatted(Formatting.ITALIC));
                 }
+            } else {
+                    if (stack.getItem() == Declarer.ironShulker ){
+                        tooltip.add(Text.of("1 Double Chest"));
+                    } else if (stack.getItem() == Declarer.goldShulker ){
+                        tooltip.add(Text.of("2 Double Chests"));
+                    } else if (stack.getItem() == Declarer.diamondShulker){
+                        tooltip.add(Text.of("4 Double Chests"));
+                    } else if (stack.getItem() == Declarer.netheriteShulker){
+                        tooltip.add(Text.of("4 Double Chests"));
+                        tooltip.add(Text.of("Blast Resistant"));
+                        tooltip.add(Text.of("Lava/fireproof"));
+                    } else if (stack.getItem() == Declarer.amethystShulker){
+                        tooltip.add(Text.of("6 Double Chests"));
+                    }
             }
         }
 
@@ -285,8 +301,11 @@ public abstract class ExtraShulkerBlock extends BlockWithEntity {
         return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
     }
 
+
     static {
         FACING = FacingBlock.FACING;
         CONTENTS = new Identifier("contents");
     }
+
+
 }

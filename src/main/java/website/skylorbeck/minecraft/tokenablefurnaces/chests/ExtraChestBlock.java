@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.block.ChestAnimationProgress;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.mob.PiglinBrain;
@@ -362,4 +363,6 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
             }
         };
     }
+
+
 }
