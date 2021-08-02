@@ -29,7 +29,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
 
         ScreenRegistry.register(Declarer.IRONSCREENHANDLER, IronHandledScreen::new);
         ScreenRegistry.register(Declarer.GOLDSCREENHANDLER, GoldHandledScreen::new);
-//        ScreenRegistry.register(Declarer.ABSTRACTSCREENHANDLER, GoldHandledScreen::new);
         ScreenRegistry.register(Declarer.DIAMONDSCREENHANDLER, DiamondHandledScreen::new);
         ScreenRegistry.register(Declarer.AMETHYSTSCREENHANDLER, AmethystHandledScreen::new);
 

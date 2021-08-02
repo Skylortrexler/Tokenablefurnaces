@@ -10,46 +10,14 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ChestTabWidget;
 
-public class IronHandledScreen extends HandledScreen<ScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/iron.png");
-    private ChestTabWidget tabWidget;
+public class IronHandledScreen extends AbstractHandledScreen {
 
     public IronHandledScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
-
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (this.tabWidget.mouseClicked(mouseX, mouseY, button)) {
-            this.setFocused(this.tabWidget);
-            return true;
-        } else {
-            return super.mouseClicked(mouseX, mouseY, button);
-        }
-    }
-    @Override
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-    }
-
-    @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
-        super.render(matrices, mouseX, mouseY, delta);
-        drawMouseoverTooltip(matrices, mouseX, mouseY);
-        tabWidget.render(matrices,mouseX,mouseY,delta);
-
-    }
-
     @Override
     protected void init() {
-        this.backgroundHeight = 222;
-        this.playerInventoryTitleY = this.backgroundHeight - 94;
-        this.tabWidget = new ChestTabWidget(this, (width - backgroundWidth) / 2,(height - backgroundHeight) / 2, backgroundWidth, backgroundHeight,0);
         super.init();
+        super.tabWidget = new ChestTabWidget(this, (width - backgroundWidth) / 2,(height - backgroundHeight) / 2, backgroundWidth, backgroundHeight,0);
     }
 }

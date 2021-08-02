@@ -13,6 +13,12 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AbstractScr
 public class ChestTabWidget extends DrawableHelper implements Drawable, Element, Selectable {
     protected ChestTabClickable tab1;
     protected ChestTabClickable tab2;
+    protected ChestTabClickable tab3;
+    protected ChestTabClickable tab4;
+    protected ChestTabClickable tab5;
+    protected ChestTabClickable tab6;
+    protected ChestTabClickable tab7;
+    protected ChestTabClickable tab8;
     private HandledScreen<?> screen;
     private int x;
     private int y;
@@ -34,10 +40,28 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
         tab1 = new ChestTabClickable(this.x, this.y + 8, Text.of("Tab 1"));
         tab1.setToggled(true);
         tab2 = new ChestTabClickable(this.x, this.y + 24, Text.of("Tab 2"));
+        tab3 = new ChestTabClickable(this.x, this.y + 40, Text.of("Tab 3"));
+        tab4 = new ChestTabClickable(this.x, this.y + 56, Text.of("Tab 4"));
+        tab5 = new ChestTabClickable(this.x, this.y + 72, Text.of("Tab 5"));
+        tab6 = new ChestTabClickable(this.x, this.y + 88, Text.of("Tab 6"));
+        tab7 = new ChestTabClickable(this.x, this.y + 104, Text.of("Tab 7"));
+        tab8 = new ChestTabClickable(this.x, this.y + 120, Text.of("Tab 8"));
     }
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         switch (tabCount){
+            case 8:
+                tab8.render(matrices,mouseX,mouseY,delta);
+            case 7:
+                tab7.render(matrices,mouseX,mouseY,delta);
+            case 6:
+                tab6.render(matrices,mouseX,mouseY,delta);
+            case 5:
+                tab5.render(matrices,mouseX,mouseY,delta);
+            case 4:
+                tab4.render(matrices,mouseX,mouseY,delta);
+            case 3:
+                tab3.render(matrices,mouseX,mouseY,delta);
             case 2:
                 tab2.render(matrices,mouseX,mouseY,delta);
             case 1:
@@ -72,11 +96,83 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
         if (tabCount > 0 && tab1.mouseClicked(mouseX,mouseY,button)){
             tab1.setToggled(true);
             tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
             ((AbstractScreenHandler)screen.getScreenHandler()).setTab(0);
         } else if (tabCount > 1 && tab2.mouseClicked(mouseX,mouseY,button)){
-            tab2.setToggled(true);
             tab1.setToggled(false);
+            tab2.setToggled(true);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
             ((AbstractScreenHandler)screen.getScreenHandler()).setTab(1);
+        } else if (tabCount > 2 && tab3.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(true);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(2);
+        } else if (tabCount > 3 && tab4.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(true);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(3);
+        } else if (tabCount > 4 && tab5.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(true);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(4);
+        } else if (tabCount > 5 && tab6.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(true);
+            tab7.setToggled(false);
+            tab8.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(5);
+        } else if (tabCount > 6 && tab7.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(true);
+            tab8.setToggled(false);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(6);
+        } else if (tabCount > 7 && tab8.mouseClicked(mouseX,mouseY,button)){
+            tab1.setToggled(false);
+            tab2.setToggled(false);
+            tab3.setToggled(false);
+            tab4.setToggled(false);
+            tab5.setToggled(false);
+            tab6.setToggled(false);
+            tab7.setToggled(false);
+            tab8.setToggled(true);
+            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(7);
         }
         return Element.super.mouseClicked(mouseX, mouseY, button);
     }

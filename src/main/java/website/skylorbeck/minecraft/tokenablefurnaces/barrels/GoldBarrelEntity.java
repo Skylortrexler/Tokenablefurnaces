@@ -7,20 +7,20 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AbstractScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
 
 public class GoldBarrelEntity extends ExtraBarrelEntity{
     public GoldBarrelEntity(BlockPos pos, BlockState state) {
         super(Declarer.GOLDBARRELENTITY, pos, state);
-        this.inventory = DefaultedList.ofSize(6*15, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(12*9, ItemStack.EMPTY);
     }
     @Override
     public int size() {
-        return 6*15;
+        return 12*9;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-//        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
-        return new GoldScreenHandler(syncId, playerInventory, this,6,15);
+        return new GoldScreenHandler(syncId, playerInventory, this,12,9);
     }
 }

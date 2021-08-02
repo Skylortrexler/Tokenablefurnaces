@@ -12,15 +12,15 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScr
 public class AmethystBarrelEntity extends ExtraBarrelEntity{
     public AmethystBarrelEntity(BlockPos pos, BlockState state) {
         super(Declarer.AMETHYSTBARRELENTITY, pos, state);
-        this.inventory = DefaultedList.ofSize(18*20, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(48*9, ItemStack.EMPTY);
     }
     @Override
     public int size() {
-        return 18*20;
+        return 48*9;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
-        return new AmethystScreenHandler(syncId, playerInventory, this,18,20);
+        return new AmethystScreenHandler(syncId, playerInventory, this,48,9);
     }
 }

@@ -12,15 +12,15 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScre
 public class NetheriteBarrelEntity extends ExtraBarrelEntity{
     public NetheriteBarrelEntity(BlockPos pos, BlockState state) {
         super(Declarer.NETHERITEBARRELENTITY, pos, state);
-        this.inventory = DefaultedList.ofSize(12*15, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(24*9, ItemStack.EMPTY);
     }
     @Override
     public int size() {
-        return 12*15;
+        return 24*9;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
-        return new DiamondScreenHandler(syncId, playerInventory, this,12,15);
+        return new DiamondScreenHandler(syncId, playerInventory, this,24,9);
     }
 }

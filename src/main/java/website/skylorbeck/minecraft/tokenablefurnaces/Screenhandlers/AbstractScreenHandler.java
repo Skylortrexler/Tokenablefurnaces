@@ -5,25 +5,25 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
+import website.skylorbeck.minecraft.tokenablefurnaces.mixins.SlotAccessor;
 
-public class AbstractScreenHandler extends ScreenHandler {
+public abstract class AbstractScreenHandler extends ScreenHandler {
     private final Inventory inventory;
-    private final PlayerInventory playerInventory;
     private final int rows;
     private final int width;
     public int curTab = 0;
 
-    public AbstractScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
-        super(Declarer.ABSTRACTSCREENHANDLER, syncId);
+    public AbstractScreenHandler(ScreenHandlerType screenHandlerType, int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
+        super(screenHandlerType, syncId);
         checkSize(inventory, rows*width);
         this.rows = rows;
         this.width = width;
         this.inventory = inventory;
-        this.playerInventory = playerInventory;
         inventory.onOpen(playerInventory.player);
 
         int i =36;
@@ -31,8 +31,13 @@ public class AbstractScreenHandler extends ScreenHandler {
         int n;
         int m;
         for(n = 0; n < this.rows; ++n) {
-            for(m = 0; m < this.width; ++m) {
-                this.addSlot(new Slot(inventory, m + n * this.width, 8 + m * 18, 18 + n * 18));
+            for(m = 0; m < 9; ++m) {
+                int x = -10000;
+                int index = m +n*9;
+                if (index<54){
+                    x =  8 + m * 18;
+                }
+                this.addSlot(new Slot(inventory, index,x, 18 + n * 18));
             }
         }
 
@@ -91,5 +96,18 @@ public class AbstractScreenHandler extends ScreenHandler {
 
     public void setTab(int tab){
         this.curTab = tab;
+        int n;
+        int m;
+        for(n = 0; n < this.rows; ++n) {
+            for(m = 0; m < 9; ++m) {
+                int index = m +n*9;
+                ((SlotAccessor)slots.get(index)).setX(-10000);
+                ((SlotAccessor)slots.get(index)).setY(-10000);
+                if (index>=54*curTab && index<54*(curTab+1)){
+                    ((SlotAccessor)slots.get(index)).setX(8 + m * 18);
+                    ((SlotAccessor)slots.get(index)).setY(18 + (n-(6*curTab)) * 18);
+                }
+            }
+        }
     }
 }

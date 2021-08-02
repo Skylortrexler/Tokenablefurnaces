@@ -68,9 +68,8 @@ public class Declarer {
     public static BlockEntityType<NetheriteTrappedChestEntity> NETHERITETRAPPEDCHESTENTITY;
     public static BlockEntityType<AmethystTrappedChestEntity> AMETHYSTTRAPPEDCHESTENTITY;
 
-    public static ScreenHandlerType<AbstractScreenHandler> ABSTRACTSCREENHANDLER;
     public static ScreenHandlerType<IronScreenHandler> IRONSCREENHANDLER;
-    public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
+    public static ScreenHandlerType<AbstractScreenHandler> GOLDSCREENHANDLER;
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
 
