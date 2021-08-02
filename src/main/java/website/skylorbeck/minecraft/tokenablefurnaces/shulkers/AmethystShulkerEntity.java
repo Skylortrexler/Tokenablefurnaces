@@ -14,16 +14,16 @@ import java.util.stream.IntStream;
 public class AmethystShulkerEntity extends ExtraShulkerEntity{
     public AmethystShulkerEntity(BlockPos pos, BlockState state) {
         super(Declarer.AMETHYSTSHULKERENTITY,pos, state);
-        this.inventory = DefaultedList.ofSize(18*20, ItemStack.EMPTY);
-        this.AVAILABLE_SLOTS = IntStream.range(0, 18*20).toArray();
+        this.inventory = DefaultedList.ofSize(48*9, ItemStack.EMPTY);
+        this.AVAILABLE_SLOTS = IntStream.range(0, 48*9).toArray();
     }
     @Override
     public int size() {
-        return 18*20;
+        return 48*9;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
-        return new AmethystScreenHandler(syncId, playerInventory, this,18,20);
+        return new AmethystScreenHandler(syncId, playerInventory, this,48,9);
     }
 }

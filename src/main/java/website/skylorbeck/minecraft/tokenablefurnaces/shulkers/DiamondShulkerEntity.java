@@ -14,16 +14,16 @@ import java.util.stream.IntStream;
 public class DiamondShulkerEntity extends ExtraShulkerEntity{
     public DiamondShulkerEntity(BlockPos pos, BlockState state) {
         super(Declarer.DIAMONDSHULKERENTITY,pos, state);
-        this.inventory = DefaultedList.ofSize(12*15, ItemStack.EMPTY);
-        this.AVAILABLE_SLOTS = IntStream.range(0, 12*15).toArray();
+        this.inventory = DefaultedList.ofSize(24*9, ItemStack.EMPTY);
+        this.AVAILABLE_SLOTS = IntStream.range(0, 24*9).toArray();
     }
     @Override
     public int size() {
-        return 12*15;
+        return 24*9;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
-        return new DiamondScreenHandler(syncId, playerInventory, this,12,15);
+        return new DiamondScreenHandler(syncId, playerInventory, this,24,9);
     }
 }

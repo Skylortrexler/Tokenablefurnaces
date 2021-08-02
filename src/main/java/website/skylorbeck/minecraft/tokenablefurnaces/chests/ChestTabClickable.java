@@ -30,7 +30,7 @@ public class ChestTabClickable extends ClickableWidget {
         int x = this.x;
         if (this.toggled) {
             i += this.pressedUOffset;
-            x += 6;
+//            x -= 6;
         }
 
         if (this.isHovered()) {

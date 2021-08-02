@@ -37,15 +37,15 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
     }
 
     public void init() {
-        tab1 = new ChestTabClickable(this.x, this.y + 8, Text.of("Tab 1"));
+        tab1 = new ChestTabClickable(this.x, this.y+4, Text.of("Tab 1"));
         tab1.setToggled(true);
-        tab2 = new ChestTabClickable(this.x, this.y + 24, Text.of("Tab 2"));
-        tab3 = new ChestTabClickable(this.x, this.y + 40, Text.of("Tab 3"));
-        tab4 = new ChestTabClickable(this.x, this.y + 56, Text.of("Tab 4"));
-        tab5 = new ChestTabClickable(this.x, this.y + 72, Text.of("Tab 5"));
-        tab6 = new ChestTabClickable(this.x, this.y + 88, Text.of("Tab 6"));
-        tab7 = new ChestTabClickable(this.x, this.y + 104, Text.of("Tab 7"));
-        tab8 = new ChestTabClickable(this.x, this.y + 120, Text.of("Tab 8"));
+        tab2 = new ChestTabClickable(this.x, this.y + 20, Text.of("Tab 2"));
+        tab3 = new ChestTabClickable(this.x, this.y + 36, Text.of("Tab 3"));
+        tab4 = new ChestTabClickable(this.x, this.y + 52, Text.of("Tab 4"));
+        tab5 = new ChestTabClickable(this.x, this.y + 68, Text.of("Tab 5"));
+        tab6 = new ChestTabClickable(this.x, this.y + 84, Text.of("Tab 6"));
+        tab7 = new ChestTabClickable(this.x, this.y + 100, Text.of("Tab 7"));
+        tab8 = new ChestTabClickable(this.x, this.y + 116, Text.of("Tab 8"));
     }
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
