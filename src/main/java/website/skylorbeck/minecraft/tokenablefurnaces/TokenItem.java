@@ -1,5 +1,8 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,9 +11,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.collection.DefaultedList;
@@ -23,13 +24,18 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtr
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.ExtraShulkerEntity;
+import website.skylorbeck.sentimentality3.sentimentality3.furnaces.ExtraFurnaceBlock;
 
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static website.skylorbeck.sentimentality3.sentimentality3.Declarer.*;
+import static website.skylorbeck.sentimentality3.sentimentality3.Declarer.deepslate_blast_furnaceblock;
+
 public class TokenItem extends Item {
     Tier tier;
+    boolean furn = false;
 
 
     public TokenItem(Settings settings, Tier tier) {
@@ -42,12 +48,25 @@ public class TokenItem extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+        furn = false;
         Boolean consume = false;
         World world = context.getWorld();
         BlockState block = world.getBlockState(context.getBlockPos());
         BlockPos blockPos = context.getBlockPos();
         if (Ref.canUpgradeFurnaces) {
-            if (block.isOf(Blocks.FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
+            if (Ref.sentimentalityPresent){
+                furn = block.isOf(sandstone_furnaceblock)
+                        ||block.isOf(red_sandstone_furnaceblock)
+                        ||block.isOf(andesite_furnaceblock)
+                        ||block.isOf(granite_furnaceblock)
+                        ||block.isOf(diorite_furnaceblock)
+                        ||block.isOf(netherrack_furnaceblock)
+                        ||block.isOf(blackstone_furnaceblock)
+                        ||block.isOf(basalt_furnaceblock)
+                        ||block.isOf(endstone_furnaceblock)
+                        ||block.isOf(deepslate_furnaceblock);
+            }
+            if (block.isOf(Blocks.FURNACE) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironFurnaceBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
@@ -68,7 +87,19 @@ public class TokenItem extends Item {
             }
         }
         if (Ref.canUpgradeBlast) {
-            if (block.isOf(Blocks.BLAST_FURNACE) && (tier == Tier.Iron || tier == Tier.Omni)) {
+            if (Ref.sentimentalityPresent){
+                furn = block.isOf(sandstone_blast_furnaceblock)
+                        ||block.isOf(red_sandstone_blast_furnaceblock)
+                        ||block.isOf(andesite_blast_furnaceblock)
+                        ||block.isOf(granite_blast_furnaceblock)
+                        ||block.isOf(diorite_blast_furnaceblock)
+                        ||block.isOf(netherrack_blast_furnaceblock)
+                        ||block.isOf(blackstone_blast_furnaceblock)
+                        ||block.isOf(basalt_blast_furnaceblock)
+                        ||block.isOf(endstone_blast_furnaceblock)
+                        ||block.isOf(deepslate_blast_furnaceblock);
+            }
+            if (block.isOf(Blocks.BLAST_FURNACE) || furn&& (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeBlastFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironBlastBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
@@ -89,7 +120,19 @@ public class TokenItem extends Item {
             }
         }
         if (Ref.canUpgradeSmoker) {
-            if (block.isOf(Blocks.SMOKER) && (tier == Tier.Iron || tier == Tier.Omni)) {
+            if (Ref.sentimentalityPresent){
+                furn = block.isOf(sandstone_smokerblock)
+                        ||block.isOf(red_sandstone_smokerblock)
+                        ||block.isOf(andesite_smokerblock)
+                        ||block.isOf(granite_smokerblock)
+                        ||block.isOf(diorite_smokerblock)
+                        ||block.isOf(netherrack_smokerblock)
+                        ||block.isOf(blackstone_smokerblock)
+                        ||block.isOf(basalt_smokerblock)
+                        ||block.isOf(endstone_smokerblock)
+                        ||block.isOf(deepslate_smokerblock);
+            }
+            if (block.isOf(Blocks.SMOKER) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeSmoker(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironSmokerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
@@ -260,7 +303,15 @@ public class TokenItem extends Item {
             fuelTime = ((FurnaceEntityAccessor) furnaceEntity).getFuelTime();
             cookTime = ((FurnaceEntityAccessor) furnaceEntity).getCookTime();
             cookTimeTotal = ((FurnaceEntityAccessor) furnaceEntity).getCookTimeTotal();
-        } else {
+        } else if (furn){
+            furnaceEntity = (website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity)world.getBlockEntity(blockPos);
+            inventory = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).inventory;
+            burnTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).burnTime;
+            fuelTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).fuelTime;
+            cookTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).cookTime;
+            cookTimeTotal = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).cookTimeTotal;
+        }
+        else {
             furnaceEntity = ((AbstractExtraFurnaceBlockEntity) world.getBlockEntity(blockPos));
             inventory = ((AbstractExtraFurnaceBlockEntity) furnaceEntity).inventory;
             burnTime = ((AbstractExtraFurnaceBlockEntity) furnaceEntity).burnTime;

@@ -1,6 +1,8 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
 import website.skylorbeck.minecraft.tokenablefurnaces.config.ModConfig;
 
 public class Ref {
@@ -27,6 +29,8 @@ public class Ref {
     public static boolean canUpgradeSmoker = true;
     public static boolean canUpgradeHoppers = true;
     public static boolean canUpgradeShulkers = true;
+
+    public static boolean sentimentalityPresent = false;
     
     
     public static void getSettings() {
@@ -40,6 +44,7 @@ public class Ref {
         hoppers = config.blockToggles.hoppers;
         shulkers = config.blockToggles.shulkers;
         bundles = config.blockToggles.bundles;
+        sentimentalityPresent = FabricLoader.getInstance().getModContainer("sentimentality3").isPresent();
         getSomeSettings();
     }
 
