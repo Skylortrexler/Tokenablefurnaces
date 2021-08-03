@@ -373,6 +373,10 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                                 translatableText = new TranslatableText("container.netheritechestdouble");
                             } else if (ExtraChestEntity2 instanceof AmethystChestEntity || ExtraChestEntity2 instanceof AmethystTrappedChestEntity){
                                 translatableText = new TranslatableText("container.amethystchestdouble");
+                            } else if (ExtraChestEntity2 instanceof ChristmasChestEntity){
+                                translatableText = new TranslatableText("container.festivechestdouble");
+                            } else if (ExtraChestEntity2 instanceof PumpkinChestEntity){
+                                translatableText = new TranslatableText("container.pumpkinchestdouble");
                             }
                             return (Text)(ExtraChestEntity2.hasCustomName() ? ExtraChestEntity2.getDisplayName() : translatableText);
                         }

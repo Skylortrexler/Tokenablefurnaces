@@ -24,5 +24,10 @@ public class Tokenablefurnaces implements ModInitializer {
 // known issues:
 
 //todo
+// shulker names
+// barrel names
 // Dirt Chest
+// dirt chest names
+// dirt chest screen
+// dirt chest double screen
 // advancements

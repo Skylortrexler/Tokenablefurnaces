@@ -26,6 +26,7 @@ import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 import java.util.List;
@@ -168,9 +169,20 @@ public abstract class ExtraShulkerEntity extends LootableContainerBlockEntity im
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("container.shulkerBox");
+        TranslatableText translatableText = new TranslatableText("container.shulker");
+        if (this instanceof IronShulkerEntity){
+            translatableText = new TranslatableText("container.ironshulker");
+        } else if (this instanceof GoldShulkerEntity){
+            translatableText = new TranslatableText("container.goldshulker");
+        } else if (this instanceof DiamondShulkerEntity){
+            translatableText = new TranslatableText("container.diamondshulker");
+        } else if (this instanceof NetheriteShulkerEntity){
+            translatableText = new TranslatableText("container.netheriteshulker");
+        } else if (this instanceof AmethystShulkerEntity){
+            translatableText = new TranslatableText("container.amethystshulker");
+        }
+        return translatableText;
     }
-
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         this.readInventoryNbt(nbt);

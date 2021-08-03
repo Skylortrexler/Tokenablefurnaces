@@ -201,20 +201,6 @@ public abstract class ExtraShulkerBlock extends BlockWithEntity {
                 if (j - i > 0) {
                     tooltip.add((new TranslatableText("container.shulkerBox.more", j - i)).formatted(Formatting.ITALIC));
                 }
-            } else {
-                    if (stack.getItem() == Declarer.ironShulker ){
-                        tooltip.add(Text.of("1 Double Chest"));
-                    } else if (stack.getItem() == Declarer.goldShulker ){
-                        tooltip.add(Text.of("2 Double Chests"));
-                    } else if (stack.getItem() == Declarer.diamondShulker){
-                        tooltip.add(Text.of("4 Double Chests"));
-                    } else if (stack.getItem() == Declarer.netheriteShulker){
-                        tooltip.add(Text.of("4 Double Chests"));
-                        tooltip.add(Text.of("Blast Resistant"));
-                        tooltip.add(Text.of("Lava/fireproof"));
-                    } else if (stack.getItem() == Declarer.amethystShulker){
-                        tooltip.add(Text.of("8 Double Chests"));
-                    }
             }
         }
 

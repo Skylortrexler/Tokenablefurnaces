@@ -93,6 +93,10 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             translatableText = new TranslatableText("container.netheritechest");
         } else if (this instanceof AmethystChestEntity || this instanceof AmethystTrappedChestEntity){
             translatableText = new TranslatableText("container.amethystchest");
+        } else if (this instanceof ChristmasChestEntity){
+            translatableText = new TranslatableText("container.festivechest");
+        } else if (this instanceof PumpkinChestEntity){
+            translatableText = new TranslatableText("container.pumpkinchest");
         }
             return translatableText;
     }

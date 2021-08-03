@@ -90,7 +90,19 @@ public abstract class ExtraBarrelEntity  extends LootableContainerBlockEntity {
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("container.barrel");
+        TranslatableText translatableText = new TranslatableText("container.barrel");
+        if (this instanceof IronBarrelEntity){
+            translatableText = new TranslatableText("container.ironbarrel");
+        } else if (this instanceof GoldBarrelEntity){
+            translatableText = new TranslatableText("container.goldbarrel");
+        } else if (this instanceof DiamondBarrelEntity){
+            translatableText = new TranslatableText("container.diamondbarrel");
+        } else if (this instanceof NetheriteBarrelEntity){
+            translatableText = new TranslatableText("container.netheritebarrel");
+        } else if (this instanceof AmethystBarrelEntity){
+            translatableText = new TranslatableText("container.amethystbarrel");
+        }
+        return translatableText;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
