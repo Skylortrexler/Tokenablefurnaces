@@ -24,3 +24,46 @@ public class Tokenablefurnaces implements ModInitializer {
 // known issues:
 
 //todo
+// redo tab textures to work with render order properly
+
+
+
+// Amethyst Chest
+//      Amethyst token
+//          8 Amethyst Shards
+//          Diamond Token
+//              6 Glass
+//              2 Diamond
+//              Gold token
+//                  8 Gold Ingots
+//                  Iron token
+//                      8 Iron Ingot
+//                      1 Planks
+//      Diamond Chest
+//          Diamond Token
+//              6 Glass
+//              2 Diamond
+//              Gold token
+//                  8 Gold Ingots
+//                  Iron token
+//                      8 Iron Ingot
+//                      1 Planks
+//          Gold Chest
+//              Gold token
+//                  8 Gold Ingots
+//                  Iron token
+//                      8 Iron Ingot
+//                      1 Planks
+//              Iron Chest
+//                  Iron token
+//                      8 Iron Ingot
+//                      1 Planks
+//                  Chest
+//                      8 Planks
+// Total
+// 12 Planks
+// 32 Iron Ingot
+// 24 Gold Ingot
+// 4 Diamond
+// 12 Glass
+// 8 Amethyst Shards

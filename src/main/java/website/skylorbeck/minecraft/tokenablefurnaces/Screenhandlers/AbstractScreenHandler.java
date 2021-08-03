@@ -16,7 +16,7 @@ public abstract class AbstractScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final int rows;
     private final int width;
-    public int curTab = 0;
+    private int curTab = 0;
 
     public AbstractScreenHandler(ScreenHandlerType screenHandlerType, int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
         super(screenHandlerType, syncId);
@@ -74,6 +74,7 @@ public abstract class AbstractScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
+    @Override
     public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = (Slot)this.slots.get(index);
@@ -84,7 +85,7 @@ public abstract class AbstractScreenHandler extends ScreenHandler {
                 if (!this.insertItem(itemStack2, this.rows * 9, this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(itemStack2, 0, this.rows * 9, false)) {
+            } else if (!this.insertItem(itemStack2, this.curTab*54, this.rows * 9, false)) {
                 return ItemStack.EMPTY;
             }
 

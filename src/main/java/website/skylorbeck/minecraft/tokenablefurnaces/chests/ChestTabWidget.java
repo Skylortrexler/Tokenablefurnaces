@@ -34,64 +34,65 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
     private int h;
     private int tabCount;
 
-    public ChestTabWidget(HandledScreen<?> screen, int x, int y, int w, int h,int tabCount) {
-    this.screen = screen;
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.tabCount = tabCount;
-    this.init();
+    public ChestTabWidget(HandledScreen<?> screen, int x, int y, int w, int h, int tabCount) {
+        this.screen = screen;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.tabCount = tabCount;
+        this.init();
     }
 
     public void init() {
-        tab1 = new ChestTabClickable(this.x, this.y+4, Text.of("Tab 1"),false);
+        tab1 = new ChestTabClickable(this.x, this.y + 4, Text.of("Tab 1"), false);
         tab1.setToggled(true);
-        tab2 = new ChestTabClickable(this.x, this.y + 20, Text.of("Tab 2"),false);
-        tab3 = new ChestTabClickable(this.x, this.y + 36, Text.of("Tab 3"),false);
-        tab4 = new ChestTabClickable(this.x, this.y + 52, Text.of("Tab 4"),false);
-        tab5 = new ChestTabClickable(this.x, this.y + 68, Text.of("Tab 5"),false);
-        tab6 = new ChestTabClickable(this.x, this.y + 84, Text.of("Tab 6"),false);
-        tab7 = new ChestTabClickable(this.x, this.y + 100, Text.of("Tab 7"),false);
-        tab8 = new ChestTabClickable(this.x, this.y + 116, Text.of("Tab 8"),false);
+        tab2 = new ChestTabClickable(this.x, this.y + 20, Text.of("Tab 2"), false);
+        tab3 = new ChestTabClickable(this.x, this.y + 36, Text.of("Tab 3"), false);
+        tab4 = new ChestTabClickable(this.x, this.y + 52, Text.of("Tab 4"), false);
+        tab5 = new ChestTabClickable(this.x, this.y + 68, Text.of("Tab 5"), false);
+        tab6 = new ChestTabClickable(this.x, this.y + 84, Text.of("Tab 6"), false);
+        tab7 = new ChestTabClickable(this.x, this.y + 100, Text.of("Tab 7"), false);
+        tab8 = new ChestTabClickable(this.x, this.y + 116, Text.of("Tab 8"), false);
 
-        tab9 = new ChestTabClickable(this.x+this.w, this.y + 4, Text.of("Tab 9"),true);
-        tab10 = new ChestTabClickable(this.x+this.w, this.y + 20, Text.of("Tab 10"),true);
-        tab11 = new ChestTabClickable(this.x+this.w, this.y + 36, Text.of("Tab 11"),true);
-        tab12 = new ChestTabClickable(this.x+this.w, this.y + 52, Text.of("Tab 12"),true);
-        tab13 = new ChestTabClickable(this.x+this.w, this.y + 68, Text.of("Tab 13"),true);
-        tab14 = new ChestTabClickable(this.x+this.w, this.y + 84, Text.of("Tab 14"),true);
-        tab15 = new ChestTabClickable(this.x+this.w, this.y + 100, Text.of("Tab 15"),true);
-        tab16 = new ChestTabClickable(this.x+this.w, this.y + 116, Text.of("Tab 16"),true);
+        tab9 = new ChestTabClickable(this.x + this.w, this.y + 4, Text.of("Tab 9"), true);
+        tab10 = new ChestTabClickable(this.x + this.w, this.y + 20, Text.of("Tab 10"), true);
+        tab11 = new ChestTabClickable(this.x + this.w, this.y + 36, Text.of("Tab 11"), true);
+        tab12 = new ChestTabClickable(this.x + this.w, this.y + 52, Text.of("Tab 12"), true);
+        tab13 = new ChestTabClickable(this.x + this.w, this.y + 68, Text.of("Tab 13"), true);
+        tab14 = new ChestTabClickable(this.x + this.w, this.y + 84, Text.of("Tab 14"), true);
+        tab15 = new ChestTabClickable(this.x + this.w, this.y + 100, Text.of("Tab 15"), true);
+        tab16 = new ChestTabClickable(this.x + this.w, this.y + 116, Text.of("Tab 16"), true);
     }
+
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        switch (tabCount){
+        switch (tabCount) {
             case 16:
-                tab9.render(matrices,mouseX,mouseY,delta);
-                tab10.render(matrices,mouseX,mouseY,delta);
-                tab11.render(matrices,mouseX,mouseY,delta);
-                tab12.render(matrices,mouseX,mouseY,delta);
-                tab13.render(matrices,mouseX,mouseY,delta);
-                tab14.render(matrices,mouseX,mouseY,delta);
-                tab15.render(matrices,mouseX,mouseY,delta);
-                tab16.render(matrices,mouseX,mouseY,delta);
+                tab9.render(matrices, mouseX, mouseY, delta);
+                tab10.render(matrices, mouseX, mouseY, delta);
+                tab11.render(matrices, mouseX, mouseY, delta);
+                tab12.render(matrices, mouseX, mouseY, delta);
+                tab13.render(matrices, mouseX, mouseY, delta);
+                tab14.render(matrices, mouseX, mouseY, delta);
+                tab15.render(matrices, mouseX, mouseY, delta);
+                tab16.render(matrices, mouseX, mouseY, delta);
             case 8:
-                tab8.render(matrices,mouseX,mouseY,delta);
+                tab8.render(matrices, mouseX, mouseY, delta);
             case 7:
-                tab7.render(matrices,mouseX,mouseY,delta);
+                tab7.render(matrices, mouseX, mouseY, delta);
             case 6:
-                tab6.render(matrices,mouseX,mouseY,delta);
+                tab6.render(matrices, mouseX, mouseY, delta);
             case 5:
-                tab5.render(matrices,mouseX,mouseY,delta);
+                tab5.render(matrices, mouseX, mouseY, delta);
             case 4:
-                tab4.render(matrices,mouseX,mouseY,delta);
+                tab4.render(matrices, mouseX, mouseY, delta);
             case 3:
-                tab3.render(matrices,mouseX,mouseY,delta);
+                tab3.render(matrices, mouseX, mouseY, delta);
             case 2:
-                tab2.render(matrices,mouseX,mouseY,delta);
+                tab2.render(matrices, mouseX, mouseY, delta);
             case 1:
-                tab1.render(matrices,mouseX,mouseY,delta);
+                tab1.render(matrices, mouseX, mouseY, delta);
             case 0:
                 break;
         }
@@ -119,7 +120,7 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (tabCount > 0 && tab1.mouseClicked(mouseX,mouseY,button)){
+        if (tabCount > 0 && tab1.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(true);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -136,8 +137,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(0);
-        } else if (tabCount > 1 && tab2.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(0);
+        } else if (tabCount > 1 && tab2.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(true);
             tab3.setToggled(false);
@@ -154,8 +155,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(1);
-        } else if (tabCount > 2 && tab3.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(1);
+        } else if (tabCount > 2 && tab3.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(true);
@@ -172,8 +173,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(2);
-        } else if (tabCount > 3 && tab4.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(2);
+        } else if (tabCount > 3 && tab4.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -190,8 +191,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(3);
-        } else if (tabCount > 4 && tab5.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(3);
+        } else if (tabCount > 4 && tab5.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -208,8 +209,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(4);
-        } else if (tabCount > 5 && tab6.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(4);
+        } else if (tabCount > 5 && tab6.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -226,8 +227,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(5);
-        } else if (tabCount > 6 && tab7.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(5);
+        } else if (tabCount > 6 && tab7.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -244,8 +245,8 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(6);
-        } else if (tabCount > 7 && tab8.mouseClicked(mouseX,mouseY,button)){
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(6);
+        } else if (tabCount > 7 && tab8.mouseClicked(mouseX, mouseY, button)) {
             tab1.setToggled(false);
             tab2.setToggled(false);
             tab3.setToggled(false);
@@ -262,7 +263,7 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
             tab14.setToggled(false);
             tab15.setToggled(false);
             tab16.setToggled(false);
-            ((AbstractScreenHandler)screen.getScreenHandler()).setTab(7);
+            ((AbstractScreenHandler) screen.getScreenHandler()).setTab(7);
         } else if (tabCount > 15) {
             if (tab9.mouseClicked(mouseX, mouseY, button)) {
                 tab1.setToggled(false);
@@ -451,5 +452,83 @@ public class ChestTabWidget extends DrawableHelper implements Drawable, Element,
     @Override
     public boolean isMouseOver(double mouseX, double mouseY) {
         return Element.super.isMouseOver(mouseX, mouseY);
+    }
+
+    public boolean isClickOutsideBounds() {
+        boolean result = true;
+        switch (tabCount) {
+            case 16:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered()
+                        && !tab5.isHovered()
+                        && !tab6.isHovered()
+                        && !tab7.isHovered()
+                        && !tab8.isHovered()
+                        && !tab9.isHovered()
+                        && !tab10.isHovered()
+                        && !tab11.isHovered()
+                        && !tab12.isHovered()
+                        && !tab13.isHovered()
+                        && !tab14.isHovered()
+                        && !tab15.isHovered()
+                        && !tab16.isHovered();
+                break;
+            case 8:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered()
+                        && !tab5.isHovered()
+                        && !tab6.isHovered()
+                        && !tab7.isHovered()
+                        && !tab8.isHovered();
+                break;
+            case 7:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered()
+                        && !tab5.isHovered()
+                        && !tab6.isHovered()
+                        && !tab7.isHovered();
+                break;
+            case 6:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered()
+                        && !tab5.isHovered()
+                        && !tab6.isHovered();
+                break;
+            case 5:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered()
+                        && !tab5.isHovered();
+                break;
+            case 4:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered()
+                        && !tab4.isHovered();
+                break;
+            case 3:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered()
+                        && !tab3.isHovered();
+                break;
+            case 2:
+                result = !tab1.isHovered()
+                        && !tab2.isHovered();
+                break;
+            case 1:
+                result = tab1.isHovered();
+            case 0:
+                break;
+        }
+        return result;
     }
 }
