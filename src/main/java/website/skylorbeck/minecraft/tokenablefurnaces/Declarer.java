@@ -72,6 +72,7 @@ public class Declarer {
     public static ScreenHandlerType<AbstractScreenHandler> GOLDSCREENHANDLER;
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
+    public static ScreenHandlerType<AmethystDoubleScreenHandler> AMETHYSTDOUBLESCREENHANDLER;
 
     public static BlockEntityType<IronShulkerEntity> IRONSHULKERENTITY;
     public static BlockEntityType<GoldShulkerEntity> GOLDSHULKERENTITY;

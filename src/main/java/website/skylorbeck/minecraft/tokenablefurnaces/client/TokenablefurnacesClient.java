@@ -11,10 +11,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystHandledScreen;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondHandledScreen;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldHandledScreen;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronHandledScreen;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
@@ -31,6 +28,7 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         ScreenRegistry.register(Declarer.GOLDSCREENHANDLER, GoldHandledScreen::new);
         ScreenRegistry.register(Declarer.DIAMONDSCREENHANDLER, DiamondHandledScreen::new);
         ScreenRegistry.register(Declarer.AMETHYSTSCREENHANDLER, AmethystHandledScreen::new);
+        ScreenRegistry.register(Declarer.AMETHYSTDOUBLESCREENHANDLER, AmethystDoubleHandledScreen::new);
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/chest.png")).register((atlasTexture, registry) -> {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin"));

@@ -15,9 +15,15 @@ public class ChestTabClickable extends ClickableWidget {
     protected int v = 0;
     protected int pressedUOffset = 33;
     protected int hoverVOffset = 17;
+    protected int flippedOffset = 65;
+    private boolean flipped = false;
 
-    public ChestTabClickable(int x, int y, Text message) {
+    public ChestTabClickable(int x, int y, Text message, boolean flipped) {
         super(x-29, y, 32, 16, message);
+        this.flipped = flipped;
+        if (flipped){
+            this.x+=25;
+        }
     }
 
     @Override
@@ -32,11 +38,13 @@ public class ChestTabClickable extends ClickableWidget {
             i += this.pressedUOffset;
 //            x -= 6;
         }
+        if (this.flipped){
+            i += this.flippedOffset;
+        }
 
         if (this.isHovered()) {
             j += this.hoverVOffset;
         }
-
         this.drawTexture(matrices, x, this.y, i, j, this.width, this.height);
         RenderSystem.enableDepthTest();
     }

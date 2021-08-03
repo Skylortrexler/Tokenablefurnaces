@@ -248,6 +248,7 @@ public class Registrar {
         Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(12*9),12,9));
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(24*9),24,9));
         Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(48*9),48,9));
+        Declarer.AMETHYSTDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystdoublescreen"), (syncId, inventory) -> new AmethystDoubleScreenHandler(syncId,inventory,new SimpleInventory(96*9),96,9));
 
         if (Ref.tokens) {
             regItem("irontoken", Declarer.ironToken);

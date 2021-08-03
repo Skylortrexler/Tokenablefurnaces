@@ -44,6 +44,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -338,7 +340,19 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                         if (ExtraChestEntity.checkUnlocked(playerEntity) && ExtraChestEntity2.checkUnlocked(playerEntity)) {
                             ExtraChestEntity.checkLootInteraction(playerInventory.player);
                             ExtraChestEntity2.checkLootInteraction(playerInventory.player);
-                            return GenericContainerScreenHandler.createGeneric9x6(i, playerInventory, inventory);//todo double chest screenhandlers
+                            ScreenHandler screenHandler = null;
+                            if (ExtraChestEntity instanceof IronChestEntity || ExtraChestEntity instanceof IronTrappedChestEntity){
+                                screenHandler =  new GoldScreenHandler(i, playerInventory, inventory,12,9);
+                            } else if (ExtraChestEntity instanceof GoldChestEntity || ExtraChestEntity instanceof GoldTrappedChestEntity){
+                                screenHandler =  new DiamondScreenHandler(i, playerInventory, inventory,24,9);
+                            } else if (ExtraChestEntity instanceof DiamondChestEntity || ExtraChestEntity instanceof DiamondTrappedChestEntity || ExtraChestEntity instanceof NetheriteChestEntity || ExtraChestEntity instanceof NetheriteTrappedChestEntity){
+                                screenHandler =  new AmethystScreenHandler(i, playerInventory, inventory,48,9);
+                            } else if (ExtraChestEntity instanceof AmethystChestEntity || ExtraChestEntity instanceof AmethystTrappedChestEntity){
+                                screenHandler =  new AmethystDoubleScreenHandler(i, playerInventory, inventory,96,9);
+                            } else {
+                                screenHandler = GenericContainerScreenHandler.createGeneric9x6(i,playerInventory,inventory);
+                            }
+                                return screenHandler;
                         } else {
                             return null;
                         }
