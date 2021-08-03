@@ -349,6 +349,8 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                                 screenHandler =  new AmethystScreenHandler(i, playerInventory, inventory,48,9);
                             } else if (ExtraChestEntity instanceof AmethystChestEntity || ExtraChestEntity instanceof AmethystTrappedChestEntity){
                                 screenHandler =  new AmethystDoubleScreenHandler(i, playerInventory, inventory,96,9);
+                            } else if (ExtraChestEntity instanceof DirtChestEntity){
+                                screenHandler =  new DirtDoubleScreenHandler(i, playerInventory, inventory,1,2);
                             } else {
                                 screenHandler = GenericContainerScreenHandler.createGeneric9x6(i,playerInventory,inventory);
                             }
@@ -377,6 +379,8 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                                 translatableText = new TranslatableText("container.festivechestdouble");
                             } else if (ExtraChestEntity2 instanceof PumpkinChestEntity){
                                 translatableText = new TranslatableText("container.pumpkinchestdouble");
+                            } else if (ExtraChestEntity2 instanceof DirtChestEntity){
+                                translatableText = new TranslatableText("container.dirtchestdouble");
                             }
                             return (Text)(ExtraChestEntity2.hasCustomName() ? ExtraChestEntity2.getDisplayName() : translatableText);
                         }

@@ -123,6 +123,11 @@ public class Registrar {
                 ).build(null));
 
 
+        Declarer.DIRTCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtchest",
+                FabricBlockEntityTypeBuilder.create(DirtChestEntity::new,
+                        Declarer.dirtChestBlock
+                ).build(null));
         Declarer.CHRISTMASCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":christmaschest",
                 FabricBlockEntityTypeBuilder.create(ChristmasChestEntity::new,
@@ -244,6 +249,8 @@ public class Registrar {
 
 
 //        Declarer.ABSTRACTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":extrascreen"), (syncId, inventory) -> new AbstractScreenHandler(syncId,inventory,new SimpleInventory(12*9),12,9));
+        Declarer.DIRTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtscreen"), (syncId, inventory) -> new DirtScreenHandler(syncId,inventory,new SimpleInventory(1),1,1));
+        Declarer.DIRTDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtdoublescreen"), (syncId, inventory) -> new DirtDoubleScreenHandler(syncId,inventory,new SimpleInventory(2),1,2));
         Declarer.IRONSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":ironscreen"), (syncId, inventory) -> new IronScreenHandler(syncId,inventory,new SimpleInventory(6*9),6,9));
         Declarer.GOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":goldscreen"), (syncId, inventory) -> new GoldScreenHandler(syncId,inventory,new SimpleInventory(12*9),12,9));
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(24*9),24,9));
@@ -307,6 +314,8 @@ public class Registrar {
             regItem("amethysthopperitem",Declarer.amethystHopper);
         }
         if (Ref.chests){
+            regBlock("dirtchest",Declarer.dirtChestBlock);
+            regItem("dirtchestitem",Declarer.dirtChest);
             regBlock("christmaschest",Declarer.christmasChestBlock);
             regItem("christmaschestitem",Declarer.christmasChest);
             regBlock("pumpkinchest",Declarer.pumpkinChestBlock);

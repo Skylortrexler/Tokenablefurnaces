@@ -24,10 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
@@ -53,10 +50,10 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             }
 
             protected boolean isPlayerViewing(PlayerEntity player) {
-                if (player.currentScreenHandler instanceof IronScreenHandler) {
-                    Inventory inventory = ((IronScreenHandler) player.currentScreenHandler).getInventory();
+                if (player.currentScreenHandler instanceof AbstractScreenHandler) {
+                    Inventory inventory = ((AbstractScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof GoldScreenHandler) {
+                }/* else if (player.currentScreenHandler instanceof GoldScreenHandler) {
                     Inventory inventory = ((GoldScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else if (player.currentScreenHandler instanceof DiamondScreenHandler) {
@@ -65,7 +62,10 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
                 } else if (player.currentScreenHandler instanceof AmethystScreenHandler) {
                     Inventory inventory = ((AmethystScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
+                } else if (player.currentScreenHandler instanceof DirtScreenHandler) {
+                    Inventory inventory = ((DirtScreenHandler) player.currentScreenHandler).getInventory();
+                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
+                }*/ else if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
                     Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else {
@@ -97,8 +97,10 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             translatableText = new TranslatableText("container.festivechest");
         } else if (this instanceof PumpkinChestEntity){
             translatableText = new TranslatableText("container.pumpkinchest");
+        } else if (this instanceof DirtChestEntity) {
+            translatableText = new TranslatableText("container.dirtchest");
         }
-            return translatableText;
+        return translatableText;
     }
 
     public void readNbt(NbtCompound nbt) {

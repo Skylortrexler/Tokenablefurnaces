@@ -57,6 +57,7 @@ public class Declarer {
     public static BlockEntityType<PumpkinChestEntity> PUMPKINCHESTENTITY;
     public static BlockEntityType<ChristmasChestEntity> CHRISTMASCHESTENTITY;
     public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
+    public static BlockEntityType<DirtChestEntity> DIRTCHESTENTITY;
     public static BlockEntityType<GoldChestEntity> GOLDCHESTENTITY;
     public static BlockEntityType<DiamondChestEntity> DIAMONDCHESTENTITY;
     public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
@@ -68,8 +69,10 @@ public class Declarer {
     public static BlockEntityType<NetheriteTrappedChestEntity> NETHERITETRAPPEDCHESTENTITY;
     public static BlockEntityType<AmethystTrappedChestEntity> AMETHYSTTRAPPEDCHESTENTITY;
 
+    public static ScreenHandlerType<DirtScreenHandler> DIRTSCREENHANDLER;
+    public static ScreenHandlerType<DirtDoubleScreenHandler> DIRTDOUBLESCREENHANDLER;
     public static ScreenHandlerType<IronScreenHandler> IRONSCREENHANDLER;
-    public static ScreenHandlerType<AbstractScreenHandler> GOLDSCREENHANDLER;
+    public static ScreenHandlerType<GoldScreenHandler> GOLDSCREENHANDLER;
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
     public static ScreenHandlerType<AmethystDoubleScreenHandler> AMETHYSTDOUBLESCREENHANDLER;
@@ -140,6 +143,8 @@ public class Declarer {
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(ItemGroup.REDSTONE).rarity(Rarity.EPIC));
 
 
+    public static Block dirtChestBlock = new DirtChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS), () -> Declarer.DIRTCHESTENTITY);
+    public static BlockItem dirtChest = new BlockItem(dirtChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block christmasChestBlock = new ChristmasChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.CHRISTMASCHESTENTITY);
     public static BlockItem christmasChest = new BlockItem(christmasChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block pumpkinChestBlock = new PumpkinChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.PUMPKINCHESTENTITY);

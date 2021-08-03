@@ -37,6 +37,9 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
     private final ModelPart doubleChestLeftLid;
     private final ModelPart doubleChestLeftBase;
     private final ModelPart doubleChestLeftLatch;
+    static SpriteIdentifier dirt;
+    static SpriteIdentifier dirtLeft;
+    static SpriteIdentifier dirtRight;
     static SpriteIdentifier pumpkin;
     static SpriteIdentifier pumpkinLeft;
     static SpriteIdentifier pumpkinRight;
@@ -89,6 +92,11 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         this.doubleChestLeftLid = modelPart3.getChild("lid");
         this.doubleChestLeftLatch = modelPart3.getChild("lock");
         Identifier identifier = new Identifier("textures/atlas/chest.png");
+
+        dirt =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt"));
+        dirtLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt_left"));
+        dirtRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt_right"));
+
         pumpkin =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin"));
         pumpkinLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin_left"));
         pumpkinRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin_right"));
@@ -205,7 +213,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                                                                                             entity instanceof AmethystTrappedChestEntity ? amethystTLeft :
                                                                                                     entity instanceof PumpkinChestEntity ? pumpkinLeft :
                                                                                                             entity instanceof ChristmasChestEntity ? christmasLeft :
-                                                                                                                    ironLeft;
+                                                                                                                    entity instanceof DirtChestEntity ? dirtLeft :
+                                                                                                                            ironLeft;
                     VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                     if (entity instanceof PumpkinChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.singleChestLatch, this.doubleChestRightBase, g, i, overlay);
@@ -226,7 +235,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                                                                                             entity instanceof AmethystTrappedChestEntity ? amethystTRight :
                                                                                                     entity instanceof PumpkinChestEntity ? pumpkinRight :
                                                                                                             entity instanceof ChristmasChestEntity ? christmasRight :
-                                                                                                                    ironRight;
+                                                                                                                    entity instanceof DirtChestEntity ? dirtRight :
+                                                                                                                            ironRight;
                     VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                     if (entity instanceof PumpkinChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.singleChestLatch, this.doubleChestLeftBase, g, i, overlay);
@@ -247,7 +257,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                                                                                         entity instanceof AmethystTrappedChestEntity ? amethystT :
                                                                                                 entity instanceof PumpkinChestEntity ? pumpkin :
                                                                                                         entity instanceof ChristmasChestEntity ? christmas :
-                                                                                                                iron;
+                                                                                                                entity instanceof DirtChestEntity ? dirt :
+                                                                                                                        iron;
                 VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                 this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, g, i, overlay);
             }

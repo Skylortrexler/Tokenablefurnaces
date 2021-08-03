@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ChestTabWidget;
 
 public abstract class AbstractHandledScreen extends HandledScreen<ScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/iron.png");
+    public static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/iron.png");
     public ChestTabWidget tabWidget;
 
     private int zOffset;
@@ -56,10 +56,6 @@ public abstract class AbstractHandledScreen extends HandledScreen<ScreenHandler>
         super.init();
     }
 
-//    @Override
-//    public void drawTexture(MatrixStack matrices, int x, int y, int u, int v, int width, int height) {
-//        drawTexture(matrices, x, y, this.zOffset, (float)u, (float)v, width, height, 512, 512);
-//    }
     @Override
     public int getZOffset() {
         return this.zOffset;

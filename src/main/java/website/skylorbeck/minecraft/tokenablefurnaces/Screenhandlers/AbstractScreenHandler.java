@@ -30,25 +30,42 @@ public abstract class AbstractScreenHandler extends ScreenHandler {
 
         int n;
         int m;
-        for(n = 0; n < this.rows; ++n) {
-            for(m = 0; m < 9; ++m) {
-                int x = -10000;
-                int index = m +n*9;
-                if (index<54){
-                    x =  8 + m * 18;
+        if (this.rows == 1) {
+            if (this.width == 1) {
+                this.addSlot(new Slot(inventory, 0, 80, 18));
+            } else if (this.width == 2) {
+                this.addSlot(new Slot(inventory, 0, 72, 18));
+                this.addSlot(new Slot(inventory, 1, 90, 18));
+            }
+            for (n = 0; n < 3; ++n) {
+                for (m = 0; m < 9; ++m) {
+                    this.addSlot(new Slot(playerInventory, m + n * 9 + 9, 8 + m * 18, 14 + n * 18 + i));
                 }
-                this.addSlot(new Slot(inventory, index,x, 18 + n * 18));
             }
-        }
-
-        for(n = 0; n < 3; ++n) {
-            for(m = 0; m < 9; ++m) {
-                this.addSlot(new Slot(playerInventory, m + n * 9 + 9, 8 + m * 18, 104 + n * 18 + i));
+            for (n = 0; n < 9; ++n) {
+                this.addSlot(new Slot(playerInventory, n, 8 + n * 18, 72 + i));
             }
-        }
+        } else {
+            for (n = 0; n < this.rows; ++n) {
+                for (m = 0; m <9; ++m) {
+                    int x = -10000;
+                    int index = m + n * 9;
+                    if (index < 54) {
+                        x = 8 + m * 18;
+                    }
+                    this.addSlot(new Slot(inventory, index, x, 18 + n * 18));
+                }
+            }
 
-        for(n = 0; n < 9; ++n) {
-            this.addSlot(new Slot(playerInventory, n, 8 + n * 18, 162 + i));
+            for (n = 0; n < 3; ++n) {
+                for (m = 0; m < 9; ++m) {
+                    this.addSlot(new Slot(playerInventory, m + n * 9 + 9, 8 + m * 18, 104 + n * 18 + i));
+                }
+            }
+
+            for (n = 0; n < 9; ++n) {
+                this.addSlot(new Slot(playerInventory, n, 8 + n * 18, 162 + i));
+            }
         }
 
     }

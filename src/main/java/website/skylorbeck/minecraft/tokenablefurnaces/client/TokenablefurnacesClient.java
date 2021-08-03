@@ -24,6 +24,8 @@ public class TokenablefurnacesClient implements ClientModInitializer {
     public void onInitializeClient() {
         AutoConfig.getGuiRegistry(ModConfig.class);
 
+        ScreenRegistry.register(Declarer.DIRTSCREENHANDLER, DirtHandledScreen::new);
+        ScreenRegistry.register(Declarer.DIRTDOUBLESCREENHANDLER, DirtDoubleHandledScreen::new);
         ScreenRegistry.register(Declarer.IRONSCREENHANDLER, IronHandledScreen::new);
         ScreenRegistry.register(Declarer.GOLDSCREENHANDLER, GoldHandledScreen::new);
         ScreenRegistry.register(Declarer.DIAMONDSCREENHANDLER, DiamondHandledScreen::new);
@@ -31,6 +33,9 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         ScreenRegistry.register(Declarer.AMETHYSTDOUBLESCREENHANDLER, AmethystDoubleHandledScreen::new);
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/chest.png")).register((atlasTexture, registry) -> {
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_right"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_right"));
@@ -65,6 +70,7 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_right"));
         });
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.CHRISTMASCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.PUMPKINCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONCHESTENTITY, ExtraChestEntityRenderer::new);
@@ -77,6 +83,10 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITETRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtChestEntity(BlockPos.ORIGIN, Declarer.dirtChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.christmasChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new ChristmasChestEntity(BlockPos.ORIGIN, Declarer.christmasChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
         });
