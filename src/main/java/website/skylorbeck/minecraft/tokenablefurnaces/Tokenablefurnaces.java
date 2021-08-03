@@ -24,7 +24,7 @@ public class Tokenablefurnaces implements ModInitializer {
 // known issues:
 
 //todo
-// redo tab textures to work with render order properly
+// shift click weirdness
 
 
 
