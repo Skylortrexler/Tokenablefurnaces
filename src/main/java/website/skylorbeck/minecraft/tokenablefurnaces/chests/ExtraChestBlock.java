@@ -362,7 +362,19 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                         if (ExtraChestEntity.hasCustomName()) {
                             return ExtraChestEntity.getDisplayName();
                         } else {
-                            return (Text)(ExtraChestEntity2.hasCustomName() ? ExtraChestEntity2.getDisplayName() : new TranslatableText("container.chestDouble"));
+                            TranslatableText translatableText = new TranslatableText("container.chestDouble");
+                            if (ExtraChestEntity2 instanceof IronChestEntity || ExtraChestEntity2 instanceof IronTrappedChestEntity){
+                                translatableText = new TranslatableText("container.ironchestdouble");
+                            } else if (ExtraChestEntity2 instanceof GoldChestEntity || ExtraChestEntity2 instanceof GoldTrappedChestEntity){
+                                translatableText = new TranslatableText("container.goldchestdouble");
+                            } else if (ExtraChestEntity2 instanceof DiamondChestEntity || ExtraChestEntity2 instanceof DiamondTrappedChestEntity){
+                                translatableText = new TranslatableText("container.diamondchestdouble");
+                            } else if (ExtraChestEntity2 instanceof NetheriteChestEntity || ExtraChestEntity2 instanceof NetheriteTrappedChestEntity){
+                                translatableText = new TranslatableText("container.netheritechestdouble");
+                            } else if (ExtraChestEntity2 instanceof AmethystChestEntity || ExtraChestEntity2 instanceof AmethystTrappedChestEntity){
+                                translatableText = new TranslatableText("container.amethystchestdouble");
+                            }
+                            return (Text)(ExtraChestEntity2.hasCustomName() ? ExtraChestEntity2.getDisplayName() : translatableText);
                         }
                     }
                 });

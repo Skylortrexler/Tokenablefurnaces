@@ -79,5 +79,16 @@
 
   "text.autoconfig.tokenablefurnaces.option.hopperMulti.@Tooltip": "Multiplies items per tick by this amount",
   "text.autoconfig.tokenablefurnaces.option.upgrades.@Tooltip": "(En/Dis)able the ability to upgrade blocks",
-  "text.autoconfig.tokenablefurnaces.option.blockToggles.@Tooltip": "(En/Dis)able individual block types completely"
+  "text.autoconfig.tokenablefurnaces.option.blockToggles.@Tooltip": "(En/Dis)able individual block types completely",
+
+  "container.ironchest": "Iron Chest",
+  "container.goldchest": "Gold Chest",
+  "container.diamondchest": "Diamond Chest",
+  "container.netheritechest": "Netherite Chest",
+  "container.amethystchest": "Amethyst Chest",
+  "container.ironchestdouble": "Iron Large Chest",
+  "container.goldchestdouble": "Gold Large Chest",
+  "container.diamondchestdouble": "Diamond Large Chest",
+  "container.netheritechestdouble": "Netherite Large Chest",
+  "container.amethystchestdouble": "Amethyst Large Chest"
 }

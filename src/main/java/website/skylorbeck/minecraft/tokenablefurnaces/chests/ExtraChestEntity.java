@@ -28,6 +28,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScr
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenHandler;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
     private static final int field_31332 = 1;
@@ -81,7 +82,19 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("container.chest");
+        TranslatableText translatableText = new TranslatableText("container.chest");
+        if (this instanceof IronChestEntity || this instanceof IronTrappedChestEntity){
+            translatableText = new TranslatableText("container.ironchest");
+        } else if (this instanceof GoldChestEntity || this instanceof GoldTrappedChestEntity){
+            translatableText = new TranslatableText("container.goldchest");
+        } else if (this instanceof DiamondChestEntity || this instanceof DiamondTrappedChestEntity){
+            translatableText = new TranslatableText("container.diamondchest");
+        } else if (this instanceof NetheriteChestEntity || this instanceof NetheriteTrappedChestEntity){
+            translatableText = new TranslatableText("container.netheritechest");
+        } else if (this instanceof AmethystChestEntity || this instanceof AmethystTrappedChestEntity){
+            translatableText = new TranslatableText("container.amethystchest");
+        }
+            return translatableText;
     }
 
     public void readNbt(NbtCompound nbt) {
