@@ -12,6 +12,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 
 public class AmethystExtraBlastEntity extends AbstractExtraFurnaceBlockEntity {
@@ -22,9 +23,12 @@ public class AmethystExtraBlastEntity extends AbstractExtraFurnaceBlockEntity {
         AbstractExtraFurnaceBlockEntity.tick(world,blockPos,state, (AbstractExtraFurnaceBlockEntity) t);
     }
     protected int getFuelTime(ItemStack fuel) {
-        return (int) (super.getFuelTime(fuel)*0.2)/2;
+        if (Ref.furnaceEfficiency) {
+            return super.getFuelTime(fuel) / 2;
+        } else {
+            return (int) (super.getFuelTime(fuel) * 0.2) / 2;
+        }
     }
-
     @Override
     public Text getContainerName() {
         return new TranslatableText("container.blast_furnace");

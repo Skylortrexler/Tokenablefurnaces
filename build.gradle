@@ -16,7 +16,6 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
     maven { url "https://maven.shedaniel.me/" }
-    mavenCentral()
     mavenLocal()
 
 }
@@ -38,7 +37,8 @@ dependencies {
     //modmenu
     modImplementation "com.terraformersmc:modmenu:2.0.2"
 
-    modImplementation("website.skylorbeck.sentimentality3:Sentimentality3:1.2.9")
+    modRuntime ("website.skylorbeck.sentimentality3:Sentimentality3:1.2.10")
+//    modImplementation("website.skylorbeck.sentimentality3:Sentimentality3:1.2.10")
 
 }
 

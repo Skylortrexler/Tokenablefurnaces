@@ -11,6 +11,8 @@ public class ModConfig implements ConfigData {
     public int hopperMulti = 1;
     @ConfigEntry.Gui.RequiresRestart
     public boolean tokens = true;
+    @ConfigEntry.Gui.Tooltip
+    public boolean furnaceEfficiency = false;
     @ConfigEntry.Gui.CollapsibleObject()
     @ConfigEntry.Gui.Tooltip
     public upgrades upgrades = new upgrades();

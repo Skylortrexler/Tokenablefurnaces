@@ -8,7 +8,8 @@ import website.skylorbeck.minecraft.tokenablefurnaces.config.ModConfig;
 public class Ref {
     public static final String MODID = "tokenablefurnaces";
     public static ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-   
+
+    public static boolean furnaceEfficiency = false;
     public static int hopperMulti = 1;
     public static boolean tokens = true;
     public static boolean barrels = true;
@@ -58,5 +59,6 @@ public class Ref {
         canUpgradeSmoker = config.upgrades.canUpgradeSmoker;
         canUpgradeHoppers = config.upgrades.canUpgradeHoppers;
         canUpgradeShulkers = config.upgrades.canUpgradeShulkers;
+        furnaceEfficiency = config.furnaceEfficiency;
     }
 }

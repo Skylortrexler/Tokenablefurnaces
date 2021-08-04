@@ -9,6 +9,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 
 public class IronExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity {
@@ -23,6 +24,10 @@ public class IronExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity {
         return new TranslatableText("container.furnace");
     }
     protected int getFuelTime(ItemStack fuel) {
-        return (int) (super.getFuelTime(fuel)*0.8);
+        if (Ref.furnaceEfficiency) {
+            return super.getFuelTime(fuel);
+        } else {
+            return (int) (super.getFuelTime(fuel) * 0.8);
+        }
     }
 }
