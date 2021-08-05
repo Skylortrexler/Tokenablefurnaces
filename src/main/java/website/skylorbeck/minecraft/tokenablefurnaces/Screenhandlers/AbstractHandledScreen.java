@@ -10,7 +10,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ChestTabWidget;
 
 public abstract class AbstractHandledScreen extends HandledScreen<ScreenHandler> {

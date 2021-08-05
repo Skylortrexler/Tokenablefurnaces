@@ -7,9 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.SlotActionType;
-import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.SlotAccessor;
 
 public abstract class AbstractScreenHandler extends ScreenHandler {

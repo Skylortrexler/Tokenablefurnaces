@@ -36,6 +36,9 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_right"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/christmas"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/christmas_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/christmas_right"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/pumpkin_right"));
@@ -54,6 +57,15 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/amethyst"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/amethyst_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/amethyst_right"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/dirt"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/dirt_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/dirt_right"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/christmas"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/christmas_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/christmas_right"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/pumpkin"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/pumpkin_left"));
+            registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/pumpkin_right"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/iron"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/iron_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/iron_right"));
@@ -78,6 +90,9 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITECHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.CHRISTMASTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(Declarer.PUMPKINTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.GOLDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
@@ -107,6 +122,15 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.amethystChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystChestEntity(BlockPos.ORIGIN, Declarer.amethystChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtTrappedChestEntity(BlockPos.ORIGIN, Declarer.dirtTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.christmasTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new ChristmasTrappedChestEntity(BlockPos.ORIGIN, Declarer.christmasTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
+        });
+        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.pumpkinTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new PumpkinTrappedChestEntity(BlockPos.ORIGIN, Declarer.pumpkinTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
         });
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.ironTrappedChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronTrappedChestEntity(BlockPos.ORIGIN, Declarer.ironTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);

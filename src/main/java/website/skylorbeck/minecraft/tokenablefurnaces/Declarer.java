@@ -11,7 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Rarity;
-import org.spongepowered.asm.mixin.Mutable;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
@@ -25,7 +24,6 @@ import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.TokenItemAccessor;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 public class Declarer {
@@ -56,13 +54,16 @@ public class Declarer {
 
     public static BlockEntityType<PumpkinChestEntity> PUMPKINCHESTENTITY;
     public static BlockEntityType<ChristmasChestEntity> CHRISTMASCHESTENTITY;
-    public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
     public static BlockEntityType<DirtChestEntity> DIRTCHESTENTITY;
+    public static BlockEntityType<IronChestEntity> IRONCHESTENTITY;
     public static BlockEntityType<GoldChestEntity> GOLDCHESTENTITY;
     public static BlockEntityType<DiamondChestEntity> DIAMONDCHESTENTITY;
     public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
     public static BlockEntityType<AmethystChestEntity> AMETHYSTCHESTENTITY;
-    
+
+    public static BlockEntityType<PumpkinTrappedChestEntity> PUMPKINTRAPPEDCHESTENTITY;
+    public static BlockEntityType<ChristmasTrappedChestEntity> CHRISTMASTRAPPEDCHESTENTITY;
+    public static BlockEntityType<DirtTrappedChestEntity> DIRTTRAPPEDCHESTENTITY;
     public static BlockEntityType<IronTrappedChestEntity> IRONTRAPPEDCHESTENTITY;
     public static BlockEntityType<GoldTrappedChestEntity> GOLDTRAPPEDCHESTENTITY;
     public static BlockEntityType<DiamondTrappedChestEntity> DIAMONDTRAPPEDCHESTENTITY;
@@ -160,6 +161,12 @@ public class Declarer {
     public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTCHESTENTITY);
     public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 
+    public static Block dirtTrappedChestBlock = new DirtTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS), () -> Declarer.DIRTTRAPPEDCHESTENTITY);
+    public static BlockItem dirtTrappedChest = new BlockItem(dirtTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block christmasTrappedChestBlock = new ChristmasTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.CHRISTMASTRAPPEDCHESTENTITY);
+    public static BlockItem christmasTrappedChest = new BlockItem(christmasTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
+    public static Block pumpkinTrappedChestBlock = new PumpkinTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.PUMPKINTRAPPEDCHESTENTITY);
+    public static BlockItem pumpkinTrappedChest = new BlockItem(pumpkinTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block ironTrappedChestBlock = new IronTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONTRAPPEDCHESTENTITY);
     public static BlockItem ironTrappedChest = new BlockItem(ironTrappedChestBlock,new FabricItemSettings().group(ItemGroup.DECORATIONS).rarity(Rarity.COMMON));
     public static Block goldTrappedChestBlock = new GoldTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDTRAPPEDCHESTENTITY);

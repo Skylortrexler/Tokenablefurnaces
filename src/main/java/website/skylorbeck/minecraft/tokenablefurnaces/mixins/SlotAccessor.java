@@ -1,6 +1,5 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.mixins;
 
-import net.minecraft.item.Item;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;

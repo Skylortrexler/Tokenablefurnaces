@@ -2,7 +2,6 @@ package website.skylorbeck.minecraft.tokenablefurnaces;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.MinecraftClient;
 import website.skylorbeck.minecraft.tokenablefurnaces.config.ModConfig;
 
 public class Ref {

@@ -349,7 +349,7 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                                 screenHandler =  new AmethystScreenHandler(i, playerInventory, inventory,48,9);
                             } else if (ExtraChestEntity instanceof AmethystChestEntity || ExtraChestEntity instanceof AmethystTrappedChestEntity){
                                 screenHandler =  new AmethystDoubleScreenHandler(i, playerInventory, inventory,96,9);
-                            } else if (ExtraChestEntity instanceof DirtChestEntity){
+                            } else if (ExtraChestEntity instanceof DirtChestEntity || ExtraChestEntity instanceof DirtTrappedChestEntity){
                                 screenHandler =  new DirtDoubleScreenHandler(i, playerInventory, inventory,1,2);
                             } else {
                                 screenHandler = GenericContainerScreenHandler.createGeneric9x6(i,playerInventory,inventory);
@@ -375,11 +375,11 @@ public abstract class ExtraChestBlock extends AbstractChestBlock<ExtraChestEntit
                                 translatableText = new TranslatableText("container.netheritechestdouble");
                             } else if (ExtraChestEntity2 instanceof AmethystChestEntity || ExtraChestEntity2 instanceof AmethystTrappedChestEntity){
                                 translatableText = new TranslatableText("container.amethystchestdouble");
-                            } else if (ExtraChestEntity2 instanceof ChristmasChestEntity){
+                            } else if (ExtraChestEntity2 instanceof ChristmasChestEntity || ExtraChestEntity2 instanceof ChristmasTrappedChestEntity){
                                 translatableText = new TranslatableText("container.festivechestdouble");
-                            } else if (ExtraChestEntity2 instanceof PumpkinChestEntity){
+                            } else if (ExtraChestEntity2 instanceof PumpkinChestEntity || ExtraChestEntity2 instanceof PumpkinTrappedChestEntity){
                                 translatableText = new TranslatableText("container.pumpkinchestdouble");
-                            } else if (ExtraChestEntity2 instanceof DirtChestEntity){
+                            } else if (ExtraChestEntity2 instanceof DirtChestEntity || ExtraChestEntity2 instanceof DirtTrappedChestEntity){
                                 translatableText = new TranslatableText("container.dirtchestdouble");
                             }
                             return (Text)(ExtraChestEntity2.hasCustomName() ? ExtraChestEntity2.getDisplayName() : translatableText);

@@ -8,9 +8,11 @@ import net.minecraft.world.World;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.ExtraChestEntity;
 
 public abstract class ExtraTrappedChestEntity extends ExtraChestEntity {
-    protected ExtraTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
+
+    protected ExtraTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, int size, String type, boolean trapped) {
+        super(blockEntityType, blockPos, blockState, size, type, trapped);
     }
+
     protected void onInvOpenOrClose(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
         super.onInvOpenOrClose(world, pos, state, oldViewerCount, newViewerCount);
         if (oldViewerCount != newViewerCount) {

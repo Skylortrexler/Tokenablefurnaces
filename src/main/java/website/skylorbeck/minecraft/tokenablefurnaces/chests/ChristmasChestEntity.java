@@ -7,19 +7,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 public class ChristmasChestEntity extends ExtraChestEntity{
     protected ChristmasChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
+        super(blockEntityType, blockPos, blockState,27,"christmas",false);
     }
 
     public ChristmasChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.CHRISTMASCHESTENTITY,pos, state);
-//        this.inventory = DefaultedList.ofSize(3*9, ItemStack.EMPTY);
+        super(Declarer.CHRISTMASCHESTENTITY,pos, state,27,"christmas",false);
     }
-//    @Override
-//    public int size() {
-//        return 3*9;
-//    }
 
-//    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-//        return GenericContainerScreenHandler.createGeneric9x3(syncId, playerInventory, this);
-//    }
 }

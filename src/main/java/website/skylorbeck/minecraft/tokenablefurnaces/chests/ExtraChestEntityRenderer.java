@@ -17,11 +17,9 @@ import net.minecraft.client.render.block.entity.LightmapCoordinatesRetriever;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 @Environment(EnvType.CLIENT)
 public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProgress> implements BlockEntityRenderer<T> {
@@ -37,45 +35,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
     private final ModelPart doubleChestLeftLid;
     private final ModelPart doubleChestLeftBase;
     private final ModelPart doubleChestLeftLatch;
-    static SpriteIdentifier dirt;
-    static SpriteIdentifier dirtLeft;
-    static SpriteIdentifier dirtRight;
-    static SpriteIdentifier pumpkin;
-    static SpriteIdentifier pumpkinLeft;
-    static SpriteIdentifier pumpkinRight;
-    static SpriteIdentifier christmas;
-    static SpriteIdentifier christmasLeft;
-    static SpriteIdentifier christmasRight;
-    static SpriteIdentifier iron;
-    static SpriteIdentifier ironLeft;
-    static SpriteIdentifier ironRight;
-    static SpriteIdentifier gold;
-    static SpriteIdentifier goldLeft;
-    static SpriteIdentifier goldRight;
-    static SpriteIdentifier diamond;
-    static SpriteIdentifier diamondLeft;
-    static SpriteIdentifier diamondRight;
-    static SpriteIdentifier netherite;
-    static SpriteIdentifier netheriteLeft;
-    static SpriteIdentifier netheriteRight;
-    static SpriteIdentifier amethyst;
-    static SpriteIdentifier amethystLeft;
-    static SpriteIdentifier amethystRight;
-    static SpriteIdentifier ironT;
-    static SpriteIdentifier ironTLeft;
-    static SpriteIdentifier ironTRight;
-    static SpriteIdentifier goldT;
-    static SpriteIdentifier goldTLeft;
-    static SpriteIdentifier goldTRight;
-    static SpriteIdentifier diamondT;
-    static SpriteIdentifier diamondTLeft;
-    static SpriteIdentifier diamondTRight;
-    static SpriteIdentifier netheriteT;
-    static SpriteIdentifier netheriteTLeft;
-    static SpriteIdentifier netheriteTRight;
-    static SpriteIdentifier amethystT;
-    static SpriteIdentifier amethystTLeft;
-    static SpriteIdentifier amethystTRight;
+
 
 
     public ExtraChestEntityRenderer(BlockEntityRendererFactory.Context ctx) {
@@ -91,60 +51,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
         this.doubleChestLeftBase = modelPart3.getChild("bottom");
         this.doubleChestLeftLid = modelPart3.getChild("lid");
         this.doubleChestLeftLatch = modelPart3.getChild("lock");
-        Identifier identifier = new Identifier("textures/atlas/chest.png");
 
-        dirt =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt"));
-        dirtLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt_left"));
-        dirtRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/dirt_right"));
-
-        pumpkin =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin"));
-        pumpkinLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin_left"));
-        pumpkinRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/pumpkin_right"));
-        
-        christmas =  new SpriteIdentifier(identifier, new Identifier("minecraft:entity/chest/christmas"));
-        christmasLeft =  new SpriteIdentifier(identifier, new Identifier("minecraft:entity/chest/christmas_left"));
-        christmasRight =  new SpriteIdentifier(identifier, new Identifier("minecraft:entity/chest/christmas_right"));
-        
-        iron =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron"));
-        ironLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron_left"));
-        ironRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/iron_right"));
-        
-        gold = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold"));
-        goldLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold_left"));
-        goldRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/gold_right"));
-        
-        diamond = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond"));
-        diamondLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond_left"));
-        diamondRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/diamond_right"));
-        
-        netherite = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite"));
-        netheriteLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite_left"));
-        netheriteRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/netherite_right"));
-        
-        amethyst = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst"));
-        amethystLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst_left"));
-        amethystRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/amethyst_right"));
-        
-        ironT =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/iron"));
-        ironTLeft =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/iron_left"));
-        ironTRight =  new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/iron_right"));
-        
-        goldT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/gold"));
-        goldTLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/gold_left"));
-        goldTRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/gold_right"));
-        
-        diamondT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/diamond"));
-        diamondTLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/diamond_left"));
-        diamondTRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/diamond_right"));
-        
-        netheriteT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/netherite"));
-        netheriteTLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/netherite_left"));
-        netheriteTRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/netherite_right"));
-        
-        amethystT = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst"));
-        amethystTLeft = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_left"));
-        amethystTRight = new SpriteIdentifier(identifier, new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_right"));
-        
     }
 
     public static TexturedModelData getSingleTexturedModelData() {
@@ -198,24 +105,12 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
             g = 1.0F - g;
             g = 1.0F - g * g * g;
             int i = ((Int2IntFunction) propertySource2.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
-            SpriteIdentifier spriteIdentifier = iron;
+            SpriteIdentifier spriteIdentifier;
+            VertexConsumer vertexConsumer;
             if (bl2) {
                 if (chestType == ChestType.LEFT) {
-                    spriteIdentifier =
-                            entity instanceof GoldChestEntity ? goldLeft :
-                                    entity instanceof DiamondChestEntity ? diamondLeft :
-                                            entity instanceof NetheriteChestEntity ? netheriteLeft :
-                                                    entity instanceof AmethystChestEntity ? amethystLeft :
-                                                            entity instanceof IronTrappedChestEntity ? ironTLeft :
-                                                                    entity instanceof GoldTrappedChestEntity ? goldTLeft :
-                                                                            entity instanceof DiamondTrappedChestEntity ? diamondTLeft :
-                                                                                    entity instanceof NetheriteTrappedChestEntity ? netheriteTLeft :
-                                                                                            entity instanceof AmethystTrappedChestEntity ? amethystTLeft :
-                                                                                                    entity instanceof PumpkinChestEntity ? pumpkinLeft :
-                                                                                                            entity instanceof ChristmasChestEntity ? christmasLeft :
-                                                                                                                    entity instanceof DirtChestEntity ? dirtLeft :
-                                                                                                                            ironLeft;
-                    VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
+                    spriteIdentifier = ((ExtraChestEntity) entity).getSpriteIdentifierLeft();
+                    vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                     if (entity instanceof PumpkinChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.singleChestLatch, this.doubleChestRightBase, g, i, overlay);
                     } else {
@@ -223,21 +118,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                     }
 
                 } else {
-                    spriteIdentifier =
-                            entity instanceof GoldChestEntity ? goldRight :
-                                    entity instanceof DiamondChestEntity ? diamondRight :
-                                            entity instanceof NetheriteChestEntity ? netheriteRight :
-                                                    entity instanceof AmethystChestEntity ? amethystRight :
-                                                            entity instanceof IronTrappedChestEntity ? ironTRight :
-                                                                    entity instanceof GoldTrappedChestEntity ? goldTRight :
-                                                                            entity instanceof DiamondTrappedChestEntity ? diamondTRight :
-                                                                                    entity instanceof NetheriteTrappedChestEntity ? netheriteTRight :
-                                                                                            entity instanceof AmethystTrappedChestEntity ? amethystTRight :
-                                                                                                    entity instanceof PumpkinChestEntity ? pumpkinRight :
-                                                                                                            entity instanceof ChristmasChestEntity ? christmasRight :
-                                                                                                                    entity instanceof DirtChestEntity ? dirtRight :
-                                                                                                                            ironRight;
-                    VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
+                    spriteIdentifier = ((ExtraChestEntity) entity).getSpriteIdentifierRight();
+                    vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                     if (entity instanceof PumpkinChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.singleChestLatch, this.doubleChestLeftBase, g, i, overlay);
                     } else {
@@ -245,21 +127,8 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                     }
                 }
             } else {
-                spriteIdentifier =
-                        entity instanceof GoldChestEntity ? gold :
-                                entity instanceof DiamondChestEntity ? diamond :
-                                        entity instanceof NetheriteChestEntity ? netherite :
-                                                entity instanceof AmethystChestEntity ? amethyst :
-                                                        entity instanceof IronTrappedChestEntity ? ironT :
-                                                                entity instanceof GoldTrappedChestEntity ? goldT :
-                                                                        entity instanceof DiamondTrappedChestEntity ? diamondT :
-                                                                                entity instanceof NetheriteTrappedChestEntity ? netheriteT :
-                                                                                        entity instanceof AmethystTrappedChestEntity ? amethystT :
-                                                                                                entity instanceof PumpkinChestEntity ? pumpkin :
-                                                                                                        entity instanceof ChristmasChestEntity ? christmas :
-                                                                                                                entity instanceof DirtChestEntity ? dirt :
-                                                                                                                        iron;
-                VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
+                spriteIdentifier = ((ExtraChestEntity) entity).getSpriteIdentifier();
+                vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
                 this.render(matrices, vertexConsumer, this.singleChestLid, this.singleChestLatch, this.singleChestBase, g, i, overlay);
             }
             matrices.pop();

@@ -37,8 +37,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
-import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 import java.util.List;

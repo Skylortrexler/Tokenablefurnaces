@@ -26,7 +26,6 @@ import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.Utils;
 
 import java.util.List;

@@ -143,7 +143,6 @@ public class Registrar {
                 FabricBlockEntityTypeBuilder.create(IronChestEntity::new,
                         Declarer.ironChestBlock
                 ).build(null));
-
         Declarer.GOLDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":goldchest",
                 FabricBlockEntityTypeBuilder.create(GoldChestEntity::new,
@@ -165,13 +164,26 @@ public class Registrar {
                         Declarer.amethystChestBlock
                 ).build(null));
 
-
+        Declarer.DIRTTRAPPEDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirttrappedchest",
+                FabricBlockEntityTypeBuilder.create(DirtTrappedChestEntity::new,
+                        Declarer.dirtTrappedChestBlock
+                ).build(null));
+        Declarer.CHRISTMASTRAPPEDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":christmastrappedchest",
+                FabricBlockEntityTypeBuilder.create(ChristmasTrappedChestEntity::new,
+                        Declarer.christmasTrappedChestBlock
+                ).build(null));
+        Declarer.PUMPKINTRAPPEDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":pumpkintrappedchest",
+                FabricBlockEntityTypeBuilder.create(PumpkinTrappedChestEntity::new,
+                        Declarer.pumpkinTrappedChestBlock
+                ).build(null));
         Declarer.IRONTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":irontrappedchest",
                 FabricBlockEntityTypeBuilder.create(IronTrappedChestEntity::new,
                         Declarer.ironTrappedChestBlock
                 ).build(null));
-
         Declarer.GOLDTRAPPEDCHESTENTITY =  Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":goldtrappedchest",
                 FabricBlockEntityTypeBuilder.create(GoldTrappedChestEntity::new,
@@ -332,6 +344,12 @@ public class Registrar {
             regItem("amethystchestitem", Declarer.amethystChest);
         }
         if (Ref.trapped){
+            regBlock("dirttrappedchest",Declarer.dirtTrappedChestBlock);
+            regItem("dirttrappedchestitem",Declarer.dirtTrappedChest);
+            regBlock("christmastrappedchest",Declarer.christmasTrappedChestBlock);
+            regItem("christmastrappedchestitem",Declarer.christmasTrappedChest);
+            regBlock("pumpkintrappedchest",Declarer.pumpkinTrappedChestBlock);
+            regItem("pumpkintrappedchestitem",Declarer.pumpkinTrappedChest);
             regBlock("irontrappedchest", Declarer.ironTrappedChestBlock);
             regItem("irontrappedchestitem", Declarer.ironTrappedChest);
             regBlock("goldtrappedchest", Declarer.goldTrappedChestBlock);

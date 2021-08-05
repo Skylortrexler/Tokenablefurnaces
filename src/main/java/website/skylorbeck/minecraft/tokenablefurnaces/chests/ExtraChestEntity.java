@@ -6,6 +6,7 @@ import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.*;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.block.ChestAnimationProgress;
+import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.DoubleInventory;
@@ -19,23 +20,32 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AbstractScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 
 public abstract class ExtraChestEntity extends ChestBlockEntity implements ChestAnimationProgress {
-    private static final int field_31332 = 1;
     protected DefaultedList<ItemStack> inventory;
     private final ChestStateManager stateManager;
     private final ChestLidAnimator lidAnimator;
+    public static Identifier identifier = new Identifier("textures/atlas/chest.png");
+    public static String base = "tokenablefurnaces:entity/chest/";
+    public String addition;
+    public boolean trapped;
+    public int size;
 
-    protected ExtraChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+
+    protected ExtraChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState,int size,String type, boolean trapped) {
         super(blockEntityType, blockPos, blockState);
-        this.inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
+        this.addition = type;
+        this.trapped= trapped;
+        this.size = size;
+        this.inventory = DefaultedList.ofSize(size, ItemStack.EMPTY);
         this.stateManager = new ChestStateManager() {
             protected void onChestOpened(World world, BlockPos pos, BlockState state) {
                 ExtraChestEntity.playSound(world, pos, state, SoundEvents.BLOCK_CHEST_OPEN);
@@ -53,19 +63,7 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
                 if (player.currentScreenHandler instanceof AbstractScreenHandler) {
                     Inventory inventory = ((AbstractScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                }/* else if (player.currentScreenHandler instanceof GoldScreenHandler) {
-                    Inventory inventory = ((GoldScreenHandler) player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof DiamondScreenHandler) {
-                    Inventory inventory = ((DiamondScreenHandler) player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof AmethystScreenHandler) {
-                    Inventory inventory = ((AmethystScreenHandler) player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                } else if (player.currentScreenHandler instanceof DirtScreenHandler) {
-                    Inventory inventory = ((DirtScreenHandler) player.currentScreenHandler).getInventory();
-                    return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
-                }*/ else if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
+                } else if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
                     Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ExtraChestEntity.this || inventory instanceof DoubleInventory && ((DoubleInventory) inventory).isPart(ExtraChestEntity.this);
                 } else {
@@ -76,9 +74,19 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
         this.lidAnimator = new ChestLidAnimator();
     }
 
+    public SpriteIdentifier getSpriteIdentifier(){
+        return new SpriteIdentifier(identifier,new Identifier((trapped ? base+"trapped/" : base)+addition));
+    }
+    public SpriteIdentifier getSpriteIdentifierLeft(){
+        return new SpriteIdentifier(identifier,new Identifier((trapped ? base+"trapped/" : base)+addition+"_left"));
+    }
+    public SpriteIdentifier getSpriteIdentifierRight(){
+        return new SpriteIdentifier(identifier,new Identifier((trapped ? base+"trapped/" : base)+addition+"_right"));
+    }
+
 
     public int size() {
-        return 27;
+        return size;
     }
 
     protected Text getContainerName() {
@@ -93,11 +101,11 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
             translatableText = new TranslatableText("container.netheritechest");
         } else if (this instanceof AmethystChestEntity || this instanceof AmethystTrappedChestEntity){
             translatableText = new TranslatableText("container.amethystchest");
-        } else if (this instanceof ChristmasChestEntity){
+        } else if (this instanceof ChristmasChestEntity || this instanceof ChristmasTrappedChestEntity){
             translatableText = new TranslatableText("container.festivechest");
-        } else if (this instanceof PumpkinChestEntity){
+        } else if (this instanceof PumpkinChestEntity || this instanceof PumpkinTrappedChestEntity){
             translatableText = new TranslatableText("container.pumpkinchest");
-        } else if (this instanceof DirtChestEntity) {
+        } else if (this instanceof DirtChestEntity || this instanceof DirtTrappedChestEntity) {
             translatableText = new TranslatableText("container.dirtchest");
         }
         return translatableText;
@@ -212,4 +220,7 @@ public abstract class ExtraChestEntity extends ChestBlockEntity implements Chest
         Block block = state.getBlock();
         world.addSyncedBlockEvent(pos, block, 1, newViewerCount);
     }
+
+
+
 }

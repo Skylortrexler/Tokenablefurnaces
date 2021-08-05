@@ -25,6 +25,8 @@ public class Tokenablefurnaces implements ModInitializer {
 
 //todo
 // shift click weirdness
+// bundle recipe
+// trapped festive/pumpkin/dirt
 
 
 

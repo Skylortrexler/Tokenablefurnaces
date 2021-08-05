@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:trapped_chest"
+  },
+  "addition": {
+    "item": "minecraft:pumpkin"
+  },
+  "result": {
+    "item": "tokenablefurnaces:pumpkintrappedchestitem"
+  }
+}
