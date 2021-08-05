@@ -13,6 +13,8 @@ public class ModConfig implements ConfigData {
     public boolean tokens = true;
     @ConfigEntry.Gui.Tooltip
     public boolean furnaceEfficiency = false;
+//    @ConfigEntry.Gui.Tooltip
+//    public boolean doubleLatch = false;
     @ConfigEntry.Gui.CollapsibleObject()
     @ConfigEntry.Gui.Tooltip
     public upgrades upgrades = new upgrades();

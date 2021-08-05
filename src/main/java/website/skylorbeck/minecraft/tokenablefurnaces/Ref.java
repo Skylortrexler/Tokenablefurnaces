@@ -9,6 +9,7 @@ public class Ref {
     public static ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
     public static boolean furnaceEfficiency = false;
+    public static boolean doubleLatch = false;
     public static int hopperMulti = 1;
     public static boolean tokens = true;
     public static boolean barrels = true;
@@ -50,6 +51,7 @@ public class Ref {
 
     public static void getSomeSettings() {
         hopperMulti = config.hopperMulti;
+//        doubleLatch = config.doubleLatch;
         canUpgradeBarrels = config.upgrades.canUpgradeBarrels;
         canUpgradeChests = config.upgrades.canUpgradeChests;
         canUpgradeTrapped = config.upgrades.canUpgradeTrapped;
