@@ -20,6 +20,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
+import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.PumpkinTrappedChestEntity;
 
 @Environment(EnvType.CLIENT)
 public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProgress> implements BlockEntityRenderer<T> {
@@ -111,7 +112,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                 if (chestType == ChestType.LEFT) {
                     spriteIdentifier = ((ExtraChestEntity) entity).getSpriteIdentifierLeft();
                     vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
-                    if (entity instanceof PumpkinChestEntity) {
+                    if (entity instanceof PumpkinChestEntity || entity instanceof PumpkinTrappedChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.singleChestLatch, this.doubleChestRightBase, g, i, overlay);
                     } else {
                         this.render(matrices, vertexConsumer, this.doubleChestRightLid, this.doubleChestRightLatch, this.doubleChestRightBase, g, i, overlay);
@@ -120,7 +121,7 @@ public class ExtraChestEntityRenderer<T extends BlockEntity & ChestAnimationProg
                 } else {
                     spriteIdentifier = ((ExtraChestEntity) entity).getSpriteIdentifierRight();
                     vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
-                    if (entity instanceof PumpkinChestEntity) {
+                    if (entity instanceof PumpkinChestEntity || entity instanceof PumpkinTrappedChestEntity) {
                         this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.singleChestLatch, this.doubleChestLeftBase, g, i, overlay);
                     } else {
                         this.render(matrices, vertexConsumer, this.doubleChestLeftLid, this.doubleChestLeftLatch, this.doubleChestLeftBase, g, i, overlay);

@@ -31,8 +31,8 @@ public abstract class AbstractScreenHandler extends ScreenHandler {
             if (this.width == 1) {
                 this.addSlot(new Slot(inventory, 0, 80, 18));
             } else if (this.width == 2) {
-                this.addSlot(new Slot(inventory, 0, 72, 18));
-                this.addSlot(new Slot(inventory, 1, 90, 18));
+                this.addSlot(new Slot(inventory, 0, 71, 18));
+                this.addSlot(new Slot(inventory, 1, 89, 18));
             }
             for (n = 0; n < 3; ++n) {
                 for (m = 0; m < 9; ++m) {
