@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.SlotAccessor;
+import website.skylorbeck.minecraft.skylorlib.mixin.SlotAccessor;
 
 public abstract class AbstractScreenHandler extends ScreenHandler {
     private final Inventory inventory;

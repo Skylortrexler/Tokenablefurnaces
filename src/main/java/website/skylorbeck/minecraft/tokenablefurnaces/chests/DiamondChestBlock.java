@@ -4,10 +4,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 
 import java.util.function.Supplier;
 
-public class DiamondChestBlock extends ExtraChestBlock{
+public class DiamondChestBlock extends ExtraChestBlock {
     public DiamondChestBlock(Settings settings, Supplier<BlockEntityType<? extends ExtraChestEntity>> supplier) {
         super(settings, supplier);
     }
