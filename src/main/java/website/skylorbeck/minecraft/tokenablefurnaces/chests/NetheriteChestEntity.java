@@ -17,11 +17,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScre
 
 public class NetheriteChestEntity extends ExtraChestEntity {
     protected NetheriteChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,24*9,"netherite",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,24*9,"netherite",false,false, Ref.MODID);
     }
 
     public NetheriteChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.NETHERITECHESTENTITY,pos, state,24*9,"netherite",false, Ref.MODID);
+        super(Declarer.NETHERITECHESTENTITY,pos, state,24*9,"netherite",false,false, Ref.MODID);
     }
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return new DiamondScreenHandler(syncId, playerInventory, this,24,9);

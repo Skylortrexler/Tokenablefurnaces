@@ -17,12 +17,12 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtScreenH
 
 public class DirtChestEntity extends ExtraChestEntity {
     protected DirtChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,1,"dirt",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,1,"dirt",false,false, Ref.MODID);
     }
 
 
     public DirtChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.DIRTCHESTENTITY,pos, state,1,"dirt",false, Ref.MODID);
+        super(Declarer.DIRTCHESTENTITY,pos, state,1,"dirt",false,false, Ref.MODID);
     }
 
 

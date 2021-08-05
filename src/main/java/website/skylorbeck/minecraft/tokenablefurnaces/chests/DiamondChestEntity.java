@@ -17,11 +17,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScre
 
 public class DiamondChestEntity extends ExtraChestEntity {
     protected DiamondChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,24*9,"diamond",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,24*9,"diamond",false,false, Ref.MODID);
     }
 
     public DiamondChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.DIAMONDCHESTENTITY,pos, state,24*9,"diamond",false, Ref.MODID);
+        super(Declarer.DIAMONDCHESTENTITY,pos, state,24*9,"diamond",false,false, Ref.MODID);
     }
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return new DiamondScreenHandler(syncId, playerInventory, this,24,9);

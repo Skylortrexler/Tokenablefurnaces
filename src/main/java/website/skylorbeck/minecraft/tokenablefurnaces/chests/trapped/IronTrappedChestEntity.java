@@ -16,11 +16,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.IronScreenH
 
 public class IronTrappedChestEntity extends ExtraTrappedChestEntity {
     protected IronTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,6*9,"iron",true, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,6*9,"iron",true,false, Ref.MODID);
     }
 
     public IronTrappedChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.IRONTRAPPEDCHESTENTITY,pos, state,6*9,"iron",true, Ref.MODID);
+        super(Declarer.IRONTRAPPEDCHESTENTITY,pos, state,6*9,"iron",true,false, Ref.MODID);
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {

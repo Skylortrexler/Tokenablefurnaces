@@ -11,11 +11,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class ChristmasTrappedChestEntity extends ExtraChestEntity {
     protected ChristmasTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,27,"christmas",true, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,27,"christmas",true,false, Ref.MODID);
     }
 
     public ChristmasTrappedChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.CHRISTMASTRAPPEDCHESTENTITY,pos, state,27,"christmas",true, Ref.MODID);
+        super(Declarer.CHRISTMASTRAPPEDCHESTENTITY,pos, state,27,"christmas",true,false, Ref.MODID);
     }
 
     protected Text getContainerName() {

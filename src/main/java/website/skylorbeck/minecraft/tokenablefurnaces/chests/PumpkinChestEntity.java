@@ -11,11 +11,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class PumpkinChestEntity extends ExtraChestEntity {
     protected PumpkinChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,27,"pumpkin",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,27,"pumpkin",false,true, Ref.MODID);
     }
 
     public PumpkinChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.PUMPKINCHESTENTITY,pos, state,27,"pumpkin",false, Ref.MODID);
+        super(Declarer.PUMPKINCHESTENTITY,pos, state,27,"pumpkin",false, true, Ref.MODID);
     }
     protected Text getContainerName() {
         return new TranslatableText("container.pumpkinchest");

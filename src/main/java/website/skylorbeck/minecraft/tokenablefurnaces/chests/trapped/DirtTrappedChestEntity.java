@@ -16,11 +16,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtScreenH
 
 public class DirtTrappedChestEntity extends ExtraChestEntity {
     protected DirtTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,1,"dirt",true, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,1,"dirt",true,false, Ref.MODID);
     }
 
     public DirtTrappedChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.DIRTTRAPPEDCHESTENTITY,pos, state,1,"dirt",true, Ref.MODID);
+        super(Declarer.DIRTTRAPPEDCHESTENTITY,pos, state,1,"dirt",true,false, Ref.MODID);
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {

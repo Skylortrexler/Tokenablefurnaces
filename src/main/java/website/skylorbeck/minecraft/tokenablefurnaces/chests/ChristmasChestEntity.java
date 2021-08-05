@@ -16,11 +16,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScr
 
 public class ChristmasChestEntity extends ExtraChestEntity {
     protected ChristmasChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,27,"christmas",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,27,"christmas",false,false, Ref.MODID);
     }
 
     public ChristmasChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.CHRISTMASCHESTENTITY,pos, state,27,"christmas",false, Ref.MODID);
+        super(Declarer.CHRISTMASCHESTENTITY,pos, state,27,"christmas",false,false, Ref.MODID);
     }
 
     protected Text getContainerName() {

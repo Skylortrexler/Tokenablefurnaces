@@ -15,11 +15,11 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScr
 
 public class NetheriteTrappedChestEntity extends ExtraTrappedChestEntity {
     protected NetheriteTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState,24*9,"netherite",false, Ref.MODID);
+        super(blockEntityType, blockPos, blockState,24*9,"netherite",false,false, Ref.MODID);
     }
 
     public NetheriteTrappedChestEntity(BlockPos pos, BlockState state) {
-        super(Declarer.NETHERITETRAPPEDCHESTENTITY,pos, state,24*9,"netherite",false, Ref.MODID);
+        super(Declarer.NETHERITETRAPPEDCHESTENTITY,pos, state,24*9,"netherite",false,false, Ref.MODID);
     }
     protected Text getContainerName() {
         return new TranslatableText("container.netheritechest");
