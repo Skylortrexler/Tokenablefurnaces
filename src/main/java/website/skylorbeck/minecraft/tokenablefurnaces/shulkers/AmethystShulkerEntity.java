@@ -17,9 +17,7 @@ import java.util.stream.IntStream;
 
 public class AmethystShulkerEntity extends ExtraShulkerEntity {
     public AmethystShulkerEntity(BlockPos pos, BlockState state) {
-        super(Declarer.AMETHYSTSHULKERENTITY,pos, state,"amethyst", Ref.MODID);
-        this.inventory = DefaultedList.ofSize(48*9, ItemStack.EMPTY);
-        this.AVAILABLE_SLOTS = IntStream.range(0, 48*9).toArray();
+        super(Declarer.AMETHYSTSHULKERENTITY,pos, state,48*9,"amethyst", Ref.MODID);
     }
 
     @Override

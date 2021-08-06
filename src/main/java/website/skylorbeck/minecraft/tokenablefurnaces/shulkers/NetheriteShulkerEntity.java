@@ -17,9 +17,7 @@ import java.util.stream.IntStream;
 
 public class NetheriteShulkerEntity extends ExtraShulkerEntity {
     public NetheriteShulkerEntity(BlockPos pos, BlockState state) {
-        super(Declarer.NETHERITESHULKERENTITY,pos, state,"netherite", Ref.MODID);
-        this.inventory = DefaultedList.ofSize(24*9, ItemStack.EMPTY);
-        this.AVAILABLE_SLOTS = IntStream.range(0, 24*9).toArray();
+        super(Declarer.NETHERITESHULKERENTITY,pos, state,24*9,"netherite", Ref.MODID);
     }
 
     @Override

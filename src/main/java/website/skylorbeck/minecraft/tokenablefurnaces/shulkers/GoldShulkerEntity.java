@@ -17,9 +17,7 @@ import java.util.stream.IntStream;
 
 public class GoldShulkerEntity extends ExtraShulkerEntity {
     public GoldShulkerEntity(BlockPos pos, BlockState state) {
-        super(Declarer.GOLDSHULKERENTITY,pos, state,"gold", Ref.MODID);
-        this.inventory = DefaultedList.ofSize(12*9, ItemStack.EMPTY);
-        this.AVAILABLE_SLOTS = IntStream.range(0, 12*9).toArray();
+        super(Declarer.GOLDSHULKERENTITY,pos, state,12*9,"gold", Ref.MODID);
     }
 
     @Override
