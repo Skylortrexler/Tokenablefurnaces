@@ -3,7 +3,8 @@ package website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.ChestTabWidget;
+import website.skylorbeck.minecraft.skylorlib.storage.AbstractHandledScreen;
+import website.skylorbeck.minecraft.skylorlib.storage.ChestTabWidget;
 
 public class AmethystHandledScreen extends AbstractHandledScreen {
 

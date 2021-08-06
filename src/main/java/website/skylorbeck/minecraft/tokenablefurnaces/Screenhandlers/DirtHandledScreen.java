@@ -7,7 +7,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.ChestTabWidget;
+import website.skylorbeck.minecraft.skylorlib.storage.AbstractHandledScreen;
+import website.skylorbeck.minecraft.skylorlib.storage.ChestTabWidget;
 
 public class DirtHandledScreen extends AbstractHandledScreen {
     public static final Identifier TEXTURE = new Identifier("tokenablefurnaces", "textures/gui/dirt.png");
