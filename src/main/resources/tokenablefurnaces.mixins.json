@@ -10,7 +10,7 @@
     "HopperEntityAccessor",
     "ShulkerEntityAccessor",
     "TokenItemAccessor",
-    "XPFixMixin"
+    "website.skylorbeck.minecraft.skylorlib.mixin.XPFixMixin"
   ],
   "client": [
   ],

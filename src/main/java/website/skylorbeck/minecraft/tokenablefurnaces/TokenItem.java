@@ -17,10 +17,10 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
 
@@ -263,14 +263,7 @@ public class TokenItem extends Item {
             fuelTime = ((FurnaceEntityAccessor) furnaceEntity).getFuelTime();
             cookTime = ((FurnaceEntityAccessor) furnaceEntity).getCookTime();
             cookTimeTotal = ((FurnaceEntityAccessor) furnaceEntity).getCookTimeTotal();
-        }/* else if (furn){
-            furnaceEntity = (website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity)world.getBlockEntity(blockPos);
-            inventory = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).inventory;
-            burnTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).burnTime;
-            fuelTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).fuelTime;
-            cookTime = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).cookTime;
-            cookTimeTotal = ((website.skylorbeck.sentimentality3.sentimentality3.furnaces.AbstractExtraFurnaceBlockEntity) furnaceEntity).cookTimeTotal;
-        }*/
+        }
         else {
             furnaceEntity = ((AbstractExtraFurnaceBlockEntity) world.getBlockEntity(blockPos));
             inventory = ((AbstractExtraFurnaceBlockEntity) furnaceEntity).inventory;
