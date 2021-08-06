@@ -4,18 +4,26 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperBlock;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
+import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
+
+import java.util.List;
 
 public class DiamondHopperBlock extends ExtraHopperBlock {
     public DiamondHopperBlock(Settings settings) {
@@ -65,5 +73,14 @@ public class DiamondHopperBlock extends ExtraHopperBlock {
             DiamondHopperEntity.onEntityCollided(world, pos, state, entity, (DiamondHopperEntity)blockEntity);
         }
 
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        tooltip.add(Text.of(6* Ref.hopperMulti + " Items per tick"));
+        if (stack.getItem() == Declarer.netheriteHopper) {
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
     }
 }
