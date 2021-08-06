@@ -84,7 +84,8 @@
   "text.autoconfig.tokenablefurnaces.option.doubleLatch": "Large Chest Dual Latch",
 
 
-  "text.autoconfig.tokenablefurnaces.option.hopperMulti.@Tooltip": "Multiplies items per tick by this amount",
+  "text.autoconfig.tokenablefurnaces.option.hopperMulti.@Tooltip[0]": "Multiplies items per tick by this amount",
+  "text.autoconfig.tokenablefurnaces.option.hopperMulti.@Tooltip[1]": "Must break and replace each hopper to update",
   "text.autoconfig.tokenablefurnaces.option.furnaceEfficiency.@Tooltip": "If true, furnaces will also have decreased fuel use",
   "text.autoconfig.tokenablefurnaces.option.upgrades.@Tooltip": "(En/Dis)able the ability to upgrade blocks",
   "text.autoconfig.tokenablefurnaces.option.blockToggles.@Tooltip": "(En/Dis)able individual block types completely",

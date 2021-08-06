@@ -2,18 +2,14 @@ package website.skylorbeck.minecraft.tokenablefurnaces.shulkers;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
-
-import java.util.stream.IntStream;
 
 public class NetheriteShulkerEntity extends ExtraShulkerEntity {
     public NetheriteShulkerEntity(BlockPos pos, BlockState state) {

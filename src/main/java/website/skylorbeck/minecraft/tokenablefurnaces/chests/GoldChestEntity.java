@@ -11,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
-import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystDoubleScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DiamondScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.GoldScreenHandler;
 

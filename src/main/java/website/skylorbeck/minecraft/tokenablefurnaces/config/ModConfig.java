@@ -7,7 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "tokenablefurnaces")
 public class ModConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min=1,max = 8)
-    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.Gui.Tooltip(count = 2)
     public int hopperMulti = 1;
     @ConfigEntry.Gui.RequiresRestart
     public boolean tokens = true;

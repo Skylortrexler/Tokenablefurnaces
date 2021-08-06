@@ -13,7 +13,6 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystDoubleScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.AmethystScreenHandler;
-import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.AmethystTrappedChestEntity;
 
 public class AmethystChestEntity extends ExtraChestEntity {
     protected AmethystChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
