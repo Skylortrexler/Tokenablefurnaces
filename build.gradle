@@ -35,7 +35,7 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
     //modmenu
-    modImplementation "com.terraformersmc:modmenu:2.0.2"
+    modImplementation "com.terraformersmc:modmenu:2.0.4"
 
     modRuntime ("website.skylorbeck.sentimentality3:Sentimentality3:1.2.10")
     modImplementation ("website.skylorbeck.minecraft:SkylorLib:1.0.0")
