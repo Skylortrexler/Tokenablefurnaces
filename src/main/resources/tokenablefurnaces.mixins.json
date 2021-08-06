@@ -7,10 +7,8 @@
     "BarrelEntityAccessor",
     "ChestEntityAccessor",
     "FurnaceEntityAccessor",
-    "HopperEntityAccessor",
     "ShulkerEntityAccessor",
     "TokenItemAccessor",
-    "website.skylorbeck.minecraft.skylorlib.mixin.XPFixMixin"
   ],
   "client": [
   ],
