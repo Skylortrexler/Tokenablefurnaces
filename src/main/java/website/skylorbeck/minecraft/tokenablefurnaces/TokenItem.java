@@ -18,11 +18,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
-import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.ExtraShulkerEntity;
 
 import java.util.List;
 import java.util.logging.Level;
