@@ -17,7 +17,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class GoldExtraSmokerEntity extends AbstractExtraFurnaceBlockEntity {
     public GoldExtraSmokerEntity(BlockPos pos, BlockState state) {
-        super(Declarer.GOLDSMOKERENTITY,pos,state, RecipeType.SMOKING);
+        super(Declarer.GOLDSMOKERENTITY,pos,state, RecipeType.SMOKING,0.6f);
     }
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
         AbstractExtraFurnaceBlockEntity.tick(world,blockPos,state, (AbstractExtraFurnaceBlockEntity) t);
@@ -31,7 +31,7 @@ public class GoldExtraSmokerEntity extends AbstractExtraFurnaceBlockEntity {
         if (Ref.furnaceEfficiency) {
             return super.getFuelTime(fuel) / 2;
         } else {
-            return (int) (super.getFuelTime(fuel)*0.6)/2;
+            return (int) (super.getFuelTime(fuel)*this.getMultiplier())/2;
         }
     }
 

@@ -17,7 +17,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class AmethystExtraSmokerEntity extends AbstractExtraFurnaceBlockEntity {
     public AmethystExtraSmokerEntity(BlockPos pos, BlockState state) {
-        super(Declarer.AMETHYSTSMOKERENTITY,pos,state, RecipeType.SMOKING);
+        super(Declarer.AMETHYSTSMOKERENTITY,pos,state, RecipeType.SMOKING,0.2f);
     }
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
         AbstractExtraFurnaceBlockEntity.tick(world,blockPos,state, (AbstractExtraFurnaceBlockEntity) t);
@@ -31,7 +31,7 @@ public class AmethystExtraSmokerEntity extends AbstractExtraFurnaceBlockEntity {
         if (Ref.furnaceEfficiency) {
             return super.getFuelTime(fuel) / 2;
         } else {
-            return (int) (super.getFuelTime(fuel) * 0.2) / 2;
+            return (int) (super.getFuelTime(fuel) * this.getMultiplier()) / 2;
         }
     }
 

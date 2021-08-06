@@ -14,7 +14,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class GoldExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity {
     public GoldExtraFurnaceEntity(BlockPos pos, BlockState state) {
-        super(Declarer.GOLDFURNACEENTITY,pos,state, RecipeType.SMELTING);
+        super(Declarer.GOLDFURNACEENTITY,pos,state, RecipeType.SMELTING,0.6f);
     }
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
         AbstractExtraFurnaceBlockEntity.tick(world,blockPos,state,(GoldExtraFurnaceEntity)t);
@@ -27,7 +27,7 @@ public class GoldExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity {
         if (Ref.furnaceEfficiency) {
             return super.getFuelTime(fuel);
         } else {
-            return (int) (super.getFuelTime(fuel) * 0.6);
+            return (int) (super.getFuelTime(fuel) * this.getMultiplier());
         }
     }
 }

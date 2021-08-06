@@ -14,19 +14,23 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
 public class DiamondExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity {
     public DiamondExtraFurnaceEntity(BlockPos pos, BlockState state) {
-        super(Declarer.DIAMONDFURNACEENTITY,pos,state, RecipeType.SMELTING);
+        super(Declarer.DIAMONDFURNACEENTITY, pos, state, RecipeType.SMELTING,0.4f);
     }
+
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
-        AbstractExtraFurnaceBlockEntity.tick(world,blockPos,state,(DiamondExtraFurnaceEntity)t);
+        AbstractExtraFurnaceBlockEntity.tick(world, blockPos, state, (DiamondExtraFurnaceEntity) t);
     }
+
     @Override
     public Text getContainerName() {
         return new TranslatableText("container.furnace");
     }
-    protected int getFuelTime(ItemStack fuel) {     if (Ref.furnaceEfficiency) {
-        return super.getFuelTime(fuel);
-    } else {
-        return (int) (super.getFuelTime(fuel) * 0.4);
-    }
+
+    protected int getFuelTime(ItemStack fuel) {
+        if (Ref.furnaceEfficiency) {
+            return super.getFuelTime(fuel);
+        } else {
+            return (int) (super.getFuelTime(fuel) * this.getMultiplier());
+        }
     }
 }

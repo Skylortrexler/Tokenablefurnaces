@@ -15,6 +15,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraSmokerBlock;
+import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 
 import java.util.List;
 
@@ -40,6 +41,10 @@ public class DiamondExtraSmokerBlock extends ExtraSmokerBlock {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.of("60% Faster"));
+        if (stack.getItem() == Declarer.netheriteFurnace || stack.getItem() == Declarer.netheriteBlast || stack.getItem() == Declarer.netheriteSmoker) {
+            tooltip.add(Text.of("Blast Resistant"));
+            tooltip.add(Text.of("Lava/fireproof"));
+        }
         super.appendTooltip(stack, world, tooltip, options);
     }
 }
