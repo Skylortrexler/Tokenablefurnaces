@@ -11,9 +11,9 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.AbstractExtraFurnaceBlockEntity;
 
 public class AmethystExtraBlastEntity extends AbstractExtraFurnaceBlockEntity {
     public AmethystExtraBlastEntity(BlockPos pos, BlockState state) {

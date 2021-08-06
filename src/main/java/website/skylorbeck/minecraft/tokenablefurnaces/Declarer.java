@@ -17,9 +17,6 @@ import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraBlastFurnaceBlockEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraFurnaceBlockEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.core.ExtraSmokerBlockEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.iron.*;
@@ -27,9 +24,6 @@ import website.skylorbeck.minecraft.tokenablefurnaces.hoppers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.shulkers.*;
 
 public class Declarer {
-    public static BlockEntityType<ExtraFurnaceBlockEntity> EXTRA_FURNACE_ENTITY;
-    public static BlockEntityType<ExtraBlastFurnaceBlockEntity> EXTRA_BLAST_FURNACE_ENTITY;
-    public static BlockEntityType<ExtraSmokerBlockEntity> EXTRA_SMOKER_FURNACE_ENTITY;
 
     public static BlockEntityType<IronExtraFurnaceEntity> IRONFURNACEENTITY;
     public static BlockEntityType<IronExtraBlastEntity> IRONBLASTENTITY;
