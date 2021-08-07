@@ -11,7 +11,7 @@
     "homepage": "https://www.skylorbeck.website",
     "issues": "https://github.com/Skylortrexler/Tokenablefurnaces/issues"
   },
-  "license": "GPLv3",
+  "license": "LGPLv3",
   "icon": "assets/tokenablefurnaces/icon.png",
   "environment": "*",
   "entrypoints": {
