@@ -17,9 +17,10 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
+import website.skylorbeck.minecraft.skylorlib.furnaces.*;
 import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
@@ -45,11 +46,16 @@ public class TokenItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         furn = false;
-        Boolean consume = false;
+        boolean consume = false;
         World world = context.getWorld();
         BlockState block = world.getBlockState(context.getBlockPos());
         BlockPos blockPos = context.getBlockPos();
         if (Ref.canUpgradeFurnaces) {
+            furn = block.getBlock() instanceof ExtraFurnaceBlock && (!block.isOf(Declarer.ironFurnaceBlock)
+                    &&!block.isOf(Declarer.goldFurnaceBlock)
+                    &&!block.isOf(Declarer.diamondFurnaceBlock)
+                    &&!block.isOf(Declarer.netheriteFurnaceBlock)
+                    &&!block.isOf(Declarer.amethystFurnaceBlock));
             if (block.isOf(Blocks.FURNACE) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
@@ -69,8 +75,17 @@ public class TokenItem extends Item {
                 upgradeFurnace(world, block, blockPos, Tier.Amethyst);
                 consume = true;
             }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
+            }
         }
         if (Ref.canUpgradeBlast) {
+            furn = block.getBlock() instanceof ExtraBlastFurnaceBlock && (!block.isOf(Declarer.ironBlastBlock)
+                    &&!block.isOf(Declarer.goldBlastBlock)
+                    &&!block.isOf(Declarer.diamondBlastBlock)
+                    &&!block.isOf(Declarer.netheriteBlastBlock)
+                    &&!block.isOf(Declarer.amethystBlastBlock));
             if (block.isOf(Blocks.BLAST_FURNACE) || furn&& (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeBlastFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
@@ -90,8 +105,17 @@ public class TokenItem extends Item {
                 upgradeBlastFurnace(world, block, blockPos, Tier.Amethyst);
                 consume = true;
             }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
+            }
         }
         if (Ref.canUpgradeSmoker) {
+            furn = block.getBlock() instanceof ExtraSmokerBlock && (!block.isOf(Declarer.ironSmokerBlock)
+                    &&!block.isOf(Declarer.goldSmokerBlock)
+                    &&!block.isOf(Declarer.diamondSmokerBlock)
+                    &&!block.isOf(Declarer.netheriteSmokerBlock)
+                    &&!block.isOf(Declarer.amethystSmokerBlock));
             if (block.isOf(Blocks.SMOKER) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeSmoker(world, block, blockPos, Tier.Iron);
                 consume = true;
@@ -110,6 +134,10 @@ public class TokenItem extends Item {
             } else if (block.isOf(Declarer.netheriteSmokerBlock) && (tier == Tier.Omni)) {
                 upgradeSmoker(world, block, blockPos, Tier.Amethyst);
                 consume = true;
+            }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
             }
         }
         if (Ref.canUpgradeChests) {
@@ -132,6 +160,10 @@ public class TokenItem extends Item {
                 upgradeChest(world, block, blockPos, Tier.Amethyst);
                 consume = true;
             }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
+            }
         }
         if (Ref.canUpgradeTrapped) {
             if (block.isOf(Blocks.TRAPPED_CHEST) && (tier == Tier.Iron || tier == Tier.Omni)) {
@@ -152,6 +184,10 @@ public class TokenItem extends Item {
             } else if (block.isOf(Declarer.netheriteTrappedChestBlock) && (tier == Tier.Omni)) {
                 upgradeTrappedChest(world, block, blockPos, Tier.Amethyst);
                 consume = true;
+            }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
             }
         }
         if (Ref.canUpgradeBarrels) {
@@ -174,6 +210,10 @@ public class TokenItem extends Item {
                 upgradeBarrel(world, block, blockPos, Tier.Amethyst);
                 consume = true;
             }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
+            }
         }
         if (Ref.canUpgradeShulkers) {
             if (block.isOf(Blocks.SHULKER_BOX) && (tier == Tier.Iron || tier == Tier.Omni)) {
@@ -194,6 +234,10 @@ public class TokenItem extends Item {
             } else if (block.isOf(Declarer.netheriteShulkerBlock) && (tier == Tier.Omni)) {
                 upgradeShulker(world, block, blockPos, Tier.Amethyst);
                 consume = true;
+            }
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
             }
         }
         if (Ref.canUpgradeHoppers) {
@@ -216,26 +260,10 @@ public class TokenItem extends Item {
                 upgradeHopper(world, block, blockPos, Tier.Amethyst);
                 consume = true;
             }
-        }
-        /*if (block.isOf(Blocks.FURNACE)|| block.getBlock() instanceof ExtraFurnaceBlock) {
-            upgradeFurnace(world, block, blockPos, tier);
-        } else if (block.isOf(Blocks.BLAST_FURNACE)|| block.getBlock() instanceof ExtraBlastFurnaceBlock) {
-            upgradeBlastFurnace(world, block, blockPos, tier);
-        } else if (block.isOf(Blocks.SMOKER)|| block.getBlock() instanceof ExtraSmokerBlock) {
-            upgradeSmoker(world, block, blockPos, tier);
-        } else if (block.isOf(Blocks.CHEST) || block.getBlock() instanceof ExtraChestBlock) {
-            upgradeChest(world, block, blockPos, tier);
-        } else if (block.isOf(Blocks.TRAPPED_CHEST) || block.getBlock() instanceof ExtraTrappedChestBlock){
-            upgradeTrappedChest(world,block,blockPos,tier);
-        } else if (block.isOf(Blocks.BARREL) || block.getBlock() instanceof ExtraBarrelBlock){
-            upgradeBarrel(world,block,blockPos,tier);
-        } else if (block.isOf(Blocks.SHULKER_BOX)|| block.getBlock() instanceof ExtraShulkerBlock){
-            upgradeShulker(world,block,blockPos,tier);
-        } else if (block.isOf(Blocks.HOPPER) || block.getBlock() instanceof ExtraHopperBlock){
-            upgradeHopper(world,block,blockPos,tier);
-        }*/
-        if (this.tier != Tier.Omni && consume) {
-            context.getStack().decrement(1);
+            if (this.tier != Tier.Omni && consume) {
+                context.getStack().decrement(1);
+                return ActionResult.CONSUME;
+            }
         }
         return ActionResult.CONSUME;
     }

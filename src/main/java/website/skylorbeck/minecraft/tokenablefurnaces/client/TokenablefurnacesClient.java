@@ -10,11 +10,11 @@ import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredica
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import website.skylorbeck.minecraft.skylorlib.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntityRenderer;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntityRenderer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
-import website.skylorbeck.minecraft.tokenablefurnaces.bundles.ExtraBundleItem;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.config.ModConfig;
