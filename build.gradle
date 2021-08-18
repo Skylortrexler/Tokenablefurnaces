@@ -36,9 +36,9 @@ dependencies {
     }
     //modmenu
     modImplementation "com.terraformersmc:modmenu:2.0.4"
+    modImplementation ("website.skylorbeck.minecraft:SkylorLib:1.0.1")
 
     modRuntime ("website.skylorbeck.sentimentality3:Sentimentality3:1.3.0")
-    modImplementation ("website.skylorbeck.minecraft:SkylorLib:1.0.0")
 
 }
 

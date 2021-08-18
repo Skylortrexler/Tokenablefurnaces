@@ -308,7 +308,6 @@ public class TokenItem extends Item {
             newInventory.set(i,inventory.get(i));
         }
         inventory.clear();
-
         world.setBlockState(blockPos,newBlock.getStateWithProperties(block));
 
         AbstractExtraFurnaceBlockEntity extraFurnaceBlockEntity = ((AbstractExtraFurnaceBlockEntity)world.getBlockEntity(blockPos));
@@ -366,7 +365,12 @@ public class TokenItem extends Item {
 
     private void upgradeChest(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
-        DefaultedList<ItemStack> inventory = ((ChestEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
+        DefaultedList<ItemStack> inventory;
+        if (world.getBlockEntity(blockPos) instanceof ExtraChestEntity){
+            inventory = ((ExtraChestEntity)world.getBlockEntity(blockPos)).inventory;
+        } else {
+            inventory =((ChestEntityAccessor) (world.getBlockEntity(blockPos))).getInventory();
+        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
@@ -395,7 +399,12 @@ public class TokenItem extends Item {
 
     private void upgradeTrappedChest(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
-        DefaultedList<ItemStack> inventory = ((ChestEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
+        DefaultedList<ItemStack> inventory ;
+        if (world.getBlockEntity(blockPos) instanceof ExtraChestEntity){
+            inventory = ((ExtraChestEntity)world.getBlockEntity(blockPos)).inventory;
+        } else {
+            inventory =((ChestEntityAccessor) (world.getBlockEntity(blockPos))).getInventory();
+        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {

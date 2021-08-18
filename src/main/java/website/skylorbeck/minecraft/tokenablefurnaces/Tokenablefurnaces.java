@@ -22,10 +22,11 @@ public class Tokenablefurnaces implements ModInitializer {
 }
 //todo
 // known issues:
+// duplicate chest entity
 
 //todo
 // shift click weirdness
-
+// backport to 1.17
 
 
 // Amethyst Chest
