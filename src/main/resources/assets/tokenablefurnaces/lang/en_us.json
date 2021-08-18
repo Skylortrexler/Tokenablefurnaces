@@ -116,5 +116,8 @@
   "container.goldchestdouble": "Gold Large Chest",
   "container.diamondchestdouble": "Diamond Large Chest",
   "container.netheritechestdouble": "Netherite Large Chest",
-  "container.amethystchestdouble": "Amethyst Large Chest"
+  "container.amethystchestdouble": "Amethyst Large Chest",
+
+
+  "itemGroup.tokenablefurnaces.category": "Tokenable Furnaces"
 }
