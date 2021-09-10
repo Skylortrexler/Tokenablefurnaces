@@ -56,7 +56,7 @@ public class TokenItem extends Item {
                     &&!block.isOf(Declarer.diamondFurnaceBlock)
                     &&!block.isOf(Declarer.netheriteFurnaceBlock)
                     &&!block.isOf(Declarer.amethystFurnaceBlock));
-            if (block.isOf(Blocks.FURNACE) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
+            if ((block.isOf(Blocks.FURNACE) || furn) && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironFurnaceBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
@@ -86,7 +86,7 @@ public class TokenItem extends Item {
                     &&!block.isOf(Declarer.diamondBlastBlock)
                     &&!block.isOf(Declarer.netheriteBlastBlock)
                     &&!block.isOf(Declarer.amethystBlastBlock));
-            if (block.isOf(Blocks.BLAST_FURNACE) || furn&& (tier == Tier.Iron || tier == Tier.Omni)) {
+            if ((block.isOf(Blocks.BLAST_FURNACE) || furn)&& (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeBlastFurnace(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironBlastBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
@@ -116,7 +116,7 @@ public class TokenItem extends Item {
                     &&!block.isOf(Declarer.diamondSmokerBlock)
                     &&!block.isOf(Declarer.netheriteSmokerBlock)
                     &&!block.isOf(Declarer.amethystSmokerBlock));
-            if (block.isOf(Blocks.SMOKER) || furn && (tier == Tier.Iron || tier == Tier.Omni)) {
+            if ((block.isOf(Blocks.SMOKER) || furn) && (tier == Tier.Iron || tier == Tier.Omni)) {
                 upgradeSmoker(world, block, blockPos, Tier.Iron);
                 consume = true;
             } else if (block.isOf(Declarer.ironSmokerBlock) && (tier == Tier.Gold || tier == Tier.Omni)) {
