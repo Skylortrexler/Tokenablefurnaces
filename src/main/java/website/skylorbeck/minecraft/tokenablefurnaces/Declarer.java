@@ -91,12 +91,12 @@ public class Declarer {
     public static BlockEntityType<NetheriteBarrelEntity> NETHERITEBARRELENTITY;
     public static BlockEntityType<AmethystBarrelEntity> AMETHYSTBARRELENTITY;
 
-    public static Item ironToken = new TokenItem(new FabricItemSettings().rarity(Rarity.COMMON).group(tokenablefurnaces), TokenItem.Tier.Iron);
-    public static Item goldToken = new TokenItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(tokenablefurnaces), TokenItem.Tier.Gold);
-    public static Item diamondToken = new TokenItem(new FabricItemSettings().rarity(Rarity.RARE).group(tokenablefurnaces), TokenItem.Tier.Diamond);
-    public static Item netheriteToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TokenItem.Tier.Netherite);
-    public static Item amethystToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TokenItem.Tier.Amethyst);
-    public static Item omniToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TokenItem.Tier.Omni);
+    public static Item ironToken = new TokenItem(new FabricItemSettings().rarity(Rarity.COMMON).group(tokenablefurnaces), TierHelper.Tier.Iron);
+    public static Item goldToken = new TokenItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(tokenablefurnaces), TierHelper.Tier.Gold);
+    public static Item diamondToken = new TokenItem(new FabricItemSettings().rarity(Rarity.RARE).group(tokenablefurnaces), TierHelper.Tier.Diamond);
+    public static Item netheriteToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TierHelper.Tier.Netherite);
+    public static Item amethystToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TierHelper.Tier.Amethyst);
+    public static Item omniToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TierHelper.Tier.Omni);
 
     public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
     public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
