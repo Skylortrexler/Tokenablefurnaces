@@ -379,19 +379,19 @@ public class TokenItem extends Item {
             }
             case Gold -> {
                 newBlock = Declarer.goldChestBlock;
-                newInventory = DefaultedList.ofSize(6*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(12*9,ItemStack.EMPTY);
             }
             case Diamond -> {
                 newBlock = Declarer.diamondChestBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Netherite -> {
                 newBlock = Declarer.netheriteChestBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Amethyst -> {
                 newBlock = Declarer.amethystChestBlock;
-                newInventory = DefaultedList.ofSize(18*20,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(48*9,ItemStack.EMPTY);
             }
         }
         upgradeChestType(world,block,blockPos,newBlock,inventory,newInventory);
@@ -413,19 +413,19 @@ public class TokenItem extends Item {
             }
             case Gold -> {
                 newBlock = Declarer.goldTrappedChestBlock;
-                newInventory = DefaultedList.ofSize(6*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(12*9,ItemStack.EMPTY);
             }
             case Diamond -> {
                 newBlock = Declarer.diamondTrappedChestBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Netherite -> {
                 newBlock = Declarer.netheriteTrappedChestBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Amethyst -> {
                 newBlock = Declarer.amethystTrappedChestBlock;
-                newInventory = DefaultedList.ofSize(18*20,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(48*9,ItemStack.EMPTY);
             }
         }
         upgradeChestType(world,block,blockPos,newBlock,inventory,newInventory);
@@ -447,19 +447,19 @@ public class TokenItem extends Item {
             }
             case Gold -> {
                 newBlock = Declarer.goldBarrelBlock;
-                newInventory = DefaultedList.ofSize(6*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(12*9,ItemStack.EMPTY);
             }
             case Diamond -> {
                 newBlock = Declarer.diamondBarrelBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Netherite -> {
                 newBlock = Declarer.netheriteBarrelBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Amethyst -> {
                 newBlock = Declarer.amethystBarrelBlock;
-                newInventory = DefaultedList.ofSize(18*20,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(48*9,ItemStack.EMPTY);
             }
         }
         for (int i = 0; i <inventory.size() ; i++) {
@@ -486,19 +486,19 @@ public class TokenItem extends Item {
             }
             case Gold -> {
                 newBlock = Declarer.goldShulkerBlock;
-                newInventory = DefaultedList.ofSize(6*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(12*9,ItemStack.EMPTY);
             }
             case Diamond -> {
                 newBlock = Declarer.diamondShulkerBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Netherite -> {
                 newBlock = Declarer.netheriteShulkerBlock;
-                newInventory = DefaultedList.ofSize(12*15,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(24*9,ItemStack.EMPTY);
             }
             case Amethyst -> {
                 newBlock = Declarer.amethystShulkerBlock;
-                newInventory = DefaultedList.ofSize(18*20,ItemStack.EMPTY);
+                newInventory = DefaultedList.ofSize(48*9,ItemStack.EMPTY);
             }
         }
         for (int i = 0; i <inventory.size() ; i++) {
