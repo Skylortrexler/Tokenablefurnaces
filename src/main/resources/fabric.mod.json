@@ -35,5 +35,6 @@
     "fabric": "*",
     "minecraft": "1.17.1",
     "skylorlib": ">=1.0.4"
+
   }
 }
