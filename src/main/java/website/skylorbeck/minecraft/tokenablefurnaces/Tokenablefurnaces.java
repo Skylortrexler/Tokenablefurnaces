@@ -30,3 +30,4 @@ public class Tokenablefurnaces implements ModInitializer {
 //todo ender token
 //todo ender dirt chest upgrade
 //todo ender normal chest upgrade
+//todo upgrade tokens
