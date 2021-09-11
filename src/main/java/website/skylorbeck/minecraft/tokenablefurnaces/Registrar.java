@@ -164,6 +164,32 @@ public class Registrar {
                         Declarer.amethystChestBlock
                 ).build(null));
 
+        Declarer.DIRTIRONCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtironchest",
+                FabricBlockEntityTypeBuilder.create(DirtIronChestEntity::new,
+                        Declarer.dirtIronChestBlock
+                ).build(null));
+        Declarer.DIRTGOLDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtgoldchest",
+                FabricBlockEntityTypeBuilder.create(DirtGoldChestEntity::new,
+                        Declarer.dirtGoldChestBlock
+                ).build(null));
+        Declarer.DIRTDIAMONDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtdiamondchest",
+                FabricBlockEntityTypeBuilder.create(DirtDiamondChestEntity::new,
+                        Declarer.dirtDiamondChestBlock
+                ).build(null));
+        Declarer.DIRTNETHERITECHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtnetheritechest",
+                FabricBlockEntityTypeBuilder.create(DirtNetheriteChestEntity::new,
+                        Declarer.dirtNetheriteChestBlock
+                ).build(null));
+        Declarer.DIRTAMETHYSTCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                Ref.MODID + ":dirtamethystchest",
+                FabricBlockEntityTypeBuilder.create(DirtAmethystChestEntity::new,
+                        Declarer.dirtAmethystChestBlock
+                ).build(null));
+
         Declarer.DIRTTRAPPEDCHESTENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 Ref.MODID + ":dirttrappedchest",
                 FabricBlockEntityTypeBuilder.create(DirtTrappedChestEntity::new,
@@ -268,6 +294,14 @@ public class Registrar {
         Declarer.DIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":diamondscreen"), (syncId, inventory) -> new DiamondScreenHandler(syncId,inventory,new SimpleInventory(24*9),24,9));
         Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystscreen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(48*9),48,9));
         Declarer.AMETHYSTDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethystdoublescreen"), (syncId, inventory) -> new AmethystDoubleScreenHandler(syncId,inventory,new SimpleInventory(96*9),96,9));
+
+        Declarer.DIRTGOLDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtgoldscreen"), (syncId, inventory) -> new DirtGoldScreenHandler(syncId,inventory,new SimpleInventory(4),1,4));
+        Declarer.DIRTGOLDDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtgolddoublescreen"), (syncId, inventory) -> new DirtGoldDoubleScreenHandler(syncId,inventory,new SimpleInventory(8),1,8));
+        Declarer.DIRTDIAMONDSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtdiamondscreen"), (syncId, inventory) -> new DirtDiamondScreenHandler(syncId,inventory,new SimpleInventory(6),1,6));
+        Declarer.DIRTDIAMONDDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtdiamonddoublescreen"), (syncId, inventory) -> new DirtDiamondDoubleScreenHandler(syncId,inventory,new SimpleInventory(12),1,12));
+        Declarer.DIRTAMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtamethystscreen"), (syncId, inventory) -> new DirtAmethystScreenHandler(syncId,inventory,new SimpleInventory(9),1,9));
+        Declarer.DIRTAMETHYSTDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":dirtamethystdoublescreen"), (syncId, inventory) -> new DirtAmethystDoubleScreenHandler(syncId,inventory,new SimpleInventory(18),1,18));
+
 
         if (Ref.tokens) {
             regItem("irontoken", Declarer.ironToken);
@@ -391,6 +425,18 @@ public class Registrar {
             regItem("diamondbundle",Declarer.diamondBundle);
             regItem("netheritebundle",Declarer.netheriteBundle);
             regItem("amethystbundle",Declarer.amethystBundle);
+        }
+        if (Ref.chests){
+            regBlock("dirtironchest",Declarer.dirtIronChestBlock);
+            regItem("dirtironchestitem",Declarer.dirtIronChest);
+            regBlock("dirtgoldchest",Declarer.dirtGoldChestBlock);
+            regItem("dirtgoldchestitem",Declarer.dirtGoldChest);
+            regBlock("dirtdiamondchest",Declarer.dirtDiamondChestBlock);
+            regItem("dirtdiamondchestitem",Declarer.dirtDiamondChest);
+            regBlock("dirtnetheritechest",Declarer.dirtNetheriteChestBlock);
+            regItem("dirtnetheritechestitem",Declarer.dirtNetheriteChest);
+            regBlock("dirtamethystchest",Declarer.dirtAmethystChestBlock);
+            regItem("dirtamethystchestitem",Declarer.dirtAmethystChest);
         }
 
     }

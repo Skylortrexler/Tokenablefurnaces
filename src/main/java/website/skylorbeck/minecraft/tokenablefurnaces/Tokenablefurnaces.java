@@ -22,49 +22,11 @@ public class Tokenablefurnaces implements ModInitializer {
 }
 //todo
 // known issues:
-// duplicate chest entity
 
 //todo
 // shift click weirdness
 // backport to 1.17
-
-
-// Amethyst Chest
-//      Amethyst token
-//          8 Amethyst Shards
-//          Diamond Token
-//              6 Glass
-//              2 Diamond
-//              Gold token
-//                  8 Gold Ingots
-//                  Iron token
-//                      8 Iron Ingot
-//                      1 Planks
-//      Diamond Chest
-//          Diamond Token
-//              6 Glass
-//              2 Diamond
-//              Gold token
-//                  8 Gold Ingots
-//                  Iron token
-//                      8 Iron Ingot
-//                      1 Planks
-//          Gold Chest
-//              Gold token
-//                  8 Gold Ingots
-//                  Iron token
-//                      8 Iron Ingot
-//                      1 Planks
-//              Iron Chest
-//                  Iron token
-//                      8 Iron Ingot
-//                      1 Planks
-//                  Chest
-//                      8 Planks
-// Total
-// 12 Planks
-// 32 Iron Ingot
-// 24 Gold Ingot
-// 4 Diamond
-// 12 Glass
-// 8 Amethyst Shards
+//todo screenhandlers
+//todo ender token
+//todo ender dirt chest upgrade
+//todo ender normal chest upgrade

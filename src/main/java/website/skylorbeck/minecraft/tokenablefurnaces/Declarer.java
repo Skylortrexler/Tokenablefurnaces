@@ -62,6 +62,12 @@ public class Declarer {
     public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
     public static BlockEntityType<AmethystChestEntity> AMETHYSTCHESTENTITY;
 
+    public static BlockEntityType<DirtIronChestEntity> DIRTIRONCHESTENTITY;
+    public static BlockEntityType<DirtGoldChestEntity> DIRTGOLDCHESTENTITY;
+    public static BlockEntityType<DirtDiamondChestEntity> DIRTDIAMONDCHESTENTITY;
+    public static BlockEntityType<DirtNetheriteChestEntity> DIRTNETHERITECHESTENTITY;
+    public static BlockEntityType<DirtAmethystChestEntity> DIRTAMETHYSTCHESTENTITY;
+
     public static BlockEntityType<PumpkinTrappedChestEntity> PUMPKINTRAPPEDCHESTENTITY;
     public static BlockEntityType<ChristmasTrappedChestEntity> CHRISTMASTRAPPEDCHESTENTITY;
     public static BlockEntityType<DirtTrappedChestEntity> DIRTTRAPPEDCHESTENTITY;
@@ -78,6 +84,13 @@ public class Declarer {
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
     public static ScreenHandlerType<AmethystDoubleScreenHandler> AMETHYSTDOUBLESCREENHANDLER;
+
+    public static ScreenHandlerType<DirtGoldScreenHandler> DIRTGOLDSCREENHANDLER;
+    public static ScreenHandlerType<DirtGoldDoubleScreenHandler> DIRTGOLDDOUBLESCREENHANDLER;
+    public static ScreenHandlerType<DirtDiamondScreenHandler> DIRTDIAMONDSCREENHANDLER;
+    public static ScreenHandlerType<DirtDiamondDoubleScreenHandler> DIRTDIAMONDDOUBLESCREENHANDLER;
+    public static ScreenHandlerType<DirtAmethystScreenHandler> DIRTAMETHYSTSCREENHANDLER;
+    public static ScreenHandlerType<DirtAmethystDoubleScreenHandler> DIRTAMETHYSTDOUBLESCREENHANDLER;
 
     public static BlockEntityType<IronShulkerEntity> IRONSHULKERENTITY;
     public static BlockEntityType<GoldShulkerEntity> GOLDSHULKERENTITY;
@@ -98,107 +111,107 @@ public class Declarer {
     public static Item amethystToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TierHelper.Tier.Amethyst);
     public static Item omniToken = new TokenItem(new FabricItemSettings().rarity(Rarity.EPIC).group(tokenablefurnaces), TierHelper.Tier.Omni);
 
-    public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
+    public static Block ironFurnaceBlock = new IronExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true),0);
     public static final BlockItem ironFurnace = new BlockItem(ironFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block ironBlastBlock = new IronExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block ironBlastBlock = new IronExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem ironBlast = new BlockItem(ironBlastBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block ironSmokerBlock = new IronExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block ironSmokerBlock = new IronExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem ironSmoker = new BlockItem(ironSmokerBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
 
-    public static Block goldFurnaceBlock = new GoldExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
+    public static Block goldFurnaceBlock = new GoldExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true),0);
     public static final BlockItem goldFurnace = new BlockItem(goldFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block goldBlastBlock = new GoldExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block goldBlastBlock = new GoldExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem goldBlast = new BlockItem(goldBlastBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block goldSmokerBlock = new GoldExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block goldSmokerBlock = new GoldExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem goldSmoker = new BlockItem(goldSmokerBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
 
-    public static Block diamondFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
+    public static Block diamondFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true),0);
     public static final BlockItem diamondFurnace = new BlockItem(diamondFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block diamondBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block diamondBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem diamondBlast = new BlockItem(diamondBlastBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block diamondSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block diamondSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem diamondSmoker = new BlockItem(diamondSmokerBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
 
-    public static Block netheriteFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F),0);
+    public static Block netheriteFurnaceBlock = new DiamondExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true).resistance(1200F),0);
     public static final BlockItem netheriteFurnace = new BlockItem(netheriteFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block netheriteBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
+    public static Block netheriteBlastBlock = new DiamondExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true).resistance(1200F));
     public static final BlockItem netheriteBlast = new BlockItem(netheriteBlastBlock, new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block netheriteSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
+    public static Block netheriteSmokerBlock = new DiamondExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true).resistance(1200F));
     public static final BlockItem netheriteSmoker = new BlockItem(netheriteSmokerBlock, new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
 
-    public static Block amethystFurnaceBlock = new AmethystExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES),0);
+    public static Block amethystFurnaceBlock = new AmethystExtraFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true),0);
     public static final BlockItem amethystFurnace = new BlockItem(amethystFurnaceBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
-    public static Block amethystBlastBlock = new AmethystExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block amethystBlastBlock = new AmethystExtraBlastBlock(FabricBlockSettings.copyOf(Blocks.BLAST_FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem amethystBlast = new BlockItem(amethystBlastBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
-    public static Block amethystSmokerBlock = new AmethystExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES));
+    public static Block amethystSmokerBlock = new AmethystExtraSmokerBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem amethystSmoker = new BlockItem(amethystSmokerBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
-    public static Block ironHopperBlock = new IronHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static Block ironHopperBlock = new IronHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem ironHopper = new BlockItem(ironHopperBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block goldHopperBlock = new GoldHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static Block goldHopperBlock = new GoldHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem goldHopper = new BlockItem(goldHopperBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block diamondHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static Block diamondHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem diamondHopper = new BlockItem(diamondHopperBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block netheriteHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).resistance(1200F));
+    public static Block netheriteHopperBlock = new DiamondHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).breakByHand(true).resistance(1200F));
     public static final BlockItem netheriteHopper = new BlockItem(netheriteHopperBlock, new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES));
+    public static Block amethystHopperBlock = new AmethystHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
 
-    public static Block dirtChestBlock = new DirtChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS), () -> Declarer.DIRTCHESTENTITY);
+    public static Block dirtChestBlock = new DirtChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTCHESTENTITY);
     public static BlockItem dirtChest = new BlockItem(dirtChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block christmasChestBlock = new ChristmasChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.CHRISTMASCHESTENTITY);
+    public static Block christmasChestBlock = new ChristmasChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES).breakByHand(true), () -> Declarer.CHRISTMASCHESTENTITY);
     public static BlockItem christmasChest = new BlockItem(christmasChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block pumpkinChestBlock = new PumpkinChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.PUMPKINCHESTENTITY);
+    public static Block pumpkinChestBlock = new PumpkinChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES).breakByHand(true), () -> Declarer.PUMPKINCHESTENTITY);
     public static BlockItem pumpkinChest = new BlockItem(pumpkinChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block ironChestBlock = new IronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONCHESTENTITY);
+    public static Block ironChestBlock = new IronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.IRONCHESTENTITY);
     public static BlockItem ironChest = new BlockItem(ironChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block goldChestBlock = new GoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDCHESTENTITY);
+    public static Block goldChestBlock = new GoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.GOLDCHESTENTITY);
     public static BlockItem goldChest = new BlockItem(goldChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block diamondChestBlock = new DiamondChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDCHESTENTITY);
+    public static Block diamondChestBlock = new DiamondChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.DIAMONDCHESTENTITY);
     public static BlockItem diamondChest = new BlockItem(diamondChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block netheriteChestBlock = new NetheriteChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITECHESTENTITY);
+    public static Block netheriteChestBlock = new NetheriteChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.NETHERITECHESTENTITY);
     public static BlockItem netheriteChest = new BlockItem(netheriteChestBlock,new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTCHESTENTITY);
+    public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.AMETHYSTCHESTENTITY);
     public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
     public static Block dirtTrappedChestBlock = new DirtTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS), () -> Declarer.DIRTTRAPPEDCHESTENTITY);
     public static BlockItem dirtTrappedChest = new BlockItem(dirtTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block christmasTrappedChestBlock = new ChristmasTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.CHRISTMASTRAPPEDCHESTENTITY);
+    public static Block christmasTrappedChestBlock = new ChristmasTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES).breakByHand(true), () -> Declarer.CHRISTMASTRAPPEDCHESTENTITY);
     public static BlockItem christmasTrappedChest = new BlockItem(christmasTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block pumpkinTrappedChestBlock = new PumpkinTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES), () -> Declarer.PUMPKINTRAPPEDCHESTENTITY);
+    public static Block pumpkinTrappedChestBlock = new PumpkinTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.AXES).breakByHand(true), () -> Declarer.PUMPKINTRAPPEDCHESTENTITY);
     public static BlockItem pumpkinTrappedChest = new BlockItem(pumpkinTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block ironTrappedChestBlock = new IronTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONTRAPPEDCHESTENTITY);
+    public static Block ironTrappedChestBlock = new IronTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.IRONTRAPPEDCHESTENTITY);
     public static BlockItem ironTrappedChest = new BlockItem(ironTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block goldTrappedChestBlock = new GoldTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDTRAPPEDCHESTENTITY);
+    public static Block goldTrappedChestBlock = new GoldTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.GOLDTRAPPEDCHESTENTITY);
     public static BlockItem goldTrappedChest = new BlockItem(goldTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block diamondTrappedChestBlock = new DiamondTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDTRAPPEDCHESTENTITY);
+    public static Block diamondTrappedChestBlock = new DiamondTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.DIAMONDTRAPPEDCHESTENTITY);
     public static BlockItem diamondTrappedChest = new BlockItem(diamondTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block netheriteTrappedChestBlock = new NetheriteTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITETRAPPEDCHESTENTITY);
+    public static Block netheriteTrappedChestBlock = new NetheriteTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).resistance(1200F).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.NETHERITETRAPPEDCHESTENTITY);
     public static BlockItem netheriteTrappedChest = new BlockItem(netheriteTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block amethystTrappedChestBlock = new AmethystTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTTRAPPEDCHESTENTITY);
+    public static Block amethystTrappedChestBlock = new AmethystTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.TRAPPED_CHEST).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.AMETHYSTTRAPPEDCHESTENTITY);
     public static BlockItem amethystTrappedChest = new BlockItem(amethystTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
     
-    public static Block ironShulkerBlock = new IronShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.IRONSHULKERENTITY);
+    public static Block ironShulkerBlock = new IronShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.IRONSHULKERENTITY);
     public static BlockItem ironShulker = new BlockItem(ironShulkerBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block goldShulkerBlock = new GoldShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.GOLDSHULKERENTITY);
+    public static Block goldShulkerBlock = new GoldShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.GOLDSHULKERENTITY);
     public static BlockItem goldShulker = new BlockItem(goldShulkerBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block diamondShulkerBlock = new DiamondShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.DIAMONDSHULKERENTITY);
+    public static Block diamondShulkerBlock = new DiamondShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.DIAMONDSHULKERENTITY);
     public static BlockItem diamondShulker = new BlockItem(diamondShulkerBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block netheriteShulkerBlock = new NetheriteShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).resistance(1200F).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.NETHERITESHULKERENTITY);
+    public static Block netheriteShulkerBlock = new NetheriteShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).resistance(1200F).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.NETHERITESHULKERENTITY);
     public static BlockItem netheriteShulker = new BlockItem(netheriteShulkerBlock,new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block amethystShulkerBlock = new AmethystShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES), () -> Declarer.AMETHYSTSHULKERENTITY);
+    public static Block amethystShulkerBlock = new AmethystShulkerBlock(FabricBlockSettings.copyOf(Blocks.SHULKER_BOX).breakByTool(FabricToolTags.PICKAXES).breakByHand(true), () -> Declarer.AMETHYSTSHULKERENTITY);
     public static BlockItem amethystShulker = new BlockItem(amethystShulkerBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
-    public static Block ironBarrelBlock = new IronBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static Block ironBarrelBlock = new IronBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static BlockItem ironBarrel = new BlockItem(ironBarrelBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block goldBarrelBlock = new GoldBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static Block goldBarrelBlock = new GoldBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static BlockItem goldBarrel = new BlockItem(goldBarrelBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.UNCOMMON));
-    public static Block diamondBarrelBlock = new DiamondBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static Block diamondBarrelBlock = new DiamondBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static BlockItem diamondBarrel = new BlockItem(diamondBarrelBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE));
-    public static Block netheriteBarrelBlock = new NetheriteBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).resistance(1200F).breakByTool(FabricToolTags.PICKAXES));
+    public static Block netheriteBarrelBlock = new NetheriteBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).resistance(1200F).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static BlockItem netheriteBarrel = new BlockItem(netheriteBarrelBlock,new FabricItemSettings().group(tokenablefurnaces).fireproof().rarity(Rarity.EPIC));
-    public static Block amethystBarrelBlock = new AmethystBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES));
+    public static Block amethystBarrelBlock = new AmethystBarrelBlock(FabricBlockSettings.copyOf(Blocks.BARREL).breakByTool(FabricToolTags.PICKAXES).breakByHand(true));
     public static BlockItem amethystBarrel = new BlockItem(amethystBarrelBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
     public static Item ironBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON).maxCount(1),128);
@@ -207,4 +220,14 @@ public class Declarer {
     public static Item netheriteBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1).fireproof(),256);
     public static Item amethystBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1),320);
 
+    public static Block dirtIronChestBlock = new DirtIronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTIRONCHESTENTITY);
+    public static BlockItem dirtIronChest = new BlockItem(dirtIronChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
+    public static Block dirtGoldChestBlock = new DirtGoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTGOLDCHESTENTITY);
+    public static BlockItem dirtGoldChest = new BlockItem(dirtGoldChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
+    public static Block dirtDiamondChestBlock = new DirtDiamondChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTDIAMONDCHESTENTITY);
+    public static BlockItem dirtDiamondChest = new BlockItem(dirtDiamondChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
+    public static Block dirtNetheriteChestBlock = new DirtNetheriteChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTNETHERITECHESTENTITY);
+    public static BlockItem dirtNetheriteChest = new BlockItem(dirtNetheriteChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
+    public static Block dirtAmethystChestBlock = new DirtAmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTAMETHYSTCHESTENTITY);
+    public static BlockItem dirtAmethystChest = new BlockItem(dirtAmethystChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
 }
