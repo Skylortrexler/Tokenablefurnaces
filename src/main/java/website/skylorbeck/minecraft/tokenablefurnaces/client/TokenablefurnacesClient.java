@@ -34,12 +34,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         ScreenRegistry.register(Declarer.AMETHYSTSCREENHANDLER, AmethystHandledScreen::new);
         ScreenRegistry.register(Declarer.AMETHYSTDOUBLESCREENHANDLER, AmethystDoubleHandledScreen::new);
 
-        ScreenRegistry.register(Declarer.DIRTGOLDSCREENHANDLER, DirtGoldHandledScreen::new);
-        ScreenRegistry.register(Declarer.DIRTGOLDDOUBLESCREENHANDLER, DirtGoldDoubleHandledScreen::new);
-        ScreenRegistry.register(Declarer.DIRTDIAMONDSCREENHANDLER, DirtDiamondHandledScreen::new);
-        ScreenRegistry.register(Declarer.DIRTDIAMONDDOUBLESCREENHANDLER, DirtDiamondDoubleHandledScreen::new);
-        ScreenRegistry.register(Declarer.DIRTAMETHYSTSCREENHANDLER, DirtAmethystHandledScreen::new);
-        ScreenRegistry.register(Declarer.DIRTAMETHYSTDOUBLESCREENHANDLER, DirtAmethystDoubleHandledScreen::new);
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/chest.png")).register((atlasTexture, registry) -> {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt"));
@@ -91,21 +85,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_left"));
             registry.register(new Identifier("tokenablefurnaces:entity/chest/trapped/amethyst_right"));
 
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_iron"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_iron_left"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_iron_right"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_gold"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_gold_left"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_gold_right"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_diamond"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_diamond_left"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_diamond_right"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_netherite"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_netherite_left"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_netherite_right"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_amethyst"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_amethyst_left"));
-            registry.register(new Identifier("tokenablefurnaces:entity/chest/dirt_amethyst_right"));
 
         });
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTCHESTENTITY, ExtraChestEntityRenderer::new);
@@ -124,12 +103,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITETRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTIRONCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTGOLDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTDIAMONDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTNETHERITECHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTAMETHYSTCHESTENTITY, ExtraChestEntityRenderer::new);
 
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtChestEntity(BlockPos.ORIGIN, Declarer.dirtChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
@@ -180,21 +153,6 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new AmethystTrappedChestEntity(BlockPos.ORIGIN, Declarer.amethystTrappedChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
         });
 
-        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtIronChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtIronChestEntity(BlockPos.ORIGIN, Declarer.dirtIronChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
-        });
-        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtGoldChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtGoldChestEntity(BlockPos.ORIGIN, Declarer.dirtGoldChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
-        });
-        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtDiamondChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtDiamondChestEntity(BlockPos.ORIGIN, Declarer.dirtDiamondChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
-        });
-        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtNetheriteChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtNetheriteChestEntity(BlockPos.ORIGIN, Declarer.dirtNetheriteChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
-        });
-        BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtAmethystChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtAmethystChestEntity(BlockPos.ORIGIN, Declarer.dirtAmethystChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
-        });
 
         ClientSpriteRegistryCallback.event(new Identifier("textures/atlas/shulker_boxes.png")).register((atlasTexture, registry) -> {
             registry.register(new Identifier("tokenablefurnaces:entity/shulker/iron"));
