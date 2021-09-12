@@ -62,12 +62,6 @@ public class Declarer {
     public static BlockEntityType<NetheriteChestEntity> NETHERITECHESTENTITY;
     public static BlockEntityType<AmethystChestEntity> AMETHYSTCHESTENTITY;
 
-    public static BlockEntityType<DirtIronChestEntity> DIRTIRONCHESTENTITY;
-    public static BlockEntityType<DirtGoldChestEntity> DIRTGOLDCHESTENTITY;
-    public static BlockEntityType<DirtDiamondChestEntity> DIRTDIAMONDCHESTENTITY;
-    public static BlockEntityType<DirtNetheriteChestEntity> DIRTNETHERITECHESTENTITY;
-    public static BlockEntityType<DirtAmethystChestEntity> DIRTAMETHYSTCHESTENTITY;
-
     public static BlockEntityType<PumpkinTrappedChestEntity> PUMPKINTRAPPEDCHESTENTITY;
     public static BlockEntityType<ChristmasTrappedChestEntity> CHRISTMASTRAPPEDCHESTENTITY;
     public static BlockEntityType<DirtTrappedChestEntity> DIRTTRAPPEDCHESTENTITY;
@@ -84,13 +78,6 @@ public class Declarer {
     public static ScreenHandlerType<DiamondScreenHandler> DIAMONDSCREENHANDLER;
     public static ScreenHandlerType<AmethystScreenHandler> AMETHYSTSCREENHANDLER;
     public static ScreenHandlerType<AmethystDoubleScreenHandler> AMETHYSTDOUBLESCREENHANDLER;
-
-    public static ScreenHandlerType<DirtGoldScreenHandler> DIRTGOLDSCREENHANDLER;
-    public static ScreenHandlerType<DirtGoldDoubleScreenHandler> DIRTGOLDDOUBLESCREENHANDLER;
-    public static ScreenHandlerType<DirtDiamondScreenHandler> DIRTDIAMONDSCREENHANDLER;
-    public static ScreenHandlerType<DirtDiamondDoubleScreenHandler> DIRTDIAMONDDOUBLESCREENHANDLER;
-    public static ScreenHandlerType<DirtAmethystScreenHandler> DIRTAMETHYSTSCREENHANDLER;
-    public static ScreenHandlerType<DirtAmethystDoubleScreenHandler> DIRTAMETHYSTDOUBLESCREENHANDLER;
 
     public static BlockEntityType<IronShulkerEntity> IRONSHULKERENTITY;
     public static BlockEntityType<GoldShulkerEntity> GOLDSHULKERENTITY;
@@ -219,15 +206,4 @@ public class Declarer {
     public static Item diamondBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE).maxCount(1),256);
     public static Item netheriteBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1).fireproof(),256);
     public static Item amethystBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1),320);
-
-    public static Block dirtIronChestBlock = new DirtIronChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTIRONCHESTENTITY);
-    public static BlockItem dirtIronChest = new BlockItem(dirtIronChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block dirtGoldChestBlock = new DirtGoldChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTGOLDCHESTENTITY);
-    public static BlockItem dirtGoldChest = new BlockItem(dirtGoldChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block dirtDiamondChestBlock = new DirtDiamondChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTDIAMONDCHESTENTITY);
-    public static BlockItem dirtDiamondChest = new BlockItem(dirtDiamondChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block dirtNetheriteChestBlock = new DirtNetheriteChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTNETHERITECHESTENTITY);
-    public static BlockItem dirtNetheriteChest = new BlockItem(dirtNetheriteChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
-    public static Block dirtAmethystChestBlock = new DirtAmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTAMETHYSTCHESTENTITY);
-    public static BlockItem dirtAmethystChest = new BlockItem(dirtAmethystChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
 }
