@@ -7,13 +7,16 @@ import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.AutomaticItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.BarrelEntityAccessor;
@@ -116,7 +119,8 @@ public class TierHelper {
             newInventory.set(i,inventory.get(i));
         }
         inventory.clear();
-        world.setBlockState(blockPos,newBlock.getStateWithProperties(block));
+//        world.setBlockState(blockPos,newBlock.getStateWithProperties(block));
+        world.setBlockState(blockPos,newBlock.getPlacementState(new AutomaticItemPlacementContext(world,blockPos,block.get(ExtraChestBlock.FACING).getOpposite(),newBlock.asItem().getDefaultStack(), block.get(ExtraChestBlock.FACING))));
         ((ExtraChestEntity)world.getBlockEntity(blockPos)).setInvStackList(newInventory);
     }
 

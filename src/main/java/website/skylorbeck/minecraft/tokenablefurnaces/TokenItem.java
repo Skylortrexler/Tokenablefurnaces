@@ -9,6 +9,7 @@ import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
