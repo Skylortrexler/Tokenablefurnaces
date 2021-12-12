@@ -24,6 +24,7 @@ import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
+import website.skylorbeck.minecraft.tokenablefurnaces.TierHelper.Tier;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
 
 import java.util.List;
