@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tokenablefurnaces:dirtchest",
+    "tokenablefurnaces:dirttrappedchest",
+    "tokenablefurnaces:christmaschest",
+    "tokenablefurnaces:christmastrappedchest",
+    "tokenablefurnaces:pumpkinchest",
+    "tokenablefurnaces:pumpkintrappedchest"
+  ]
+}
