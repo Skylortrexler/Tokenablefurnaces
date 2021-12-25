@@ -145,7 +145,7 @@ public class Declarer {
     public static final BlockItem amethystHopper = new BlockItem(amethystHopperBlock, new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
 
-    public static Block dirtChestBlock = new DirtChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS).breakByHand(true), () -> Declarer.DIRTCHESTENTITY);
+    public static Block dirtChestBlock = new DirtChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByHand(true), () -> Declarer.DIRTCHESTENTITY);
     public static BlockItem dirtChest = new BlockItem(dirtChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
     public static Block christmasChestBlock = new ChristmasChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByHand(true), () -> Declarer.CHRISTMASCHESTENTITY);
     public static BlockItem christmasChest = new BlockItem(christmasChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
@@ -162,7 +162,7 @@ public class Declarer {
     public static Block amethystChestBlock = new AmethystChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByHand(true), () -> Declarer.AMETHYSTCHESTENTITY);
     public static BlockItem amethystChest = new BlockItem(amethystChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC));
 
-    public static Block dirtTrappedChestBlock = new DirtTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByTool(FabricToolTags.SHOVELS), () -> Declarer.DIRTTRAPPEDCHESTENTITY);
+    public static Block dirtTrappedChestBlock = new DirtTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST), () -> Declarer.DIRTTRAPPEDCHESTENTITY);
     public static BlockItem dirtTrappedChest = new BlockItem(dirtTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
     public static Block christmasTrappedChestBlock = new ChristmasTrappedChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST).breakByHand(true), () -> Declarer.CHRISTMASTRAPPEDCHESTENTITY);
     public static BlockItem christmasTrappedChest = new BlockItem(christmasTrappedChestBlock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
