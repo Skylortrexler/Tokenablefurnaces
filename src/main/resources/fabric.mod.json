@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tokenablefurnaces",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "name": "Tokenable Furnaces",
   "description": "A series of upgradable items with tokens",
   "authors": [

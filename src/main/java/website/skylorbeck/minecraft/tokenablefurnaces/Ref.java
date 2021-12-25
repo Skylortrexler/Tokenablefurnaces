@@ -36,15 +36,15 @@ public class Ref {
     
     public static void getSettings() {
         tokens = config.tokens;
-        barrels = config.blockToggles.barrels;
-        chests = config.blockToggles.chests;
-        trapped = config.blockToggles.trapped;
-        furnaces = config.blockToggles.furnaces;
-        blasts = config.blockToggles.blasts;
-        smokers = config.blockToggles.smokers;
-        hoppers = config.blockToggles.hoppers;
-        shulkers = config.blockToggles.shulkers;
-        bundles = config.blockToggles.bundles;
+//        barrels = config.blockToggles.barrels;
+//        chests = config.blockToggles.chests;
+//        trapped = config.blockToggles.trapped;
+//        furnaces = config.blockToggles.furnaces;
+//        blasts = config.blockToggles.blasts;
+//        smokers = config.blockToggles.smokers;
+//        hoppers = config.blockToggles.hoppers;
+//        shulkers = config.blockToggles.shulkers;
+//        bundles = config.blockToggles.bundles;
         sentimentalityPresent = FabricLoader.getInstance().getModContainer("sentimentality3").isPresent();
         getSomeSettings();
     }

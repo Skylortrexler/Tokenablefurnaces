@@ -18,9 +18,9 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject()
     @ConfigEntry.Gui.Tooltip
     public upgrades upgrades = new upgrades();
-    @ConfigEntry.Gui.CollapsibleObject()
-    @ConfigEntry.Gui.Tooltip
-    public blockToggles blockToggles = new blockToggles();
+    //  @ConfigEntry.Gui.CollapsibleObject()
+   // @ConfigEntry.Gui.Tooltip
+   // public blockToggles blockToggles = new blockToggles();
 
 
     public static class upgrades {

@@ -25,7 +25,6 @@ public class Tokenablefurnaces implements ModInitializer {
 
 //todo
 // shift click weirdness
-// backport to 1.17
 //todo screenhandlers
 //todo ender token
 //todo ender dirt chest upgrade
