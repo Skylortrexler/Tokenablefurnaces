@@ -15,6 +15,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperEntity;
+import website.skylorbeck.minecraft.skylorlib.mixin.ChestInventoryAccessor;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
@@ -26,6 +27,8 @@ import website.skylorbeck.minecraft.tokenablefurnaces.mixins.ShulkerEntityAccess
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static net.minecraft.block.ChestBlock.FACING;
 
 public class TierHelper {
     public enum Tier {
@@ -120,18 +123,14 @@ public class TierHelper {
         }
         inventory.clear();
 //        world.setBlockState(blockPos,newBlock.getStateWithProperties(block));
-        world.setBlockState(blockPos,newBlock.getPlacementState(new AutomaticItemPlacementContext(world,blockPos,block.get(ExtraChestBlock.FACING).getOpposite(),newBlock.asItem().getDefaultStack(), block.get(ExtraChestBlock.FACING))));
+        world.setBlockState(blockPos,newBlock.getPlacementState(new AutomaticItemPlacementContext(world,blockPos,block.get(FACING).getOpposite(),newBlock.asItem().getDefaultStack(), block.get(FACING))));
         ((ExtraChestEntity)world.getBlockEntity(blockPos)).setInvStackList(newInventory);
     }
 
     public static void upgradeChest(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory;
-        if (world.getBlockEntity(blockPos) instanceof ExtraChestEntity){
-            inventory = ((ExtraChestEntity)world.getBlockEntity(blockPos)).inventory;
-        } else {
             inventory =((ChestEntityAccessor) (world.getBlockEntity(blockPos))).getInventory();
-        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
@@ -161,11 +160,7 @@ public class TierHelper {
     public static void upgradeTrappedChest(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory ;
-        if (world.getBlockEntity(blockPos) instanceof ExtraChestEntity){
-            inventory = ((ExtraChestEntity)world.getBlockEntity(blockPos)).inventory;
-        } else {
             inventory =((ChestEntityAccessor) (world.getBlockEntity(blockPos))).getInventory();
-        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
@@ -195,11 +190,7 @@ public class TierHelper {
     public static void upgradeBarrel(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory;
-        if (block.isOf(Blocks.BARREL)){
             inventory = ((BarrelEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
-        } else {
-            inventory = ((ExtraBarrelEntity)(world.getBlockEntity(blockPos))).inventory;
-        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
@@ -234,11 +225,7 @@ public class TierHelper {
     public static void upgradeShulker(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory;
-        if (block.isOf(Blocks.SHULKER_BOX)){
             inventory = ((ShulkerEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
-        } else {
-            inventory = ((ExtraShulkerEntity)(world.getBlockEntity(blockPos))).inventory;
-        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
