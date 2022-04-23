@@ -9,4 +9,5 @@ public class GoldScreenHandler extends AbstractScreenHandler {
     public GoldScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, int rows, int width) {
         super(Declarer.GOLDSCREENHANDLER, syncId,playerInventory,inventory,rows,width);
     }
+
 }

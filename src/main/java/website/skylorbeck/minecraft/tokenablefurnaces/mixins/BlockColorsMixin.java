@@ -1,7 +1,5 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.mixins;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;

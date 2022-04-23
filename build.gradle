@@ -16,6 +16,8 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
     maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.bai.lol" }
+
     mavenLocal()
 
 }
@@ -37,6 +39,7 @@ dependencies {
     //modmenu
     modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
     modImplementation ("website.skylorbeck.minecraft:SkylorLib:${project.skylib_version}")
+    modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${wthit_version}"
 
 
 }

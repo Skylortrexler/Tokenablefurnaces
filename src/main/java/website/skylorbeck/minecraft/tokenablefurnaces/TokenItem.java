@@ -1,35 +1,23 @@
 package website.skylorbeck.minecraft.tokenablefurnaces;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import website.skylorbeck.minecraft.skylorlib.furnaces.*;
-import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperEntity;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
-import website.skylorbeck.minecraft.tokenablefurnaces.TierHelper.Tier;
-import website.skylorbeck.minecraft.tokenablefurnaces.mixins.*;
+import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraBlastFurnaceBlock;
+import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraFurnaceBlock;
+import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraSmokerBlock;
+import website.skylorbeck.minecraft.tokenablefurnaces.TierHelper.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.mixins.TokenItemAccessor;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static website.skylorbeck.minecraft.tokenablefurnaces.TierHelper.*;
 
