@@ -11,10 +11,12 @@ import net.minecraft.item.AutomaticItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
 import website.skylorbeck.minecraft.skylorlib.hoppers.ExtraHopperEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.BarrelEntityAccessor;
@@ -187,7 +189,11 @@ public class TierHelper {
     public static void upgradeBarrel(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory;
+        if (block.isOf(Blocks.BARREL)){
             inventory = ((BarrelEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
+        } else {
+            inventory = ((ExtraBarrelEntity)(world.getBlockEntity(blockPos))).inventory;
+        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
@@ -222,7 +228,11 @@ public class TierHelper {
     public static void upgradeShulker(World world, BlockState block, BlockPos blockPos, Tier tier) {
         Block newBlock = block.getBlock();
         DefaultedList<ItemStack> inventory;
+        if (block.isOf(Blocks.SHULKER_BOX)){
             inventory = ((ShulkerEntityAccessor)(world.getBlockEntity(blockPos))).getInventory();
+        } else {
+            inventory = ((ExtraShulkerEntity)(world.getBlockEntity(blockPos))).inventory;
+        }
         DefaultedList<ItemStack> newInventory = DefaultedList.ofSize(inventory.size());
         switch (tier){
             case Iron -> {
