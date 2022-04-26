@@ -8,13 +8,13 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraTrappedChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtDoubleScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtScreenHandler;
 
-public class DirtTrappedChestEntity extends ExtraChestEntity {
+public class DirtTrappedChestEntity extends ExtraTrappedChestEntity {
     protected DirtTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState,1,"dirt",true,false, Ref.MODID);
     }

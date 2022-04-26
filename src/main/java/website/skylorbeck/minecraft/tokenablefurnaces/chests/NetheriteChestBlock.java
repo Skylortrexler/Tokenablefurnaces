@@ -1,8 +1,10 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.chests;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -10,13 +12,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class NetheriteChestBlock extends ExtraChestBlock {
-    public NetheriteChestBlock(Settings settings, Supplier<BlockEntityType<? extends ExtraChestEntity>> supplier) {
+    public NetheriteChestBlock(Settings settings, Supplier<BlockEntityType<? extends ChestBlockEntity>> supplier) {
         super(settings, supplier);
     }
 

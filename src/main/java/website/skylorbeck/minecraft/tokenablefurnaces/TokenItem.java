@@ -14,7 +14,6 @@ import org.jetbrains.annotations.Nullable;
 import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraBlastFurnaceBlock;
 import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraFurnaceBlock;
 import website.skylorbeck.minecraft.skylorlib.furnaces.ExtraSmokerBlock;
-import website.skylorbeck.minecraft.tokenablefurnaces.TierHelper.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.mixins.TokenItemAccessor;
 
 import java.util.List;

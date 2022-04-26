@@ -14,6 +14,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtDoubleScreenHandler;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.DirtScreenHandler;
 
+
 public class DirtChestEntity extends ExtraChestEntity {
     protected DirtChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState,1,"dirt",false,false, Ref.MODID);

@@ -5,11 +5,11 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
+import website.skylorbeck.minecraft.skylorlib.storage.ExtraTrappedChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
 import website.skylorbeck.minecraft.tokenablefurnaces.Ref;
 
-public class ChristmasTrappedChestEntity extends ExtraChestEntity {
+public class ChristmasTrappedChestEntity extends ExtraTrappedChestEntity {
     protected ChristmasTrappedChestEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState,27,"christmas",true,false, Ref.MODID);
     }

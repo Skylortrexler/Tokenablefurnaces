@@ -1,16 +1,17 @@
 package website.skylorbeck.minecraft.tokenablefurnaces.chests;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestBlock;
-import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 
 import java.util.function.Supplier;
 
 public class PumpkinChestBlock extends ExtraChestBlock {
-    public PumpkinChestBlock(Settings settings, Supplier<BlockEntityType<? extends ExtraChestEntity>> supplier) {
+    public PumpkinChestBlock(Settings settings, Supplier<BlockEntityType<? extends ChestBlockEntity>> supplier) {
         super(settings, supplier);
     }
 
