@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tokenablefurnaces:item/netherite_bundle"
+  },
+  "overrides": [
+    { "predicate": { "filled": 0.0000001 }, "model": "tokenablefurnaces:item/netherite_bundle_filled" }
+  ]
+}

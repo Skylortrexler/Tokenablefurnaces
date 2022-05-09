@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "tokenablefurnaces:ironbundle"
+    "item": "tokenablefurnaces:iron_bundle_item"
   },
   "addition": {
-    "item": "tokenablefurnaces:goldtoken"
+    "item": "tokenablefurnaces:gold_token_item"
   },
   "result": {
-    "item": "tokenablefurnaces:goldbundle"
+    "item": "tokenablefurnaces:gold_bundle_item"
   }
 }

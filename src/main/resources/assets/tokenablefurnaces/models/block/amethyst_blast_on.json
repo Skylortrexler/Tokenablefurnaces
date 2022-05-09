@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "tokenablefurnaces:block/amethyst_blast_top",
+        "front": "tokenablefurnaces:block/amethyst_blast_front_on",
+        "side": "tokenablefurnaces:block/amethyst_blast_side"
+    }
+}

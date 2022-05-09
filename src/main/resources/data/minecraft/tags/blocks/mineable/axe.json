@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "tokenablefurnaces:dirtchest",
-    "tokenablefurnaces:dirttrappedchest",
-    "tokenablefurnaces:christmaschest",
-    "tokenablefurnaces:christmastrappedchest",
-    "tokenablefurnaces:pumpkinchest",
-    "tokenablefurnaces:pumpkintrappedchest"
+    "tokenablefurnaces:dirt_chest_block",
+    "tokenablefurnaces:dirt_trapped_chest_block",
+    "tokenablefurnaces:christmas_chest_block",
+    "tokenablefurnaces:christmas_trapped_chest_block",
+    "tokenablefurnaces:pumpkin_chest_block",
+    "tokenablefurnaces:pumpkin_trapped_chest_block"
   ]
 }

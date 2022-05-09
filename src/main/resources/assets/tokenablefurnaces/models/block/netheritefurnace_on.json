@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "tokenablefurnaces:block/netheritefurnace_top",
-        "front": "tokenablefurnaces:block/netheritefurnace_front_on",
-        "side": "tokenablefurnaces:block/netheritefurnace_side"
-    }
-}

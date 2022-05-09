@@ -4,9 +4,9 @@
     "item": "minecraft:bundle"
   },
   "addition": {
-    "item": "tokenablefurnaces:omnitoken"
+    "item": "tokenablefurnaces:omnitoken_item"
   },
   "result": {
-    "item": "tokenablefurnaces:ironbundle"
+    "item": "tokenablefurnaces:iron_bundle_item"
   }
 }

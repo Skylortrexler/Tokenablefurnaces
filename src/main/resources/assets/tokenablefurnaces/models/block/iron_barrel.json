@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "tokenablefurnaces:block/iron_barrel_top",
+    "bottom": "tokenablefurnaces:block/iron_barrel_bottom",
+    "side": "tokenablefurnaces:block/iron_barrel_side"
+  }
+}

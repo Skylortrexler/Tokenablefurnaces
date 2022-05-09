@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "tokenablefurnaces:block/diamondbarrel_top",
-    "bottom": "tokenablefurnaces:block/diamondbarrel_bottom",
-    "side": "tokenablefurnaces:block/diamondbarrel_side"
-  }
-}

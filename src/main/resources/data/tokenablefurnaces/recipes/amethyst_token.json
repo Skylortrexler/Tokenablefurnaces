@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "ipi",
+    "iii"
+  ],
+  "key": {
+    "p": {
+      "item": "tokenablefurnaces:diamond_token_item"
+    },
+	"i": {
+      "item": "minecraft:amethyst_block"
+    }
+  },
+  "result": {
+    "item": "tokenablefurnaces:amethyst_token_item"
+  }
+}

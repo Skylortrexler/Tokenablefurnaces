@@ -7,6 +7,6 @@
     "item": "minecraft:dirt"
   },
   "result": {
-    "item": "tokenablefurnaces:dirttrappedchestitem"
+    "item": "tokenablefurnaces:dirt_trapped_chest_item"
   }
 }

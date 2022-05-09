@@ -6,6 +6,7 @@
   "mixins": [
     "BarrelEntityAccessor",
     "ChestEntityAccessor",
+    "ComposterBlockInvoker",
     "FurnaceEntityAccessor",
     "ShulkerEntityAccessor",
     "TokenItemAccessor"

@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "tokenablefurnaces:block/ironblast_top",
-        "front": "tokenablefurnaces:block/ironblast_front",
-        "side": "tokenablefurnaces:block/ironblast_side"
-    }
-}

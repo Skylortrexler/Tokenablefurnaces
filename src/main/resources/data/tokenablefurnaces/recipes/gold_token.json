@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "ipi",
+    "iii"
+  ],
+  "key": {
+    "p": {
+      "item": "tokenablefurnaces:iron_token_item"
+    },
+	"i": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "tokenablefurnaces:gold_token_item"
+  }
+}

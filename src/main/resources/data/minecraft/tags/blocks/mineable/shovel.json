@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tokenablefurnaces:dirtchest",
-    "tokenablefurnaces:dirttrappedchest"
+    "tokenablefurnaces:dirt_chest_block",
+    "tokenablefurnaces:dirt_trapped_chest_block"
   ]
 }

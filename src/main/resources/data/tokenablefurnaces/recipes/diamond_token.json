@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "igi",
+    "gpg",
+    "igi"
+  ],
+  "key": {
+    "p": {
+      "item": "tokenablefurnaces:gold_token_item"
+    },
+	"g": {
+      "item": "minecraft:glass"
+    },
+	"i": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "tokenablefurnaces:diamond_token_item"
+  }
+}

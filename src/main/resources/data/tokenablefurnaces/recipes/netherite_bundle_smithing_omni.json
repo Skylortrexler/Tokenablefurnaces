@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "tokenablefurnaces:diamondbundle"
+    "item": "tokenablefurnaces:diamond_bundle_item"
   },
   "addition": {
-    "item": "tokenablefurnaces:omnitoken"
+    "item": "tokenablefurnaces:omnitoken_item"
   },
   "result": {
-    "item": "tokenablefurnaces:netheritebundle"
+    "item": "tokenablefurnaces:netherite_bundle_item"
   }
 }

@@ -18,6 +18,7 @@ import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.trapped.*;
+import website.skylorbeck.minecraft.tokenablefurnaces.composters.IronComposterBlock;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.amethyst.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.diamond.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.furnaces.gold.*;
@@ -205,4 +206,7 @@ public class Declarer {
     public static Item diamondBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.RARE).maxCount(1),256);
     public static Item netheriteBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1).fireproof(),256);
     public static Item amethystBundle = new ExtraBundleItem(new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.EPIC).maxCount(1),320);
+
+    public static Block ironComposterblock = new IronComposterBlock(FabricBlockSettings.copyOf(Blocks.COMPOSTER));
+    public static BlockItem ironComposter = new BlockItem(ironComposterblock,new FabricItemSettings().group(tokenablefurnaces).rarity(Rarity.COMMON));
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "tokenablefurnaces:block/amethyst_barrel_top",
+    "bottom": "tokenablefurnaces:block/amethyst_barrel_bottom",
+    "side": "tokenablefurnaces:block/amethyst_barrel_side"
+  }
+}

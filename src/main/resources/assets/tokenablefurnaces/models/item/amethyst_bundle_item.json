@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tokenablefurnaces:item/amethyst_bundle"
+  },
+  "overrides": [
+    { "predicate": { "filled": 0.0000001 }, "model": "tokenablefurnaces:item/amethyst_bundle_filled" }
+  ]
+}

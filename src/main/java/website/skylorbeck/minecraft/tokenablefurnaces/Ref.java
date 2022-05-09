@@ -21,6 +21,7 @@ public class Ref {
     public static boolean hoppers = true;
     public static boolean shulkers = true;
     public static boolean bundles = true;
+    public static boolean composters = false;
 
     public static boolean canUpgradeBarrels = true;
     public static boolean canUpgradeChests = true;

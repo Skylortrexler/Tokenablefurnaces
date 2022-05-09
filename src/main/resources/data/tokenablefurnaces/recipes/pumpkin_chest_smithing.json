@@ -7,6 +7,6 @@
     "item": "minecraft:pumpkin"
   },
   "result": {
-    "item": "tokenablefurnaces:pumpkinchestitem"
+    "item": "tokenablefurnaces:pumpkin_chest_item"
   }
 }
