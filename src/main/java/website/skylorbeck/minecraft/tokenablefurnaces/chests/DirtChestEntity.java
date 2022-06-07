@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -30,10 +29,10 @@ public class DirtChestEntity extends ExtraChestEntity {
         return new DirtScreenHandler(syncId, playerInventory, this,1,1);
     }
     protected Text getContainerName() {
-        return new TranslatableText("container.dirtchest");
+        return Text.translatable("container.dirtchest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.dirtchestdouble");
+        return Text.translatable("container.dirtchestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new DirtDoubleScreenHandler(syncId, playerInventory, inventory,1,2);

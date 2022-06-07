@@ -7,7 +7,6 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import website.skylorbeck.minecraft.skylorlib.SkylorLib;
 import website.skylorbeck.minecraft.tokenablefurnaces.Screenhandlers.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.barrels.*;
 import website.skylorbeck.minecraft.tokenablefurnaces.chests.*;
@@ -270,15 +269,15 @@ public class Registrar {
         Declarer.AMETHYSTSCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethyst_screen"), (syncId, inventory) -> new AmethystScreenHandler(syncId,inventory,new SimpleInventory(48*9),48,9));
         Declarer.AMETHYSTDOUBLESCREENHANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Ref.MODID+":amethyst_double_screen"), (syncId, inventory) -> new AmethystDoubleScreenHandler(syncId,inventory,new SimpleInventory(96*9),96,9));
 
-        if (Ref.tokens) {
+//        if (Ref.tokens) {
             regItem("iron_token_", Declarer.ironToken);
             regItem("gold_token_", Declarer.goldToken);
             regItem("diamond_token_", Declarer.diamondToken);
             regItem("netherite_token_", Declarer.netheriteToken);
             regItem("amethyst_token_", Declarer.amethystToken);
             regItem("omnitoken_", Declarer.omniToken);
-        }
-        if (Ref.furnaces) {
+//        }
+//        if (Ref.furnaces) {
             regBlock("iron_furnace_", Declarer.ironFurnaceBlock);
             regItem("iron_furnace_", Declarer.ironFurnace);
             regBlock("gold_furnace_", Declarer.goldFurnaceBlock);
@@ -289,8 +288,8 @@ public class Registrar {
             regItem("netherite_furnace_", Declarer.netheriteFurnace);
             regBlock("amethyst_furnace_", Declarer.amethystFurnaceBlock);
             regItem("amethyst_furnace_", Declarer.amethystFurnace);
-        }
-        if (Ref.blasts){
+//        }
+//        if (Ref.blasts){
             regBlock("iron_blast_", Declarer.ironBlastBlock);
             regItem("iron_blast_", Declarer.ironBlast);
             regBlock("gold_blast_", Declarer.goldBlastBlock);
@@ -301,8 +300,8 @@ public class Registrar {
             regItem("netherite_blast_", Declarer.netheriteBlast);
             regBlock("amethyst_blast_", Declarer.amethystBlastBlock);
             regItem("amethyst_blast_", Declarer.amethystBlast);
-        }
-        if (Ref.smokers){
+//        }
+//        if (Ref.smokers){
             regBlock("iron_smoker_", Declarer.ironSmokerBlock);
             regItem("iron_smoker_", Declarer.ironSmoker);
             regBlock("gold_smoker_", Declarer.goldSmokerBlock);
@@ -313,8 +312,8 @@ public class Registrar {
             regItem("netherite_smoker_", Declarer.netheriteSmoker);
             regBlock("amethyst_smoker_", Declarer.amethystSmokerBlock);
             regItem("amethyst_smoker_", Declarer.amethystSmoker);
-        }
-        if (Ref.hoppers){
+//        }
+//        if (Ref.hoppers){
             regBlock("iron_hopper_", Declarer.ironHopperBlock);
             regItem("iron_hopper_",Declarer.ironHopper);
             regBlock("gold_hopper_", Declarer.goldHopperBlock);
@@ -325,8 +324,8 @@ public class Registrar {
             regItem("netherite_hopper_",Declarer.netheriteHopper);
             regBlock("amethyst_hopper_", Declarer.amethystHopperBlock);
             regItem("amethyst_hopper_",Declarer.amethystHopper);
-        }
-        if (Ref.chests){
+//        }
+//        if (Ref.chests){
             regBlock("dirt_chest_",Declarer.dirtChestBlock);
             regItem("dirt_chest_",Declarer.dirtChest);
             regBlock("christmas_chest_",Declarer.christmasChestBlock);
@@ -343,8 +342,8 @@ public class Registrar {
             regItem("netherite_chest_", Declarer.netheriteChest);
             regBlock("amethyst_chest_", Declarer.amethystChestBlock);
             regItem("amethyst_chest_", Declarer.amethystChest);
-        }
-        if (Ref.trapped){
+//        }
+//        if (Ref.trapped){
             regBlock("dirt_trapped_chest_",Declarer.dirtTrappedChestBlock);
             regItem("dirt_trapped_chest_",Declarer.dirtTrappedChest);
             regBlock("christmas_trapped_chest_",Declarer.christmasTrappedChestBlock);
@@ -361,8 +360,8 @@ public class Registrar {
             regItem("netherite_trapped_chest_", Declarer.netheriteTrappedChest);
             regBlock("amethyst_trapped_chest_", Declarer.amethystTrappedChestBlock);
             regItem("amethyst_trapped_chest_", Declarer.amethystTrappedChest);
-        }
-        if (Ref.shulkers){
+//        }
+//        if (Ref.shulkers){
             regBlock("iron_shulker_", Declarer.ironShulkerBlock);
             regItem("iron_shulker_", Declarer.ironShulker);
             regBlock("gold_shulker_", Declarer.goldShulkerBlock);
@@ -373,8 +372,8 @@ public class Registrar {
             regItem("netherite_shulker_", Declarer.netheriteShulker);
             regBlock("amethyst_shulker_", Declarer.amethystShulkerBlock);
             regItem("amethyst_shulker_", Declarer.amethystShulker);
-        }
-        if (Ref.barrels){
+//        }
+//        if (Ref.barrels){
             regBlock("iron_barrel_", Declarer.ironBarrelBlock);
             regItem("iron_barrel_", Declarer.ironBarrel);
             regBlock("gold_barrel_", Declarer.goldBarrelBlock);
@@ -385,18 +384,16 @@ public class Registrar {
             regItem("netherite_barrel_", Declarer.netheriteBarrel);
             regBlock("amethyst_barrel_", Declarer.amethystBarrelBlock);
             regItem("amethyst_barrel_", Declarer.amethystBarrel);
-        }
-        if (Ref.bundles){
+//        }
+//        if (Ref.bundles){
             regItem("iron_bundle_",Declarer.ironBundle);
             regItem("gold_bundle_",Declarer.goldBundle);
             regItem("diamond_bundle_",Declarer.diamondBundle);
             regItem("netherite_bundle_",Declarer.netheriteBundle);
             regItem("amethyst_bundle_",Declarer.amethystBundle);
-        }
-        if (Ref.composters){
-            regBlock("iron_composter_",Declarer.ironComposterblock);
-            regItem("iron_composter_",Declarer.ironComposter);
-        }
+//        }
+//        if (Ref.composters){
+//        }
 
     }
 

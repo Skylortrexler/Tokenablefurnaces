@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -26,10 +25,10 @@ public class NetheriteChestEntity extends ExtraChestEntity {
         return new DiamondScreenHandler(syncId, playerInventory, this,24,9);
     }
     protected Text getContainerName() {
-        return new TranslatableText("container.netheritechest");
+        return Text.translatable("container.netheritechest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.netheritechestdouble");
+        return Text.translatable("container.netheritechestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new AmethystScreenHandler(syncId, playerInventory, inventory,48,9);

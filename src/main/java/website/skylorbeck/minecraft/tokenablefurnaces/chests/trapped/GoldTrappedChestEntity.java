@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraTrappedChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -26,10 +25,10 @@ public class GoldTrappedChestEntity extends ExtraTrappedChestEntity {
         return new GoldScreenHandler(syncId, playerInventory, this,12,9);
     }
     protected Text getContainerName() {
-        return new TranslatableText("container.goldchest");
+        return Text.translatable("container.goldchest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.goldchestdouble");
+        return Text.translatable("container.goldchestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new DiamondScreenHandler(syncId, playerInventory, inventory,24,9);

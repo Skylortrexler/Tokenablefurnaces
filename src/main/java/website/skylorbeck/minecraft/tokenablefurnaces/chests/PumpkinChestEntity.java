@@ -3,7 +3,6 @@ package website.skylorbeck.minecraft.tokenablefurnaces.chests;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -18,9 +17,9 @@ public class PumpkinChestEntity extends ExtraChestEntity {
         super(Declarer.PUMPKINCHESTENTITY,pos, state,27,"pumpkin",false, true, Ref.MODID);
     }
     protected Text getContainerName() {
-        return new TranslatableText("container.pumpkinchest");
+        return Text.translatable("container.pumpkinchest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.pumpkinchestdouble");
+        return Text.translatable("container.pumpkinchestdouble");
     }
 }

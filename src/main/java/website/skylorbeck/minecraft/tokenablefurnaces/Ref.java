@@ -11,18 +11,18 @@ public class Ref {
     public static boolean furnaceEfficiency = false;
     public static boolean doubleLatch = false;
     public static int hopperMulti = 1;
-    public static boolean tokens = true;
-    public static boolean barrels = true;
-    public static boolean chests = true;
-    public static boolean trapped = true;
-    public static boolean furnaces = true;
-    public static boolean blasts = true;
-    public static boolean smokers = true;
-    public static boolean hoppers = true;
-    public static boolean shulkers = true;
-    public static boolean bundles = true;
-    public static boolean composters = false;
-
+//    public static boolean tokens = true;
+//    public static boolean barrels = true;
+//    public static boolean chests = true;
+//    public static boolean trapped = true;
+//    public static boolean furnaces = true;
+//    public static boolean blasts = true;
+//    public static boolean smokers = true;
+//    public static boolean hoppers = true;
+//    public static boolean shulkers = true;
+//    public static boolean bundles = true;
+//    public static boolean composters = true;
+//
     public static boolean canUpgradeBarrels = true;
     public static boolean canUpgradeChests = true;
     public static boolean canUpgradeTrapped = true;
@@ -36,7 +36,7 @@ public class Ref {
     
     
     public static void getSettings() {
-        tokens = config.tokens;
+//        tokens = config.tokens;
 //        barrels = config.blockToggles.barrels;
 //        chests = config.blockToggles.chests;
 //        trapped = config.blockToggles.trapped;

@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -27,10 +26,10 @@ public class IronChestEntity extends ExtraChestEntity {
         return new IronScreenHandler(syncId, playerInventory, this,6,9);
     }
     protected Text getContainerName() {
-        return new TranslatableText("container.ironchest");
+        return Text.translatable("container.ironchest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.ironchestdouble");
+        return Text.translatable("container.ironchestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new GoldScreenHandler(syncId, playerInventory, inventory,12,9);

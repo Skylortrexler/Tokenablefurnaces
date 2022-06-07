@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -21,6 +20,6 @@ public class DiamondBarrelEntity extends ExtraBarrelEntity {
     }
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("container.diamondbarrel");
+        return Text.translatable("container.diamondbarrel");
     }
 }

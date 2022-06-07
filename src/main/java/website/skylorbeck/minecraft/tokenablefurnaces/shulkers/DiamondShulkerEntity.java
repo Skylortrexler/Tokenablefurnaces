@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraShulkerEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -18,7 +17,7 @@ public class DiamondShulkerEntity extends ExtraShulkerEntity {
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("container.diamondshulker");
+        return Text.translatable("container.diamondshulker");
     }
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 //        return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);

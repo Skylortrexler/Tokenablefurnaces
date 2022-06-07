@@ -2,7 +2,7 @@ package website.skylorbeck.minecraft.tokenablefurnaces.client;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
@@ -87,22 +87,22 @@ public class TokenablefurnacesClient implements ClientModInitializer {
 
 
         });
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.CHRISTMASCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.PUMPKINCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.GOLDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITECHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIRTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.CHRISTMASTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.PUMPKINTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.GOLDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITETRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.DIRTCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.CHRISTMASCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.PUMPKINCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.IRONCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.GOLDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.DIAMONDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.NETHERITECHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.AMETHYSTCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.DIRTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.CHRISTMASTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.PUMPKINTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.IRONTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.GOLDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.DIAMONDTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.NETHERITETRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.AMETHYSTTRAPPEDCHESTENTITY, ExtraChestEntityRenderer::new);
 
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.dirtChest, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new DirtChestEntity(BlockPos.ORIGIN, Declarer.dirtChestBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
@@ -161,11 +161,11 @@ public class TokenablefurnacesClient implements ClientModInitializer {
             registry.register(new Identifier("tokenablefurnaces:entity/shulker/netherite"));
             registry.register(new Identifier("tokenablefurnaces:entity/shulker/amethyst"));
         });
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.IRONSHULKERENTITY, ExtraShulkerEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.GOLDSHULKERENTITY, ExtraShulkerEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.DIAMONDSHULKERENTITY, ExtraShulkerEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.NETHERITESHULKERENTITY, ExtraShulkerEntityRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(Declarer.AMETHYSTSHULKERENTITY, ExtraShulkerEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.IRONSHULKERENTITY, ExtraShulkerEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.GOLDSHULKERENTITY, ExtraShulkerEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.DIAMONDSHULKERENTITY, ExtraShulkerEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.NETHERITESHULKERENTITY, ExtraShulkerEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Declarer.AMETHYSTSHULKERENTITY, ExtraShulkerEntityRenderer::new);
         BuiltinItemRendererRegistry.INSTANCE.register(Declarer.ironShulker, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(new IronShulkerEntity(BlockPos.ORIGIN, Declarer.ironShulkerBlock.getDefaultState()), matrices, vertexConsumers, light, overlay);
         });

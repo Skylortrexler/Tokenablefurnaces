@@ -8,7 +8,6 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.BlastFurnaceScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
@@ -31,7 +30,7 @@ public class GoldExtraBlastEntity extends AbstractExtraFurnaceBlockEntity {
 
     @Override
     public Text getContainerName() {
-        return new TranslatableText("container.blast_furnace");
+        return Text.translatable("container.blast_furnace");
     }
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {

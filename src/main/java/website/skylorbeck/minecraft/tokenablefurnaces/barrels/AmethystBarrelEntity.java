@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraBarrelEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -23,6 +22,6 @@ public class AmethystBarrelEntity extends ExtraBarrelEntity {
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("container.amethystbarrel");
+        return Text.translatable("container.amethystbarrel");
     }
 }

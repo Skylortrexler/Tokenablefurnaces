@@ -3,7 +3,6 @@ package website.skylorbeck.minecraft.tokenablefurnaces.chests;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import website.skylorbeck.minecraft.skylorlib.storage.ExtraChestEntity;
 import website.skylorbeck.minecraft.tokenablefurnaces.Declarer;
@@ -19,9 +18,9 @@ public class ChristmasChestEntity extends ExtraChestEntity {
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("container.festivechest");
+        return Text.translatable("container.festivechest");
     }
     protected Text getDoubleContainerName(){
-        return new TranslatableText("container.festivechestdouble");
+        return Text.translatable("container.festivechestdouble");
     }
 }

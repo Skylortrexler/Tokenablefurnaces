@@ -5,7 +5,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import website.skylorbeck.minecraft.skylorlib.furnaces.AbstractExtraFurnaceBlockEntity;
@@ -21,7 +20,7 @@ public class AmethystExtraFurnaceEntity extends AbstractExtraFurnaceBlockEntity 
     }
     @Override
     public Text getContainerName() {
-        return new TranslatableText("container.furnace");
+        return Text.translatable("container.furnace");
     }
     protected int getFuelTime(ItemStack fuel) {
         if (Ref.furnaceEfficiency) {
