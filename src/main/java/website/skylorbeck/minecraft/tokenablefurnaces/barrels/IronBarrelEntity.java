@@ -20,6 +20,6 @@ public class IronBarrelEntity extends ExtraBarrelEntity {
     }
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.ironbarrel");
+        return Text.translatable("container.iron_barrel");
     }
 }

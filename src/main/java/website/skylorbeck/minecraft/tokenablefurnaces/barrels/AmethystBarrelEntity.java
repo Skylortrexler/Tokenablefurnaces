@@ -22,6 +22,6 @@ public class AmethystBarrelEntity extends ExtraBarrelEntity {
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.amethystbarrel");
+        return Text.translatable("container.amethyst_barrel");
     }
 }

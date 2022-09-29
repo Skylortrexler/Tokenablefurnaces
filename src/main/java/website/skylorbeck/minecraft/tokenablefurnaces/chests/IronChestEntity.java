@@ -26,10 +26,10 @@ public class IronChestEntity extends ExtraChestEntity {
         return new IronScreenHandler(syncId, playerInventory, this,6,9);
     }
     protected Text getContainerName() {
-        return Text.translatable("container.ironchest");
+        return Text.translatable("container.iron_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.ironchestdouble");
+        return Text.translatable("container.iron_chestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new GoldScreenHandler(syncId, playerInventory, inventory,12,9);

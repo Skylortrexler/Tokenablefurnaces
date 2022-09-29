@@ -25,10 +25,10 @@ public class GoldTrappedChestEntity extends ExtraTrappedChestEntity {
         return new GoldScreenHandler(syncId, playerInventory, this,12,9);
     }
     protected Text getContainerName() {
-        return Text.translatable("container.goldchest");
+        return Text.translatable("container.gold_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.goldchestdouble");
+        return Text.translatable("container.gold_chestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new DiamondScreenHandler(syncId, playerInventory, inventory,24,9);

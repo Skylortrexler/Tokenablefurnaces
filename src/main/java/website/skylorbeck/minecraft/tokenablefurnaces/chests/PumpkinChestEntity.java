@@ -17,9 +17,9 @@ public class PumpkinChestEntity extends ExtraChestEntity {
         super(Declarer.PUMPKINCHESTENTITY,pos, state,27,"pumpkin",false, true, Ref.MODID);
     }
     protected Text getContainerName() {
-        return Text.translatable("container.pumpkinchest");
+        return Text.translatable("container.pumpkin_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.pumpkinchestdouble");
+        return Text.translatable("container.pumpkin_chestdouble");
     }
 }

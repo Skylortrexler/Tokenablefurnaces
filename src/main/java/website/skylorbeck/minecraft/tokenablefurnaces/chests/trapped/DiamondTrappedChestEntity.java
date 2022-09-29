@@ -26,10 +26,10 @@ public class DiamondTrappedChestEntity extends ExtraTrappedChestEntity {
     }
 
     protected Text getContainerName() {
-        return Text.translatable("container.diamondchest");
+        return Text.translatable("container.diamond_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.diamondchestdouble");
+        return Text.translatable("container.diamond_chestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new AmethystScreenHandler(syncId, playerInventory, inventory,48,9);

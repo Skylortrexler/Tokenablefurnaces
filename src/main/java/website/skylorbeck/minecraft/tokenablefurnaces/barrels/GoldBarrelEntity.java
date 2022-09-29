@@ -19,6 +19,6 @@ public class GoldBarrelEntity extends ExtraBarrelEntity {
     }
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.goldbarrel");
+        return Text.translatable("container.gold_barrel");
     }
 }

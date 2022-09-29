@@ -25,10 +25,10 @@ public class NetheriteTrappedChestEntity extends ExtraTrappedChestEntity {
         return new DiamondScreenHandler(syncId, playerInventory, this,24,9);
     }
     protected Text getContainerName() {
-        return Text.translatable("container.netheritechest");
+        return Text.translatable("container.netherite_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.netheritechestdouble");
+        return Text.translatable("container.netherite_chestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new AmethystScreenHandler(syncId, playerInventory, inventory,48,9);

@@ -18,9 +18,9 @@ public class ChristmasChestEntity extends ExtraChestEntity {
     }
 
     protected Text getContainerName() {
-        return Text.translatable("container.festivechest");
+        return Text.translatable("container.festive_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.festivechestdouble");
+        return Text.translatable("container.festive_chestdouble");
     }
 }

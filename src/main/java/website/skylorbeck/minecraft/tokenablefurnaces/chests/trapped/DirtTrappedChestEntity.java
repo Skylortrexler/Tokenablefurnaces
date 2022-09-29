@@ -27,10 +27,10 @@ public class DirtTrappedChestEntity extends ExtraTrappedChestEntity {
     }
 
     protected Text getContainerName() {
-        return Text.translatable("container.dirtchest");
+        return Text.translatable("container.dirt_chest");
     }
     protected Text getDoubleContainerName(){
-        return Text.translatable("container.dirtchestdouble");
+        return Text.translatable("container.dirt_chestdouble");
     }
     protected ScreenHandler createDoubleScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory){
         return new DirtDoubleScreenHandler(syncId, playerInventory, inventory,1,2);

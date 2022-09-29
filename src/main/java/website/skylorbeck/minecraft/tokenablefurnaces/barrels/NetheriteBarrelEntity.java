@@ -20,6 +20,6 @@ public class NetheriteBarrelEntity extends ExtraBarrelEntity {
     }
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.netheritebarrel");
+        return Text.translatable("container.netherite_barrel");
     }
 }
